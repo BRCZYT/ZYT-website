@@ -152,6 +152,9 @@ textarea.f-inp{resize:vertical;line-height:1.65;min-height:120px}
 .qc-val{font-family:'Sora Variable',Sora,sans-serif;font-size:15px;font-weight:400;color:#fff;margin-bottom:4px}
 .qc-sub{font-family:'Manrope Variable',Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,.35)}
 
+/* MIRA AVATAR */
+.mira-frame{width:110px;height:110px;flex-shrink:0;border-radius:50%;overflow:hidden;border:2px solid rgba(40,116,178,.38);box-shadow:0 0 0 6px rgba(40,116,178,.08),0 0 28px rgba(40,116,178,.18)}
+
 /* SCROLL REVEAL */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .rv.on{opacity:1;transform:none}
@@ -322,35 +325,6 @@ html[dir="rtl"] #hero{text-align:right}
   </div>
 </section>
 
-<!-- QUICK CONTACT CARDS -->
-<div class="sec-dark" style="background:#0A2540;padding:48px 80px;position:relative;">
-  <div class="quick-grid">
-    <div class="quick-card rv d1">
-      <div class="qc-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.99 12 19.79 19.79 0 011.93 3.4 2 2 0 013.9 1.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9c1.91 3.19 4.72 5.99 7.9 7.9l1.15-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg>
-      </div>
-      <div class="qc-label" data-i18n="qc.phone.label">Telefon</div>
-      <div class="qc-val"><a href="tel:#ZYT_PHONE#" style="color:#fff;text-decoration:none">#ZYT_PHONE#</a></div>
-      <div class="qc-sub" data-i18n="qc.phone.sub">Pazartesi – Cuma, 09:00 – 18:00</div>
-    </div>
-    <div class="quick-card rv d2">
-      <div class="qc-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </div>
-      <div class="qc-label" data-i18n="qc.email.label">E-Posta</div>
-      <div class="qc-val"><a href="mailto:#ZYT_EMAIL#" style="color:#fff;text-decoration:none">#ZYT_EMAIL#</a></div>
-      <div class="qc-sub" data-i18n="qc.email.sub">48 saat içinde yanıt</div>
-    </div>
-    <div class="quick-card rv d3">
-      <div class="qc-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </div>
-      <div class="qc-label" data-i18n="qc.address.label">Adres</div>
-      <div class="qc-val" style="font-size:14px" data-i18n="qc.address.val">Ankara, Türkiye</div>
-      <div class="qc-sub" data-i18n="qc.address.sub">Genel Merkez</div>
-    </div>
-  </div>
-</div>
 
 <!-- MAIN CONTACT SECTION -->
 <section class="sec sec-light">
@@ -358,22 +332,18 @@ html[dir="rtl"] #hero{text-align:right}
     <!-- LEFT: INFO + WHATSAPP + SOCIAL -->
     <div>
       <div class="rv" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:16px" data-i18n="ct.tag">§ 01 / Bize Ulaşın</div>
-      <h2 class="rv d1" style="font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;color:#0A2540;margin-bottom:12px" data-i18n-html="ct.title">Birlikte <span style="color:#2874B2;font-weight:500">büyüyelim.</span></h2>
-      <p class="rv d2" style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:#3A4858;line-height:1.75;margin-bottom:36px;max-width:400px" data-i18n="ct.sub">Beton santrali, galvaniz tesisi, enerji dönüşüm veya tedarik zinciri projeleriniz için doğru ekiple buluşun.</p>
+      <h2 class="rv d1" style="font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;color:#0A2540;margin-bottom:12px" data-i18n-html="ct.title">Mira ile <span style="color:#2874B2;font-weight:500">başlayın.</span></h2>
+      <p class="rv d2" style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:#3A4858;line-height:1.75;margin-bottom:28px;max-width:420px" data-i18n="ct.sub">Mira, ZYT Global'in yapay zeka destekli dijital asistanıdır. Projenizi anlayarak gerekli bilgileri toplar ve sizi doğru ekip veya uzmanla buluşturur.</p>
 
-      <!-- Info rows -->
-      <div class="rv d3">
-        <div class="ct-row">
-          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.99 12 19.79 19.79 0 011.93 3.4 2 2 0 013.9 1.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9c1.91 3.19 4.72 5.99 7.9 7.9l1.15-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg></div>
-          <div><div class="ct-info-label" data-i18n="ct.phone.label">Telefon</div><div class="ct-info-val"><a href="tel:#ZYT_PHONE#">#ZYT_PHONE#</a></div></div>
+      <!-- Mira avatar -->
+      <div class="rv d3" style="display:flex;align-items:center;gap:20px;margin-bottom:32px">
+        <div class="mira-frame">
+          <img src="https://placehold.co/140x140/0a2540/2874B2?text=Mira" alt="Mira — ZYT AI Dijital Asistan" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
-        <div class="ct-row">
-          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="ct-info-label" data-i18n="ct.email.label">E-Posta</div><div class="ct-info-val"><a href="mailto:#ZYT_EMAIL#">#ZYT_EMAIL#</a></div></div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="ct-info-label" data-i18n="ct.address.label">Adres</div><div class="ct-info-val" data-i18n="ct.address.val">Ankara, Türkiye</div></div>
+        <div>
+          <div style="font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:4px">ZYT AI · Dijital Asistan</div>
+          <div style="font-family:'Sora Variable',Sora,sans-serif;font-size:20px;font-weight:400;color:#0A2540;letter-spacing:-.025em">Mira</div>
+          <div style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:12px;color:rgba(58,72,88,.55);margin-top:2px;line-height:1.5">Projenizi anlıyor,<br>sizi doğru ekiple buluşturuyor.</div>
         </div>
       </div>
 
@@ -532,8 +502,8 @@ const T={
     'qc.email.label':'E-Posta','qc.email.sub':'48 saat içinde yanıt',
     'qc.address.label':'Adres','qc.address.val':'Ankara, Türkiye','qc.address.sub':'Genel Merkez',
     'ct.tag':'§ 01 / Bize Ulaşın',
-    'ct.title':'Birlikte <span style="color:#2874B2;font-weight:500">büyüyelim.</span>',
-    'ct.sub':'Beton santrali, galvaniz tesisi, enerji dönüşüm veya tedarik zinciri projeleriniz için doğru ekiple buluşun.',
+    'ct.title':'Mira ile <span style="color:#2874B2;font-weight:500">başlayın.</span>',
+    'ct.sub':'Mira, ZYT Global\'in yapay zeka destekli dijital asistanıdır. Projenizi anlayarak gerekli bilgileri toplar ve sizi doğru ekip veya uzmanla buluşturur.',
     'ct.phone.label':'Telefon','ct.email.label':'E-Posta','ct.address.label':'Adres','ct.address.val':'Ankara, Türkiye',
     'wa.title':'Hızlı İletişim',
     'wa.desc':'WhatsApp üzerinden anlık mesaj gönderin — ekibimiz en kısa sürede yanıt verir.',
@@ -561,8 +531,8 @@ const T={
     'qc.email.label':'E-Mail','qc.email.sub':'Reply within 48 hours',
     'qc.address.label':'Address','qc.address.val':'Ankara, Turkey','qc.address.sub':'Headquarters',
     'ct.tag':'§ 01 / Get in Touch',
-    'ct.title':'Let\'s grow <span style="color:#2874B2;font-weight:500">together.</span>',
-    'ct.sub':'Connect with the right team for your concrete plant, galvanising facility, energy conversion or supply chain project.',
+    'ct.title':'Start with <span style="color:#2874B2;font-weight:500">Mira.</span>',
+    'ct.sub':'Mira is ZYT Global\'s AI-powered digital assistant. She understands your project, gathers the right information, and connects you with the right team or expert.',
     'ct.phone.label':'Phone','ct.email.label':'E-Mail','ct.address.label':'Address','ct.address.val':'Ankara, Turkey',
     'wa.title':'Quick Contact',
     'wa.desc':'Send an instant message on WhatsApp — our team will reply as soon as possible.',
@@ -590,8 +560,8 @@ const T={
     'qc.email.label':'البريد الإلكتروني','qc.email.sub':'رد خلال 48 ساعة',
     'qc.address.label':'العنوان','qc.address.val':'أنقرة، تركيا','qc.address.sub':'المقر الرئيسي',
     'ct.tag':'§ 01 / تواصل معنا',
-    'ct.title':'لننمو <span style="color:#2874B2;font-weight:500">معاً.</span>',
-    'ct.sub':'تواصل مع الفريق المناسب لمشروع محطة خرسانة أو منشأة جلفنة أو تحويل طاقة أو سلسلة توريد.',
+    'ct.title':'ابدأ مع <span style="color:#2874B2;font-weight:500">ميرا.</span>',
+    'ct.sub':'ميرا هي المساعدة الرقمية المدعومة بالذكاء الاصطناعي من ZYT Global. تفهم مشروعك وتجمع المعلومات اللازمة وتربطك بالفريق أو الخبير المناسب.',
     'ct.phone.label':'هاتف','ct.email.label':'البريد الإلكتروني','ct.address.label':'العنوان','ct.address.val':'أنقرة، تركيا',
     'wa.title':'تواصل سريع',
     'wa.desc':'أرسل رسالة فورية عبر واتساب — سيرد فريقنا في أقرب وقت ممكن.',
