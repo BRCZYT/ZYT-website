@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZYT Global Industry — Brand Guidelines v1.0</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora@5.0.21/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/manrope@5.0.20/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.0.21/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --navy:#0A2540;
+  --midnight:#051728;
+  --blue:#2874B2;
+  --steel:#5C8DB8;
+  --graphite:#3A4858;
+  --mist:#E8EEF4;
+  --orange:#E87722;
+  --white:#FFFFFF;
+  --w08:rgba(255,255,255,0.08);
+  --w12:rgba(255,255,255,0.12);
+  --w40:rgba(255,255,255,0.4);
+  --w55:rgba(255,255,255,0.55);
+  --w70:rgba(255,255,255,0.7);
+  --b15:rgba(40,116,178,0.15);
+  --b35:rgba(40,116,178,0.35);
+  --display:'Sora Variable','Sora',ui-sans-serif,system-ui,sans-serif;
+  --body:'Manrope Variable','Manrope',ui-sans-serif,system-ui,sans-serif;
+  --mono:'JetBrains Mono Variable','JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#020D18;color:var(--white);font-family:var(--body);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.kit{max-width:1240px;margin:0 auto;background:var(--navy);min-height:100vh;position:relative;overflow:hidden}
+.kit::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(40,116,178,0.10) 0%,transparent 65%);pointer-events:none;z-index:0}
+.kit::after{content:"";position:absolute;bottom:-300px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(40,116,178,0.06) 0%,transparent 65%);pointer-events:none;z-index:0}
+.kit > *{position:relative;z-index:1}
+
+.hero{padding:72px 64px 56px;border-bottom:1px solid var(--w08);display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.hero-meta{display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--w55);margin-bottom:36px}
+.hero-meta span{display:flex;align-items:center;gap:8px}
+.hero-meta span::before{content:"";width:14px;height:1px;background:var(--blue)}
+h1.title{font-family:var(--display);font-size:88px;font-weight:300;line-height:0.92;letter-spacing:-0.04em;margin:0}
+h1.title .accent{display:block;color:var(--blue);font-weight:500}
+.hero-logo{flex-shrink:0;padding-top:14px}
+.hero-foot{padding:0 64px 24px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase;border-bottom:1px solid var(--w08)}
+.hero-foot div{display:flex;gap:32px}
+
+.intro{padding:56px 64px;display:grid;grid-template-columns:200px 1fr;gap:48px;border-bottom:1px solid var(--w08)}
+.intro-label{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:2px;text-transform:uppercase;padding-top:10px}
+.intro-text{font-family:var(--display);font-size:28px;font-weight:300;line-height:1.4;color:var(--white);letter-spacing:-0.015em;max-width:760px}
+.intro-text em{color:var(--blue);font-style:normal;font-weight:400}
+
+section{padding:64px;border-bottom:1px solid var(--w08)}
+.sec-hdr{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:baseline;margin-bottom:40px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:2px;text-transform:uppercase}
+.sec-num::before{content:"§ ";opacity:0.5}
+.sec-title{font-family:var(--display);font-size:32px;font-weight:400;letter-spacing:-0.02em;color:var(--white)}
+.sec-sub{display:block;font-family:var(--body);font-size:14px;font-weight:400;color:var(--w55);margin-top:8px;letter-spacing:0}
+
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+.card{background:rgba(255,255,255,0.025);border:1px solid var(--w08);border-radius:10px;padding:36px;display:flex;align-items:center;justify-content:center;min-height:200px;position:relative}
+.card-label{position:absolute;top:14px;left:18px;font-family:var(--mono);font-size:10px;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase}
+.card-spec{position:absolute;bottom:14px;right:18px;font-family:var(--mono);font-size:10px;color:var(--w40);letter-spacing:1px}
+
+.var-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.var-cell{border-radius:8px;padding:28px 22px;display:flex;align-items:center;justify-content:center;height:120px;position:relative;overflow:hidden}
+.var-name{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500}
+
+.cs-box{position:relative;padding:60px 80px;border:1px dashed var(--b35);border-radius:10px;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center;min-height:200px}
+.cs-marker{position:absolute;color:var(--steel);font-family:var(--mono);font-size:12px;font-weight:500}
+.cs-line{position:absolute;background:var(--b35)}
+.cs-note{margin-top:20px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;color:var(--w55);letter-spacing:0.5px}
+.cs-note strong{color:var(--blue);font-weight:500}
+
+.min-sizes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px}
+.min-size{background:rgba(255,255,255,0.025);border:1px solid var(--w08);border-radius:8px;padding:18px;text-align:center}
+.min-size-logo{display:flex;justify-content:center;align-items:flex-end;height:36px;margin-bottom:12px}
+.min-size-spec{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:1px;display:block}
+.min-size-use{font-family:var(--body);font-size:11px;color:var(--w55);margin-top:4px}
+
+.palette-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}
+.col{display:flex;align-items:center;gap:14px;padding:10px 0}
+.swatch{width:54px;height:54px;border-radius:10px;flex-shrink:0;border:1px solid var(--w08);position:relative}
+.swatch.ring::after{content:"";position:absolute;inset:-4px;border:1px solid var(--w08);border-radius:14px}
+.col-info{flex:1;min-width:0}
+.col-name{font-family:var(--display);font-size:15px;font-weight:500;color:var(--white);letter-spacing:-0.005em}
+.col-hex{font-family:var(--mono);font-size:11px;color:var(--w55);margin-top:3px;letter-spacing:0.5px}
+.col-role{font-family:var(--body);font-size:11px;color:var(--w40);margin-top:3px;letter-spacing:0.3px}
+
+.type-grid{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:18px}
+.type-card{background:rgba(255,255,255,0.025);border:1px solid var(--w08);border-radius:10px;padding:32px 28px;position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column}
+.type-card .type-num{position:absolute;top:14px;right:18px;font-family:var(--mono);font-size:10px;color:var(--w40);letter-spacing:1px}
+.type-ab{font-size:120px;line-height:1;letter-spacing:-0.05em;font-weight:300;color:var(--white);margin-bottom:14px}
+.type-card.display .type-ab{font-family:var(--display);font-weight:300}
+.type-card.body .type-ab{font-family:var(--body);font-weight:400}
+.type-card.mono .type-ab{font-family:var(--mono);font-weight:400;letter-spacing:-0.02em}
+.type-name{font-family:var(--display);font-size:22px;font-weight:500;color:var(--white);letter-spacing:-0.01em;margin-top:auto}
+.type-role{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;margin:6px 0 16px}
+.type-abc{font-size:13px;color:var(--w70);line-height:1.8;letter-spacing:0.3px;border-top:1px solid var(--w08);padding-top:14px}
+.type-card.display .type-abc{font-family:var(--display)}
+.type-card.body .type-abc{font-family:var(--body)}
+.type-card.mono .type-abc{font-family:var(--mono);font-size:11.5px}
+.type-weights{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+.type-weight{font-family:var(--mono);font-size:10px;color:var(--w55);letter-spacing:0.5px;background:var(--b15);padding:4px 9px;border-radius:4px}
+.type-scale{margin-top:48px;padding:32px;background:rgba(255,255,255,0.02);border:1px solid var(--w08);border-radius:10px}
+.type-scale h4{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;font-weight:500}
+.scale-row{display:grid;grid-template-columns:80px 1fr 100px;gap:18px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--w08)}
+.scale-row:last-child{border-bottom:none}
+.scale-label{font-family:var(--mono);font-size:11px;color:var(--w55);letter-spacing:0.5px}
+.scale-sample{font-family:var(--display);color:var(--white);font-weight:400;letter-spacing:-0.02em;line-height:1}
+.scale-spec{font-family:var(--mono);font-size:10.5px;color:var(--w40);text-align:right;letter-spacing:0.3px}
+
+.icon-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:20px}
+.ic{aspect-ratio:1/1;background:rgba(40,116,178,0.06);border:1px solid var(--b35);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--steel);font-size:26px;gap:6px;transition:all 0.2s}
+.ic span{font-family:var(--mono);font-size:9px;color:var(--w55);letter-spacing:0.5px;text-transform:uppercase}
+.ic-rule{margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--w55);letter-spacing:0.5px;display:flex;align-items:center;gap:10px}
+.ic-rule i{color:var(--blue);font-size:14px}
+
+.btn-stack{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-top:14px}
+.btn-row{display:flex;gap:12px;align-items:center;width:100%}
+.btn-row-label{font-family:var(--mono);font-size:10px;color:var(--w40);letter-spacing:1px;width:90px;text-transform:uppercase;flex-shrink:0}
+.btn{padding:13px 28px;border-radius:6px;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:1.4px;cursor:pointer;text-transform:uppercase;border:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-p{background:var(--blue);color:var(--white)}
+.btn-p:hover{background:#1f5d92}
+.btn-s{background:transparent;color:var(--white);border:1px solid var(--w40)}
+.btn-s:hover{border-color:var(--white)}
+.btn-g{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+.btn-g:hover{background:rgba(40,116,178,0.1)}
+.btn-o{background:var(--orange);color:var(--white)}
+.btn-o:hover{background:#c66318}
+.btn i{font-size:14px}
+
+.app-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.app-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.app-card{border-radius:10px;overflow:hidden;position:relative;min-height:280px;border:1px solid var(--w08)}
+.app-card.tall{min-height:380px}
+.app-label{position:absolute;top:14px;left:18px;font-family:var(--mono);font-size:10px;color:var(--w70);letter-spacing:1.2px;text-transform:uppercase;z-index:2;background:rgba(0,0,0,0.4);padding:4px 8px;border-radius:4px;backdrop-filter:blur(8px)}
+
+.app-social{background:var(--navy);padding:32px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.app-social-top{display:flex;justify-content:space-between;align-items:flex-start}
+.app-social-tag{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:2px;text-transform:uppercase}
+.app-social-tag::before{content:"// "}
+.app-social-head{font-family:var(--display);font-size:30px;font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--white);max-width:80%}
+.app-social-head em{color:var(--blue);font-style:normal}
+.app-social-foot{display:flex;justify-content:space-between;align-items:flex-end}
+.app-social-meta{font-family:var(--mono);font-size:10px;color:var(--w55);letter-spacing:1px;text-transform:uppercase}
+
+.app-card-business{background:linear-gradient(120deg,var(--midnight) 60%,var(--navy));padding:32px;display:flex;flex-direction:column;justify-content:space-between;color:var(--white)}
+.app-card-business .name{font-family:var(--display);font-size:20px;font-weight:500;letter-spacing:-0.01em}
+.app-card-business .role{font-family:var(--body);font-size:11px;color:var(--steel);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.app-card-business .ct{font-family:var(--mono);font-size:10px;color:var(--w70);letter-spacing:0.5px;line-height:1.7}
+
+.app-letter{background:var(--mist);color:var(--graphite);padding:32px;display:flex;flex-direction:column;gap:18px}
+.app-letter-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid rgba(0,0,0,0.06)}
+.app-letter-info{font-family:var(--mono);font-size:9.5px;color:var(--graphite);letter-spacing:0.5px;line-height:1.7;text-align:right}
+.app-letter-body{font-family:var(--body);font-size:11px;color:var(--graphite);line-height:1.7}
+.app-letter-body h5{font-family:var(--display);font-size:14px;font-weight:500;color:var(--navy);margin-bottom:8px}
+
+.usage{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.use-card{background:rgba(255,255,255,0.02);border:1px solid var(--w08);border-radius:10px;padding:24px;display:flex;gap:14px;align-items:flex-start}
+.use-card.do{border-left:2px solid #5DCAA5;border-radius:0 10px 10px 0}
+.use-card.dont{border-left:2px solid #E24B4A;border-radius:0 10px 10px 0}
+.use-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.use-card.do .use-icon{background:rgba(93,202,165,0.12);color:#5DCAA5}
+.use-card.dont .use-icon{background:rgba(226,75,74,0.12);color:#E24B4A}
+.use-card h5{font-family:var(--display);font-size:14px;font-weight:500;color:var(--white);margin-bottom:6px;letter-spacing:-0.01em}
+.use-card p{font-family:var(--body);font-size:12px;color:var(--w55);line-height:1.5}
+
+.foot{padding:48px 64px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase}
+.foot-meta{display:flex;gap:32px}
+.foot-logo{display:flex;align-items:center;gap:14px}
+
+@media print{
+  body{background:var(--navy)}
+  .kit{max-width:none}
+  section{break-inside:avoid}
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding:48px 32px}
+  .hero-foot,section,.foot{padding-left:32px;padding-right:32px}
+  h1.title{font-size:60px}
+  .sec-hdr,.intro{grid-template-columns:1fr;gap:14px}
+  .row-2,.row-3,.row-4,.type-grid,.app-grid,.usage{grid-template-columns:1fr}
+  .icon-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<main class="kit">
+
+<header class="hero">
+  <div>
+    <div class="hero-meta">
+      <span>DOC №&nbsp;&nbsp;001 / BRAND</span>
+      <span>VERSION&nbsp;&nbsp;1.0 — 2026</span>
+      <span>CLASSIFICATION&nbsp;&nbsp;PUBLIC</span>
+    </div>
+    <h1 class="title">Brand<span class="accent">Guidelines.</span></h1>
+  </div>
+  <div class="hero-logo">
+    <svg width="140" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+      <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+      <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</header>
+
+<div class="hero-foot">
+  <span>ZYT Global Industry</span>
+  <div>
+    <span>Identity</span>
+    <span>Color</span>
+    <span>Typography</span>
+    <span>Voice</span>
+    <span>Application</span>
+  </div>
+</div>
+
+<div class="intro">
+  <div class="intro-label">/ Statement</div>
+  <p class="intro-text">
+    A brand system engineered for <em>precision, presence, and global scale.</em>
+    This document defines the visual language of ZYT Global Industry — to be applied consistently across digital, print, environmental, and product touchpoints.
+  </p>
+</div>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">01 / Logo</div>
+    <div>
+      <h2 class="sec-title">The primary mark</h2>
+      <span class="sec-sub">Custom typographic logo with engineered chamfers on Z, Y, and T — never recreate, distort, or substitute.</span>
+    </div>
+  </div>
+
+  <div class="row-2">
+    <div class="card">
+      <span class="card-label">/ Master logo</span>
+      <span class="card-spec">SVG · 1:1</span>
+      <svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+        <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+        <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+        <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+        <line x1="150" y1="200" x2="530" y2="200" stroke="#2874B2" stroke-width="0.75"/>
+        <text x="340" y="218" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#2874B2" letter-spacing="5.2">GLOBAL INDUSTRY</text>
+      </svg>
+    </div>
+
+    <div>
+      <div class="card" style="min-height:120px;padding:24px">
+        <span class="card-label">/ Monogram</span>
+        <span class="card-spec">ZYT · square</span>
+        <svg width="180" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <div class="card" style="min-height:70px;padding:18px;margin-top:14px">
+        <span class="card-label">/ Single letter</span>
+        <span class="card-spec">Avatar · favicon</span>
+        <svg width="60" viewBox="280 60 120 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">02 / Variations</div>
+    <div>
+      <h2 class="sec-title">Approved backgrounds</h2>
+      <span class="sec-sub">Use the version with sufficient contrast against the underlying surface. Never invert colors mid-mark.</span>
+    </div>
+  </div>
+
+  <div class="var-grid">
+    <div class="var-cell" style="background:#0A2540;border:1px solid var(--w12)">
+      <span class="var-name" style="color:#FFFFFF;opacity:0.55">01 / Primary</span>
+      <svg width="180" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+        <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+        <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+    <div class="var-cell" style="background:#FFFFFF">
+      <span class="var-name" style="color:#3A4858">02 / Light</span>
+      <svg width="180" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#0A2540"/>
+        <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#0A2540"/>
+        <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#0A2540"/>
+      </svg>
+    </div>
+    <div class="var-cell" style="background:#2874B2">
+      <span class="var-name" style="color:#FFFFFF;opacity:0.7">03 / Brand</span>
+      <svg width="180" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+        <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+        <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+    <div class="var-cell" style="background:#E8EEF4">
+      <span class="var-name" style="color:#3A4858">04 / Monochrome</span>
+      <svg width="180" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#3A4858"/>
+        <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#3A4858"/>
+        <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#3A4858"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">03 / Spatial rules</div>
+    <div>
+      <h2 class="sec-title">Clearspace &amp; minimum size</h2>
+      <span class="sec-sub">Maintain a margin equal to the cap-height of the T (= X) on all sides. Never reproduce below 24px digital or 12mm print.</span>
+    </div>
+  </div>
+
+  <div class="row-2">
+    <div>
+      <div class="cs-box">
+        <span class="cs-marker" style="top:10px;left:18px">X</span>
+        <span class="cs-marker" style="top:10px;right:18px">X</span>
+        <span class="cs-marker" style="bottom:10px;left:18px">X</span>
+        <span class="cs-marker" style="bottom:10px;right:18px">X</span>
+        <svg width="100%" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg" style="max-width:240px">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <div class="cs-note">
+        <span>// X = cap-height of letter T</span>
+        <span><strong>Clearspace = 1× X</strong></span>
+      </div>
+    </div>
+
+    <div>
+      <h4 style="font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;font-weight:500">/ Minimum reproduction size</h4>
+      <div class="min-sizes">
+        <div class="min-size">
+          <div class="min-size-logo">
+            <svg width="34" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+              <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+              <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+              <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="min-size-spec">24 PX</span>
+          <p class="min-size-use">Digital · favicon</p>
+        </div>
+        <div class="min-size">
+          <div class="min-size-logo">
+            <svg width="56" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+              <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+              <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+              <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="min-size-spec">12 MM</span>
+          <p class="min-size-use">Print · business card</p>
+        </div>
+        <div class="min-size">
+          <div class="min-size-logo">
+            <svg width="92" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+              <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+              <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+              <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="min-size-spec">40 MM+</span>
+          <p class="min-size-use">Print · standard use</p>
+        </div>
+      </div>
+
+      <div class="usage">
+        <div class="use-card do">
+          <div class="use-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+          <div><h5>Maintain proportions</h5><p>Always scale uniformly — never stretch or skew.</p></div>
+        </div>
+        <div class="use-card dont">
+          <div class="use-icon"><i class="ti ti-x" aria-hidden="true"></i></div>
+          <div><h5>Do not recolor</h5><p>Use only the four approved variations.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">04 / Color</div>
+    <div>
+      <h2 class="sec-title">Brand palette</h2>
+      <span class="sec-sub">Deep Navy and Electric Blue form the core. Signal Orange is reserved for calls-to-action — never decoration.</span>
+    </div>
+  </div>
+
+  <div class="palette-grid">
+    <div class="col">
+      <div class="swatch ring" style="background:#0A2540"></div>
+      <div class="col-info">
+        <div class="col-name">Deep Navy</div>
+        <div class="col-hex">#0A2540 · RGB 10 37 64 · PMS 539 C</div>
+        <div class="col-role">Primary · backgrounds · core identity</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#2874B2"></div>
+      <div class="col-info">
+        <div class="col-name">Electric Blue</div>
+        <div class="col-hex">#2874B2 · RGB 40 116 178 · PMS 7461 C</div>
+        <div class="col-role">Accent · links · interactive states</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#FFFFFF"></div>
+      <div class="col-info">
+        <div class="col-name">Pure White</div>
+        <div class="col-hex">#FFFFFF · RGB 255 255 255</div>
+        <div class="col-role">Type on navy · light surfaces</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#5C8DB8"></div>
+      <div class="col-info">
+        <div class="col-name">Steel Blue</div>
+        <div class="col-hex">#5C8DB8 · RGB 92 141 184</div>
+        <div class="col-role">Subtle accents · captions · dividers</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#051728"></div>
+      <div class="col-info">
+        <div class="col-name">Midnight</div>
+        <div class="col-hex">#051728 · RGB 5 23 40</div>
+        <div class="col-role">Depth · footers · contrast layer</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#3A4858"></div>
+      <div class="col-info">
+        <div class="col-name">Graphite</div>
+        <div class="col-hex">#3A4858 · RGB 58 72 88</div>
+        <div class="col-role">Body type on light · neutral text</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#E8EEF4"></div>
+      <div class="col-info">
+        <div class="col-name">Mist Grey</div>
+        <div class="col-hex">#E8EEF4 · RGB 232 238 244</div>
+        <div class="col-role">Light surfaces · backgrounds · cards</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="swatch ring" style="background:#E87722"></div>
+      <div class="col-info">
+        <div class="col-name">Signal Orange</div>
+        <div class="col-hex">#E87722 · RGB 232 119 34 · PMS 1495 C</div>
+        <div class="col-role">CTAs · highlights · alerts only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">05 / Typography</div>
+    <div>
+      <h2 class="sec-title">Type system</h2>
+      <span class="sec-sub">Sora for display, Manrope for body, JetBrains Mono for technical detail. Never substitute system fonts in branded materials.</span>
+    </div>
+  </div>
+
+  <div class="type-grid">
+    <div class="type-card display">
+      <span class="type-num">01</span>
+      <div class="type-ab">Aa</div>
+      <div class="type-role">/ Display</div>
+      <div class="type-name">Sora</div>
+      <div class="type-weights">
+        <span class="type-weight">300 LIGHT</span>
+        <span class="type-weight">400 REGULAR</span>
+        <span class="type-weight">500 MEDIUM</span>
+      </div>
+      <div class="type-abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 · ! ? &amp; @ #</div>
+    </div>
+
+    <div class="type-card body">
+      <span class="type-num">02</span>
+      <div class="type-ab">Aa</div>
+      <div class="type-role">/ Body &amp; UI</div>
+      <div class="type-name">Manrope</div>
+      <div class="type-weights">
+        <span class="type-weight">400 REGULAR</span>
+        <span class="type-weight">500 MEDIUM</span>
+        <span class="type-weight">600 SEMIBOLD</span>
+      </div>
+      <div class="type-abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 · ! ? &amp; @ #</div>
+    </div>
+
+    <div class="type-card mono">
+      <span class="type-num">03</span>
+      <div class="type-ab">Aa</div>
+      <div class="type-role">/ Technical</div>
+      <div class="type-name">JetBrains Mono</div>
+      <div class="type-weights">
+        <span class="type-weight">400 REGULAR</span>
+        <span class="type-weight">500 MEDIUM</span>
+      </div>
+      <div class="type-abc">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</div>
+    </div>
+  </div>
+
+  <div class="type-scale">
+    <h4>/ Type scale &amp; usage</h4>
+    <div class="scale-row">
+      <span class="scale-label">DISPLAY</span>
+      <span class="scale-sample" style="font-size:48px;font-weight:300">Engineering precision.</span>
+      <span class="scale-spec">Sora 300 · 48px / 1.05</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">H1</span>
+      <span class="scale-sample" style="font-size:32px;font-weight:400">Global industrial scale.</span>
+      <span class="scale-spec">Sora 400 · 32px / 1.2</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">H2</span>
+      <span class="scale-sample" style="font-size:22px;font-weight:500">Section heading</span>
+      <span class="scale-spec">Sora 500 · 22px / 1.3</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">BODY</span>
+      <span class="scale-sample" style="font-family:var(--body);font-size:15px;font-weight:400;letter-spacing:0">Long-form readable text for paragraphs and content.</span>
+      <span class="scale-spec">Manrope 400 · 15px / 1.55</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-label">CAPTION</span>
+      <span class="scale-sample" style="font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel)">// technical metadata / labels</span>
+      <span class="scale-spec">JetBrains Mono 400 · 11px</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">06 / Iconography</div>
+    <div>
+      <h2 class="sec-title">Icon system</h2>
+      <span class="sec-sub">Tabler outline icons — 1.5px stroke, rounded joins. Always use Steel Blue or Electric Blue on dark backgrounds.</span>
+    </div>
+  </div>
+
+  <div class="icon-grid">
+    <div class="ic"><i class="ti ti-world" aria-hidden="true"></i><span>Global</span></div>
+    <div class="ic"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><span>Industry</span></div>
+    <div class="ic"><i class="ti ti-tools" aria-hidden="true"></i><span>Engineering</span></div>
+    <div class="ic"><i class="ti ti-shield-check" aria-hidden="true"></i><span>Quality</span></div>
+    <div class="ic"><i class="ti ti-rocket" aria-hidden="true"></i><span>Innovation</span></div>
+    <div class="ic"><i class="ti ti-chart-line" aria-hidden="true"></i><span>Growth</span></div>
+    <div class="ic"><i class="ti ti-network" aria-hidden="true"></i><span>Network</span></div>
+    <div class="ic"><i class="ti ti-target-arrow" aria-hidden="true"></i><span>Precision</span></div>
+    <div class="ic"><i class="ti ti-bolt" aria-hidden="true"></i><span>Energy</span></div>
+    <div class="ic"><i class="ti ti-cube" aria-hidden="true"></i><span>Product</span></div>
+    <div class="ic"><i class="ti ti-route" aria-hidden="true"></i><span>Logistics</span></div>
+    <div class="ic"><i class="ti ti-certificate" aria-hidden="true"></i><span>Standard</span></div>
+  </div>
+
+  <div class="ic-rule">
+    <i class="ti ti-info-circle" aria-hidden="true"></i>
+    Source: tabler.io · Use outline variants only · Stroke 1.5px · Round joins · 24px base grid
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">07 / Buttons</div>
+    <div>
+      <h2 class="sec-title">Action elements</h2>
+      <span class="sec-sub">Four button types. Use Primary for main CTAs, Ghost for secondary, Outline for inverse, Signal for high-emphasis only.</span>
+    </div>
+  </div>
+
+  <div class="btn-stack">
+    <div class="btn-row">
+      <span class="btn-row-label">/ Primary</span>
+      <button class="btn btn-p">Explore Industries <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      <button class="btn btn-p">Get In Touch</button>
+    </div>
+    <div class="btn-row">
+      <span class="btn-row-label">/ Ghost</span>
+      <button class="btn btn-g">Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      <button class="btn btn-g">Download Catalog</button>
+    </div>
+    <div class="btn-row">
+      <span class="btn-row-label">/ Outline</span>
+      <button class="btn btn-s">View Project</button>
+      <button class="btn btn-s">Contact Sales</button>
+    </div>
+    <div class="btn-row">
+      <span class="btn-row-label">/ Signal</span>
+      <button class="btn btn-o">Request Quote <i class="ti ti-bolt" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-hdr">
+    <div class="sec-num">08 / Application</div>
+    <div>
+      <h2 class="sec-title">Real-world use</h2>
+      <span class="sec-sub">Reference compositions for social, print, and digital — to be adapted, not copied verbatim.</span>
+    </div>
+  </div>
+
+  <div class="app-grid">
+    <div class="app-card app-social tall">
+      <span class="app-label">/ Social · Linkedin 1080×1080</span>
+      <div class="app-social-top">
+        <span class="app-social-tag">Q1 2026 / Industries</span>
+        <svg width="56" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <h3 class="app-social-head">Building the next generation of <em>industrial infrastructure.</em></h3>
+      <div class="app-social-foot">
+        <span class="app-social-meta">// ZYT Global Industry — 2026</span>
+        <i class="ti ti-arrow-up-right" style="color:#2874B2;font-size:24px" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div>
+      <div class="app-card app-card-business">
+        <span class="app-label">/ Business card · 85×55mm</span>
+        <svg width="78" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+        </svg>
+        <div>
+          <div class="name">Alex Demir</div>
+          <div class="role">Head of Operations</div>
+        </div>
+        <div class="ct">
+          alex.demir@zyt.industry<br>
+          +90 312 000 00 00<br>
+          zyt.industry / Ankara
+        </div>
+      </div>
+      <div class="app-card app-letter" style="margin-top:18px">
+        <span class="app-label" style="background:rgba(58,72,88,0.15);color:#3A4858">/ Letterhead</span>
+        <div class="app-letter-head">
+          <svg width="76" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+            <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#0A2540"/>
+            <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#0A2540"/>
+            <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#0A2540"/>
+          </svg>
+          <div class="app-letter-info">
+            ZYT GLOBAL INDUSTRY<br>
+            Ankara · Türkiye<br>
+            zyt.industry
+          </div>
+        </div>
+        <div class="app-letter-body">
+          <h5>Engineering precision at global scale.</h5>
+          Trusted by partners across infrastructure, energy, and advanced manufacturing — ZYT delivers measurable industrial outcomes through engineered systems and data-driven operations.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="sec-hdr">
+    <div class="sec-num">09 / Voice</div>
+    <div>
+      <h2 class="sec-title">Tone of voice</h2>
+      <span class="sec-sub">Precise, direct, technically literate. Never inflated. Never apologetic.</span>
+    </div>
+  </div>
+
+  <div class="usage">
+    <div class="use-card do">
+      <div class="use-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+      <div><h5>Engineering precision at global scale.</h5><p>Specific, measurable, confident. Leads with capability.</p></div>
+    </div>
+    <div class="use-card dont">
+      <div class="use-icon"><i class="ti ti-x" aria-hidden="true"></i></div>
+      <div><h5>We're proud to maybe help you achieve more.</h5><p>Vague, hedged, ego-led. Never use language like this.</p></div>
+    </div>
+    <div class="use-card do">
+      <div class="use-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+      <div><h5>Built for industry. Verified by results.</h5><p>Short, structural, evidence-oriented.</p></div>
+    </div>
+    <div class="use-card dont">
+      <div class="use-icon"><i class="ti ti-x" aria-hidden="true"></i></div>
+      <div><h5>Synergistic solutions for tomorrow's world!</h5><p>Generic corporate filler. Avoid abstractions.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-logo">
+    <svg width="44" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#FFFFFF"/>
+      <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#FFFFFF"/>
+      <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#FFFFFF"/>
+    </svg>
+    <span>ZYT Global Industry</span>
+  </div>
+  <div class="foot-meta">
+    <span>Brand Guidelines · v1.0</span>
+    <span>© 2026 · All rights reserved</span>
+  </div>
+</footer>
+
+</main>
+
+</body>
+</html>

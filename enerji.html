@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZYT Enerji — Atık-Enerji Dönüşüm Tesisleri</title>
+<meta name="description" content="ZYT Enerji — Kentsel atık, biyogaz, atık ısı ve depolama gazından 1 MW-50 MW enerji dönüşüm tesisleri. Anahtar teslim EPC çözümleri.">
+<meta name="keywords" content="ZYT Enerji, atıktan enerji, WtE, biyogaz, atık ısı geri kazanım, LFG, EPC, enerji dönüşüm tesisi">
+<meta property="og:title" content="ZYT Enerji — Atık-Enerji Dönüşüm Tesisleri">
+<meta property="og:description" content="Kentsel katı atık, biyogaz, endüstriyel atık ısı ve düzenli depolama gazından enerji dönüşüm tesisleri. Anahtar teslim EPC.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.zytglobal.com/enerji.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora@5.0.21/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/manrope@5.0.20/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.0.21/index.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0A2540',mid:'#051728',blue:'#2874B2'},fontFamily:{display:["'Sora Variable'","Sora","sans-serif"],body:["'Manrope Variable'","Manrope","sans-serif"],mono:["'JetBrains Mono Variable'","monospace"]}}}}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#051728;color:#fff;font-family:'Manrope Variable',Manrope,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:linear-gradient(to bottom,rgba(5,23,40,.92),transparent);backdrop-filter:blur(12px);transition:background .3s,padding .3s}
+#nav.scrolled{background:rgba(5,23,40,.97);padding:14px 56px}
+.nav-logo{display:flex;align-items:center;gap:13px;text-decoration:none}
+.nl-z,.nl-y,.nl-t{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.nl-z,.nl-y,.nl-t{transform-box:fill-box;transform-origin:center}
+.nav-logo:hover .nl-z{transform:translateX(-4px)}
+.nav-logo:hover .nl-y{transform:translateY(-4px)}
+.nav-logo:hover .nl-t{transform:translateX(4px)}
+.nav-link{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-link:hover{color:#fff}
+/* DARK SECTION SEPARATOR — subtle glow edge at top of every dark section */
+.sec-dark,.cta-band{box-shadow:inset 0 1px 0 rgba(40,116,178,.28),inset 0 60px 60px -60px rgba(40,116,178,.07)}
+#foot{border-top:1px solid rgba(40,116,178,.22) !important}
+/* BACK TO TOP */
+#btt{position:fixed;right:24px;bottom:32px;width:44px;height:44px;border-radius:50%;background:rgba(10,37,64,.88);border:1px solid rgba(40,116,178,.45);color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:190;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s,box-shadow .2s;backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 1px rgba(40,116,178,.1)}
+#btt.vis{opacity:1;transform:none}
+#btt:hover{background:rgba(40,116,178,.65);box-shadow:0 6px 28px rgba(40,116,178,.35),0 0 0 1px rgba(40,116,178,.3)}
+/* DARK SECTION AMBIENT */
+.cta-band,.stats-band,.clients-band,#plant-sec{position:relative;overflow:hidden;isolation:isolate}
+#foot{position:relative;overflow:hidden;isolation:isolate}
+.sec-dark{position:relative;overflow:hidden;isolation:isolate}
+.cta-band::before,.stats-band::before,.clients-band::before,#plant-sec::before,#foot::before,.sec-dark::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 75% 200% at 50% 50%,rgba(40,116,178,.18) 0%,transparent 55%),radial-gradient(ellipse 60% 180% at 8% 50%,rgba(40,116,178,.38) 0%,transparent 55%),radial-gradient(ellipse 48% 180% at 92% 50%,rgba(40,116,178,.26) 0%,transparent 55%);animation:hamb 10s ease-in-out infinite alternate}
+/* HERO AMBIENT */
+.h-amb{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.h-amb::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.28) 0%,transparent 65%);top:-220px;left:-200px;animation:hamb 8s ease-in-out infinite alternate}
+.h-amb::after{content:'';position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.2) 0%,transparent 65%);bottom:-120px;right:-100px;animation:hamb 6s ease-in-out infinite alternate-reverse}
+@keyframes hamb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(28px,-24px)}}
+.h-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(40,116,178,.55) 30%,rgba(100,180,255,.7) 50%,rgba(40,116,178,.55) 70%,transparent 100%);animation:hscan 6s ease-in-out infinite;pointer-events:none;z-index:1;top:0}
+@keyframes hscan{0%{top:-2px;opacity:0}5%{opacity:1}90%{opacity:.5}100%{top:100%;opacity:0}}
+.h-dots{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(40,116,178,.35) 1px,transparent 1px);background-size:80px 80px;opacity:.25;animation:hdot 4s ease-in-out infinite alternate}
+@keyframes hdot{from{opacity:.15}to{opacity:.32}}
+/* HERO BACKGROUND LIFT */
+#hero{background:linear-gradient(150deg,#0f3d72 0%,#09274a 30%,#061e3a 55%,#051728 80%) !important}
+/* DROPDOWN */
+.has-dd{position:relative;display:flex;align-items:center}
+.dd-tog{cursor:default;user-select:none;display:flex;align-items:center;gap:4px}
+.dd-caret{transition:transform .22s cubic-bezier(.22,1,.36,1);flex-shrink:0}
+.has-dd:hover .dd-caret,.has-dd:focus-within .dd-caret{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;pointer-events:none;transition:opacity .18s,transform .22s cubic-bezier(.22,1,.36,1);background:rgba(5,23,40,.98);border:1px solid rgba(255,255,255,.1);border-radius:8px;min-width:230px;padding:14px 7px 7px;backdrop-filter:blur(24px);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(40,116,178,.08);z-index:300}
+.has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}.dd-menu::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:5px;text-decoration:none;color:rgba(255,255,255,.62);font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;transition:color .15s,background .15s;white-space:nowrap}
+.dd-item:hover{color:#fff;background:rgba(40,116,178,.18)}
+.dd-item-num{color:rgba(40,116,178,.65);font-size:8px;min-width:18px;flex-shrink:0}
+/* MOBILE DROPDOWN */
+.mob-dd-inner{overflow:hidden;max-height:0;transition:max-height .32s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+.mob-dd-wrap.open .mob-dd-inner{max-height:320px}
+.mob-sub-link{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.1rem,5vw,1.6rem);font-weight:300;color:rgba(255,255,255,.38);text-decoration:none;padding:6px 0;transition:color .2s;display:block;text-align:center}
+.mob-sub-link:hover{color:#2874B2}
+.mob-dd-arr{font-family:'JetBrains Mono Variable',monospace;font-size:14px;color:rgba(40,116,178,.7);transition:transform .25s cubic-bezier(.22,1,.36,1);display:inline-block;margin-left:8px}
+.mob-dd-wrap.open .mob-dd-arr{transform:rotate(45deg)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.lang-sw{display:flex;align-items:center;border:1px solid rgba(255,255,255,.14);border-radius:4px;overflow:hidden;margin-left:12px;flex-shrink:0}
+.l-btn{font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.38);background:transparent;border:none;border-right:1px solid rgba(255,255,255,.1);padding:7px 10px;cursor:pointer;transition:color .15s,background .15s;line-height:1}
+.l-btn:last-child{border-right:none}
+.l-btn.active{color:#fff;background:rgba(40,116,178,.32)}
+.l-btn:hover:not(.active){color:rgba(255,255,255,.7);background:rgba(255,255,255,.05)}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;background:transparent;border:none;cursor:pointer;padding:6px;z-index:301;width:34px;height:34px}
+.ham-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:1px;transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .2s}
+.ham-btn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;transform:translateX(-6px)}
+.ham-btn.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mob-nav{position:fixed;inset:0;background:#051728;z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;pointer-events:none;transition:opacity .4s cubic-bezier(.22,1,.36,1)}
+#mob-nav.open{opacity:1;pointer-events:all}
+.mob-link{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.8rem,8vw,2.6rem);font-weight:300;letter-spacing:-.025em;color:rgba(255,255,255,.55);text-decoration:none;padding:10px 0;transition:color .2s,transform .2s}
+.mob-link:hover{color:#fff;transform:translateX(6px)}
+.mob-sep{width:40px;height:1px;background:rgba(40,116,178,.3);margin:8px 0}
+.mob-lang{display:flex;gap:8px;margin-top:28px}
+.mob-l-btn{font-family:'JetBrains Mono Variable',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);background:transparent;border:1px solid rgba(255,255,255,.12);padding:10px 22px;border-radius:4px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.mob-l-btn.active{color:#fff;background:rgba(40,116,178,.25);border-color:rgba(40,116,178,.55)}
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 80px 80px;position:relative;overflow:hidden;background:#051728}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(40,116,178,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 70%,rgba(40,116,178,.07) 0%,transparent 60%),linear-gradient(170deg,#051728 50%,#0a1f35 100%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(40,116,178,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(40,116,178,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+/* Animated energy pulse rings */
+.e-ring{position:absolute;border-radius:50%;border:2px solid rgba(40,116,178,.65);box-shadow:0 0 28px rgba(40,116,178,.4),inset 0 0 28px rgba(40,116,178,.1);pointer-events:none;animation:pulse-ring 3.5s ease-out infinite}
+.e-ring:nth-child(1){width:220px;height:220px;top:calc(50% - 110px);right:22%;animation-delay:0s}
+.e-ring:nth-child(2){width:410px;height:410px;top:calc(50% - 205px);right:14%;animation-delay:1s}
+.e-ring:nth-child(3){width:620px;height:620px;top:calc(50% - 310px);right:4%;animation-delay:2s}
+@keyframes pulse-ring{0%{opacity:1;transform:scale(.82)}100%{opacity:0;transform:scale(1.28)}}
+.hero-breadcrumb{position:absolute;top:94px;left:80px;font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+.hero-breadcrumb:hover{color:rgba(255,255,255,.55)}
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-label{font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(40,116,178,.8);margin-bottom:18px;animation:fade-up .6s .2s both}
+.hero-h1{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.7rem,4.7vw,3.57rem);font-weight:200;line-height:1;letter-spacing:-.04em;color:#fff;margin-bottom:18px;animation:fade-up .6s .4s both}
+.hero-h1 .acc{color:#2874B2;font-weight:500}
+.hero-sub{font-family:'Manrope Variable',Manrope,sans-serif;font-size:clamp(14px,1.2vw,16px);color:rgba(255,255,255,.48);line-height:1.7;max-width:540px;margin-bottom:36px;animation:fade-up .6s .6s both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fade-up .6s .8s both}
+.hero-stats{position:absolute;right:80px;bottom:80px;display:flex;flex-direction:column;gap:24px;animation:fade-up .8s .6s both}
+.hstat{text-align:right}
+.hstat-n{font-family:'Sora Variable',Sora,sans-serif;font-size:2.2rem;font-weight:200;color:#fff;line-height:1}
+.hstat-n sup{font-size:.5em;color:#2874B2;vertical-align:super}
+.hstat-l{font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+/* SECTIONS */
+.sec{padding:96px 80px}
+.sec-light{background:#E8EEF4}
+/* HEADER ROW */
+.hdr{display:grid;grid-template-columns:220px 1fr;gap:64px;align-items:baseline;margin-bottom:52px}
+.sec-num-l,.sec-num-d{font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;background:linear-gradient(135deg,#7ec8e3 0%,#c8e6f0 30%,#fff 50%,#a0c4d8 70%,#6ab0cc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;display:inline-block}
+.sec-title-l{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;color:#0A2540;margin-bottom:10px}
+.sec-title-d{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:10px}
+.sec-sub-l{font-family:'Manrope Variable',Manrope,sans-serif;font-size:13.5px;color:#3A4858;line-height:1.7}
+.sec-sub-d{font-family:'Manrope Variable',Manrope,sans-serif;font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.7}
+/* BUTTONS */
+.btn-p{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#2874B2;border:none;padding:14px 28px;border-radius:3px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s;text-decoration:none}
+.btn-p:hover{background:#1e5a94;transform:translateY(-1px)}
+.btn-o{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.25);padding:13px 28px;border-radius:3px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s;text-decoration:none}
+.btn-o:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.05)}
+.btn-lgt{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#0A2540;background:transparent;border:1px solid rgba(10,37,64,.22);padding:13px 28px;border-radius:3px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s;text-decoration:none}
+.btn-lgt:hover{border-color:#0A2540;background:rgba(10,37,64,.05)}
+/* TECH CARDS */
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(40,116,178,.08);border-radius:8px;overflow:hidden}
+.tech-card{background:#0A2540;padding:44px 40px;display:flex;gap:28px;align-items:flex-start;transition:background .25s}
+.tech-card:hover{background:#0d2d4e}
+.tech-num{font-family:'JetBrains Mono Variable',monospace;font-size:42px;font-weight:200;color:rgba(40,116,178,.15);line-height:1;flex-shrink:0;width:64px}
+.tech-content{}
+.tech-tag{font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(40,116,178,.7);margin-bottom:10px}
+.tech-title{font-family:'Sora Variable',Sora,sans-serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:12px;letter-spacing:-.025em}
+.tech-body{font-family:'Manrope Variable',Manrope,sans-serif;font-size:13px;color:rgba(255,255,255,.43);line-height:1.7}
+.tech-specs{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.tech-spec-pill{font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#2874B2;background:rgba(40,116,178,.1);border:1px solid rgba(40,116,178,.2);padding:4px 10px;border-radius:2px}
+/* PROCESS STEPS */
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(40,116,178,.3) 20%,rgba(40,116,178,.3) 80%,transparent);z-index:0}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;position:relative;z-index:1}
+.step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:20px 16px}
+.step-dot{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.07);border:2px solid rgba(40,116,178,.35);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:border-color .25s,background .25s;flex-shrink:0}
+.step:hover .step-dot{border-color:rgba(40,116,178,.8);background:rgba(255,255,255,.12)}
+.step-n{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(10,37,64,.45);margin-bottom:6px}
+.step-title{font-family:'Sora Variable',Sora,sans-serif;font-size:13px;font-weight:500;color:#0A2540;margin-bottom:6px;line-height:1.3}
+.step-body{font-family:'Manrope Variable',Manrope,sans-serif;font-size:11.5px;color:rgba(10,37,64,.6);line-height:1.55}
+/* CAPACITY TABLE */
+.cap-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden}
+.cap-table th{background:rgba(40,116,178,.25);font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);padding:16px 20px;text-align:left;font-weight:400}
+.cap-table td{padding:16px 20px;font-family:'Manrope Variable',Manrope,sans-serif;font-size:13px;color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.06)}
+.cap-table tr:last-child td{border-bottom:none}
+.cap-table tr:nth-child(odd) td{background:rgba(255,255,255,.04)}
+.cap-table tr:nth-child(even) td{background:rgba(255,255,255,.07)}
+.cap-table tr:hover td{background:rgba(40,116,178,.12)}
+.cap-td-bold{font-family:'JetBrains Mono Variable',monospace;font-size:12px;font-weight:700;color:#fff}
+.cap-td-blue{color:#5cb8e0;font-family:'JetBrains Mono Variable',monospace;font-size:11px}
+/* PROJECT CARDS */
+.prj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.prj-card{border-radius:8px;overflow:hidden;background:#fff;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+.prj-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(10,37,64,.12)}
+.prj-img-w{position:relative;height:180px;overflow:hidden}
+.prj-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.prj-card:hover .prj-img{transform:scale(1.04)}
+.prj-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,37,64,.6),transparent)}
+.prj-badge{position:absolute;bottom:12px;left:14px;font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:rgba(40,116,178,.75);padding:4px 10px;border-radius:2px;backdrop-filter:blur(4px)}
+.prj-bdy{padding:20px}
+.prj-country{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:8px}
+.prj-name{font-family:'Sora Variable',Sora,sans-serif;font-size:15px;font-weight:500;color:#0A2540;line-height:1.3;margin-bottom:8px}
+.prj-cap{font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:1px;color:#5C8DB8}
+/* FEATURE GRID */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden}
+.feat-item{padding:28px 32px;border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:16px;align-items:flex-start;transition:background .2s}
+.feat-item:hover{background:rgba(40,116,178,.05)}
+.feat-item:nth-child(even){border-right:none}
+.feat-item:nth-last-child(-n+2){border-bottom:none}
+.feat-icon{width:36px;height:36px;flex-shrink:0;border-radius:6px;background:rgba(40,116,178,.12);border:1px solid rgba(40,116,178,.22);display:flex;align-items:center;justify-content:center}
+.feat-title{font-family:'Sora Variable',Sora,sans-serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.2}
+.feat-body{font-family:'Manrope Variable',Manrope,sans-serif;font-size:12.5px;color:rgba(255,255,255,.42);line-height:1.6}
+/* CTA */
+.cta-band{background:linear-gradient(135deg,#051728 0%,#0A2540 100%);padding:80px;text-align:center;border-top:1px solid rgba(40,116,178,.14)}
+.cta-pre{font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(40,116,178,.7);margin-bottom:16px}
+.cta-h{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:200;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.cta-p{font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:460px;margin:0 auto 32px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+#foot{background:linear-gradient(180deg,#0e2d52 0%,#071e38 50%,#051728 100%);padding:44px 80px;border-top:1px solid rgba(255,255,255,.05)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;flex-wrap:wrap;gap:16px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.ft-social{display:flex;align-items:center;gap:16px}
+.ft-soc-link{color:rgba(255,255,255,.35);transition:color .2s,transform .2s;display:flex}
+.ft-soc-link:hover{color:#2874B2;transform:translateY(-2px)}
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+/* RESPONSIVE */
+@media(max-width:960px){
+  #nav{padding:14px 20px}
+  .nav-links{display:none}
+  .ham-btn{display:flex}
+  .sec{padding:64px 20px}
+  .cta-band{padding:60px 20px}
+  #foot{padding:36px 20px}
+  #hero{padding:0 20px 60px;min-height:auto;padding-top:100px}
+  .hero-breadcrumb{left:20px;top:68px}
+  .hero-stats{position:static;flex-direction:row;gap:32px;margin-top:40px;flex-wrap:wrap}
+  .hstat{text-align:left}
+  .hdr{grid-template-columns:1fr;gap:12px}
+  .tech-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr;gap:24px}
+  .process-steps::before{display:none}
+  .step{flex-direction:row;text-align:left;align-items:flex-start;gap:16px}
+  .step-dot{margin-bottom:0;flex-shrink:0}
+  .prj-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-item{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.06)!important}
+  .feat-item:last-child{border-bottom:none!important}
+  .e-ring{display:none}
+}
+@media(max-width:600px){
+  .tech-card{flex-direction:column;gap:12px}
+  .tech-num{width:auto;font-size:28px}
+  .prj-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+}
+/* RTL */
+html[dir="rtl"] body{font-family:'Manrope Variable',Manrope,'Noto Sans Arabic',Arial,sans-serif}
+html[dir="rtl"] #nav{flex-direction:row-reverse}
+html[dir="rtl"] .nav-links{flex-direction:row-reverse}
+html[dir="rtl"] .lang-sw{margin-left:0;margin-right:12px}
+html[dir="rtl"] .hdr{direction:rtl}
+html[dir="rtl"] .feat-item{flex-direction:row-reverse}
+html[dir="rtl"] .tech-card{flex-direction:row-reverse}
+html[dir="rtl"] .mob-link:hover{transform:translateX(-6px)}
+html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
+
+/* BLOCK SEP */
+.block-sep{height:2px;background:linear-gradient(90deg,transparent 0%,rgba(40,116,178,.48) 12%,rgba(100,180,255,.92) 32%,rgba(180,230,255,1) 50%,rgba(100,180,255,.92) 68%,rgba(40,116,178,.48) 88%,transparent 100%);box-shadow:0 0 18px 8px rgba(40,116,178,.28),0 0 45px 16px rgba(40,116,178,.12);position:relative;z-index:2;animation:sep-pulse 3.5s ease-in-out infinite alternate}
+@keyframes sep-pulse{from{opacity:.55;box-shadow:0 0 12px 4px rgba(40,116,178,.18)}to{opacity:1;box-shadow:0 0 28px 10px rgba(40,116,178,.42),0 0 60px 22px rgba(40,116,178,.18)}}
+@keyframes foot-glow{0%,100%{opacity:.6}50%{opacity:1}}
+#foot::before{animation:foot-glow 5s ease-in-out infinite !important;background:radial-gradient(ellipse 80% 220% at 50% 50%,rgba(40,116,178,.28) 0%,transparent 52%),radial-gradient(ellipse 65% 200% at 5% 50%,rgba(40,116,178,.48) 0%,transparent 52%),radial-gradient(ellipse 55% 200% at 95% 50%,rgba(40,116,178,.35) 0%,transparent 52%) !important}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="66" height="24" viewBox="140 65 400 120" xmlns="http://www.w3.org/2000/svg">
+      <g class="nl-z"><path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#fff"/></g>
+      <g class="nl-y"><path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#2874B2"/></g>
+      <g class="nl-t"><path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#fff"/></g>
+    </svg>
+    <div style="border-left:1px solid rgba(255,255,255,.13);padding-left:12px">
+      <div style="font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2.5px;color:rgba(255,255,255,.35);text-transform:uppercase;line-height:1.8">Global</div>
+      <div style="font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2.5px;color:rgba(255,255,255,.35);text-transform:uppercase;line-height:1.8">Industry</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#about" class="nav-link" data-i18n="nav.about">Hakkımızda</a>
+    <div class="has-dd">
+      <span class="nav-link dd-tog"><span data-i18n="nav.companies">Şirketlerimiz</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="dd-menu">
+        <a href="beton.html" class="dd-item"><span class="dd-item-num">01</span>ZYT Beton</a>
+        <a href="galvaniz.html" class="dd-item"><span class="dd-item-num">02</span>ZYT Galvaniz</a>
+        <a href="enerji.html" class="dd-item"><span class="dd-item-num">03</span>ZYT Enerji</a>
+        <a href="atik-donusum.html" class="dd-item"><span class="dd-item-num">04</span>ZYT Makina</a>
+        <a href="tedarik-zinciri.html" class="dd-item"><span class="dd-item-num">05</span>ZYT Tedarik</a>
+      </div>
+    </div>
+    <a href="iletisim.html" class="nav-link" style="color:rgba(255,255,255,.8)" data-i18n="nav.contact">İletişim</a>
+  </div>
+  <div class="lang-sw" id="lang-sw">
+    <button class="l-btn active" data-lang="tr">TR</button>
+    <button class="l-btn" data-lang="en">EN</button>
+    <button class="l-btn" data-lang="ar">AR</button>
+  </div>
+  <button class="ham-btn" id="ham-btn" aria-label="Menüyü Aç">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav" aria-hidden="true">
+  <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:3px;color:rgba(40,116,178,.7);text-transform:uppercase;margin-bottom:24px">ZYT Enerji</div>
+  <a href="index.html#about" class="mob-link" data-i18n="nav.about">Hakkımızda</a>
+  <div class="mob-sep"></div>
+  <div class="mob-dd-wrap">
+    <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)"><span data-i18n="nav.companies">Şirketlerimiz</span> <span class="mob-dd-arr">+</span></button>
+    <div class="mob-dd-inner">
+      <a href="beton.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Beton</a>
+      <a href="galvaniz.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Galvaniz</a>
+      <a href="enerji.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Enerji</a>
+      <a href="atik-donusum.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Makina</a>
+      <a href="tedarik-zinciri.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Tedarik</a>
+    </div>
+  </div>
+  <div class="mob-sep"></div>
+  <a href="blog.html" class="mob-link" onclick="closeMobNav()">Blog</a>
+  <div class="mob-sep"></div>
+  <a href="iletisim.html" class="mob-link" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
+  <div class="mob-lang">
+    <button class="mob-l-btn active" data-lang="tr">TR</button>
+    <button class="mob-l-btn" data-lang="en">EN</button>
+    <button class="mob-l-btn" data-lang="ar">AR</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:absolute;inset:0;background:url('https://picsum.photos/seed/solar/1440/860') center/cover no-repeat;opacity:.05;mix-blend-mode:luminosity;pointer-events:none"></div>
+  <div class="h-amb"></div>
+  <div class="h-scan"></div>
+  <div class="h-dots"></div>
+  <div class="e-ring"></div>
+  <div class="e-ring"></div>
+  <div class="e-ring"></div>
+  <a href="index.html#companies" class="hero-breadcrumb">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7 2L3 6l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <span data-i18n="bc.back">ZYT Global Industry</span>
+  </a>
+  <div style="position:relative;z-index:2">
+    <div class="hero-label" data-i18n="hero.label">// ZYT Enerji · Atık-Enerji Dönüşüm</div>
+    <h1 class="hero-h1" data-i18n-html="hero.h1">ATIKTAN ENERJİYE —<br><span class="acc">DÖNÜŞÜM</span> TESİSLERİ</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Kentsel katı atık, biyogaz, endüstriyel atık ısı ve düzenli depolama gazından 1 MW'dan 50 MW'a enerji dönüşüm tesisleri.</p>
+    <div class="hero-btns">
+      <a href="#technologies" class="btn-p" data-i18n="hero.btn1">Teknolojileri İncele <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="iletisim.html" class="btn-o" data-i18n="hero.btn2">Teklif Al →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">50<sup>+</sup></div><div class="hstat-l" data-i18n="hstat.1">MW Maks. Kapasite</div></div>
+    <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l" data-i18n="hstat.2">Dönüşüm Teknolojisi</div></div>
+    <div class="hstat"><div class="hstat-n">EPC</div><div class="hstat-l" data-i18n="hstat.3">Anahtar Teslim Süreç</div></div>
+  </div>
+</section>
+
+<!-- SEC 01: TECHNOLOGIES (DARK) -->
+<div class="block-sep"></div>
+<section id="technologies" class="sec sec-dark" style="background:#0A2540">
+  <div class="hdr rv">
+    <div>
+      <div class="sec-num-d" data-i18n="s01.num">§ 01 — Teknolojiler</div>
+      <div class="sec-title-d" data-i18n="s01.title">Dönüşüm Teknolojileri</div>
+    </div>
+    <p class="sec-sub-d" data-i18n="s01.sub">Farklı atık akışlarına uygun dört temel enerji dönüşüm teknolojisi — her biri EPC modeli ile eksiksiz devreye alım.</p>
+  </div>
+  <div class="tech-grid">
+
+    <div class="tech-card rv d1">
+      <div class="tech-num">01</div>
+      <div class="tech-content">
+        <div class="tech-tag" data-i18n="t01.tag">// KAA — Kentsel Katı Atık</div>
+        <div class="tech-title" data-i18n="t01.title">Atıktan Elektrik Enerjisi (WtE)</div>
+        <div class="tech-body" data-i18n="t01.body">Kentsel katı atığın yakılması ile buhar türbinleri aracılığıyla elektrik ve ısı enerjisi üretimi. İleri yakma kazanı, baca gazı arıtma ve turbo-jeneratör entegrasyonu dahil.</div>
+        <div class="tech-specs">
+          <div class="tech-spec-pill" data-i18n="t01.spec1">1–50 MW</div>
+          <div class="tech-spec-pill" data-i18n="t01.spec2">Izgara / Döner Fırın</div>
+          <div class="tech-spec-pill">SNCR / SCR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-card rv d2">
+      <div class="tech-num">02</div>
+      <div class="tech-content">
+        <div class="tech-tag" data-i18n="t02.tag">// Organik Atık</div>
+        <div class="tech-title" data-i18n="t02.title">Biyogaz Tesisleri</div>
+        <div class="tech-body" data-i18n="t02.body">Organik atık, tarımsal artık ve gıda atığının anaerobik çürütme yoluyla biyogaza dönüştürülmesi. Elektrik ve ısı üretimi veya biyometan saflaştırma (BioCNG/BioLNG) seçeneği.</div>
+        <div class="tech-specs">
+          <div class="tech-spec-pill" data-i18n="t02.spec1">500 kW–10 MW</div>
+          <div class="tech-spec-pill">CHP / Upgrading</div>
+          <div class="tech-spec-pill" data-i18n="t02.spec3">Membran / PSA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-card rv d3">
+      <div class="tech-num">03</div>
+      <div class="tech-content">
+        <div class="tech-tag" data-i18n="t03.tag">// Endüstriyel Atık Isı</div>
+        <div class="tech-title" data-i18n="t03.title">Atık Isı Geri Kazanım</div>
+        <div class="tech-body" data-i18n="t03.body">Çimento, cam, çelik ve kimya tesislerinden çıkan baca gazı atık ısısının ORC (Organik Rankine Çevrimi) veya buhar türbini ile elektrişe dönüştürülmesi.</div>
+        <div class="tech-specs">
+          <div class="tech-spec-pill" data-i18n="t03.spec1">100 kW–20 MW</div>
+          <div class="tech-spec-pill">ORC / Steam</div>
+          <div class="tech-spec-pill" data-i18n="t03.spec3">≥ 200°C Giriş</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-card rv d4">
+      <div class="tech-num">04</div>
+      <div class="tech-content">
+        <div class="tech-tag" data-i18n="t04.tag">// Depolama Gazı</div>
+        <div class="tech-title" data-i18n="t04.title">Düzenli Depolama Gazı (LFG)</div>
+        <div class="tech-body" data-i18n="t04.body">Çöp deponi sahalarından çıkan metan gazının toplanması, saflaştırılması ve gaz motorları ile enerji üretimine dönüştürülmesi. Karbon kredi mekanizmasına uygun tasarım.</div>
+        <div class="tech-specs">
+          <div class="tech-spec-pill" data-i18n="t04.spec1">200 kW–5 MW</div>
+          <div class="tech-spec-pill">CDM / Gold Standard</div>
+          <div class="tech-spec-pill" data-i18n="t04.spec3">CH₄ &gt; 35%</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEC 02: EPC PROCESS (LIGHT) -->
+<section id="process" class="sec sec-light">
+  <div class="hdr rv">
+    <div>
+      <div class="sec-num-l" data-i18n="s02.num">§ 02 — EPC Süreci</div>
+      <div class="sec-title-l" data-i18n="s02.title">Anahtar Teslim Proje Adımları</div>
+    </div>
+    <p class="sec-sub-l" data-i18n="s02.sub">Fizibilite çalışmasından ticari işletmeye — tek muhatap, kesintisiz proje yönetimi.</p>
+  </div>
+  <div class="process-steps rv">
+    <div class="step d1">
+      <div class="step-dot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </div>
+      <div>
+        <div class="step-n">01</div>
+        <div class="step-title" data-i18n="epc01.title">Fizibilite & FS</div>
+        <div class="step-body" data-i18n="epc01.body">Atık karakterizasyonu, enerji potansiyeli hesabı, tekno-ekonomik analiz ve izin fizibilitesi.</div>
+      </div>
+    </div>
+    <div class="step d2">
+      <div class="step-dot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <div class="step-n">02</div>
+        <div class="step-title" data-i18n="epc02.title">Temel Tasarım</div>
+        <div class="step-body" data-i18n="epc02.body">Teknoloji seçimi, akış şemaları, P&ID, ekipman listesi ve temel mühendislik paketi (FEED).</div>
+      </div>
+    </div>
+    <div class="step d3">
+      <div class="step-dot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div>
+        <div class="step-n">03</div>
+        <div class="step-title" data-i18n="epc03.title">Detay Mühendislik</div>
+        <div class="step-body" data-i18n="epc03.body">Yapısal, mekanik, elektrik ve otomasyon detay çizimleri, tedarik spesifikasyonları ve satın alma süreçleri.</div>
+      </div>
+    </div>
+    <div class="step d4">
+      <div class="step-dot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div>
+        <div class="step-n">04</div>
+        <div class="step-title" data-i18n="epc04.title">İnşaat & Montaj</div>
+        <div class="step-body" data-i18n="epc04.body">Saha hazırlığı, inşaat, ekipman montajı, boru ve elektrik tesisatı — sahada tam ZYT gözetimi.</div>
+      </div>
+    </div>
+    <div class="step d5">
+      <div class="step-dot">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div>
+        <div class="step-n">05</div>
+        <div class="step-title" data-i18n="epc05.title">Devreye Alma & İşletme</div>
+        <div class="step-body" data-i18n="epc05.body">Soğuk & sıcak devreye alma, performans testleri, operatör eğitimi ve O&M sözleşme seçenekleri.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEC 03: CAPACITY TABLE (DARK) -->
+<div class="block-sep"></div>
+<section id="capacity" class="sec sec-dark" style="background:#051728">
+  <div class="hdr rv">
+    <div>
+      <div class="sec-num-d" data-i18n="s03.num">§ 03 — Kapasite</div>
+      <div class="sec-title-d" data-i18n="s03.title">Teknik Kapasite Aralıkları</div>
+    </div>
+    <p class="sec-sub-d" data-i18n="s03.sub">Her teknoloji için onaylanmış asgari ve azami proje kapasiteleri ile tipik uygulama senaryoları.</p>
+  </div>
+  <div class="rv" style="overflow-x:auto;border-radius:8px;box-shadow:0 0 0 1px rgba(40,116,178,.12)">
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th data-i18n="tbl.tech">Teknoloji</th>
+          <th data-i18n="tbl.min">Min. Kapasite</th>
+          <th data-i18n="tbl.max">Maks. Kapasite</th>
+          <th data-i18n="tbl.feedstock">Hammadde</th>
+          <th data-i18n="tbl.output">Çıktı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cap-td-bold" data-i18n="tbl.wte">Atıktan Enerji (WtE)</td>
+          <td class="cap-td-blue">1 MW</td>
+          <td class="cap-td-blue">50 MW</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.wte.feed">Kentsel katı atık</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.wte.out">Elektrik + Isı</td>
+        </tr>
+        <tr>
+          <td class="cap-td-bold" data-i18n="tbl.bg">Biyogaz</td>
+          <td class="cap-td-blue">500 kW</td>
+          <td class="cap-td-blue">10 MW</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.bg.feed">Organik / Tarımsal</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.bg.out">Elektrik + Isı / BioCNG</td>
+        </tr>
+        <tr>
+          <td class="cap-td-bold" data-i18n="tbl.whru">Atık Isı Geri Kazanım</td>
+          <td class="cap-td-blue">100 kW</td>
+          <td class="cap-td-blue">20 MW</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.whru.feed">Baca gazı (≥200°C)</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.whru.out">Elektrik</td>
+        </tr>
+        <tr>
+          <td class="cap-td-bold" data-i18n="tbl.lfg">Depolama Gazı (LFG)</td>
+          <td class="cap-td-blue">200 kW</td>
+          <td class="cap-td-blue">5 MW</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.lfg.feed">Deponi sahası (CH₄&gt;35%)</td>
+          <td style="font-size:12px;color:rgba(255,255,255,.6)" data-i18n="tbl.lfg.out">Elektrik + Karbon Kredi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SEC 04: PROJECTS (LIGHT) -->
+<section id="projects" class="sec sec-light">
+  <div class="hdr rv">
+    <div>
+      <div class="sec-num-l" data-i18n="s04.num">§ 04 — Referans Projeler</div>
+      <div class="sec-title-l" data-i18n="s04.title">Tamamlanan Projeler</div>
+    </div>
+    <p class="sec-sub-l" data-i18n="s04.sub">Orta Asya'dan Orta Doğu'ya farklı coğrafyalarda gerçekleştirilen enerji dönüşüm tesisi referansları.</p>
+  </div>
+  <div class="prj-grid">
+
+    <div class="prj-card rv d1">
+      <div class="prj-img-w">
+        <img src="https://mimakine.com/wp-content/uploads/2023/03/IMG_20211210_092553-scaled.jpg" alt="Kazakistan" class="prj-img">
+        <div class="prj-over"></div>
+        <div class="prj-badge" data-i18n="prj01.badge">12 MW · WtE</div>
+      </div>
+      <div class="prj-bdy">
+        <div class="prj-country" data-i18n="prj01.country">Kazakistan</div>
+        <div class="prj-name" data-i18n="prj01.name">Kentsel KAA Enerji Tesisi</div>
+        <div class="prj-cap" data-i18n="prj01.cap">12 MW · 400 ton/gün işleme · EPC</div>
+      </div>
+    </div>
+
+    <div class="prj-card rv d2">
+      <div class="prj-img-w">
+        <img src="https://mimakine.com/wp-content/uploads/2023/03/IMG_20211228_160800-scaled.jpg" alt="Biyogaz" class="prj-img">
+        <div class="prj-over"></div>
+        <div class="prj-badge" data-i18n="prj02.badge">2 MW · Biyogaz</div>
+      </div>
+      <div class="prj-bdy">
+        <div class="prj-country" data-i18n="prj02.country">Türkiye</div>
+        <div class="prj-name" data-i18n="prj02.name">Organik Atık Biyogaz Tesisi</div>
+        <div class="prj-cap" data-i18n="prj02.cap">2 MW · CHP · Anaerobik Çürütme</div>
+      </div>
+    </div>
+
+    <div class="prj-card rv d3">
+      <div class="prj-img-w">
+        <img src="https://mimakine.com/wp-content/uploads/2023/03/IMG_20220108_103145-scaled.jpg" alt="Atık Isı" class="prj-img">
+        <div class="prj-over"></div>
+        <div class="prj-badge" data-i18n="prj03.badge">3.5 MW · ORC</div>
+      </div>
+      <div class="prj-bdy">
+        <div class="prj-country" data-i18n="prj03.country">Türkiye</div>
+        <div class="prj-name" data-i18n="prj03.name">Çimento Fabrikası Atık Isı</div>
+        <div class="prj-cap" data-i18n="prj03.cap">3.5 MW · ORC Türbini · Baca Gazı</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEC 05: WHY ZYT (DARK) -->
+<div class="block-sep"></div>
+<section id="why" class="sec sec-dark" style="background:#051728">
+  <div class="hdr rv">
+    <div>
+      <div class="sec-num-d" data-i18n="s05.num">§ 05 — Neden ZYT</div>
+      <div class="sec-title-d" data-i18n="s05.title">Rekabet Avantajları</div>
+    </div>
+    <p class="sec-sub-d" data-i18n="s05.sub">Enerji dönüşüm alanında çok disiplinli mühendislik yetkinliği ve EPC teslim garantisi.</p>
+  </div>
+  <div class="feat-grid rv">
+    <div class="feat-item">
+      <div class="feat-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div>
+        <div class="feat-title" data-i18n="f01.title">Çok Teknoloji Yetkinliği</div>
+        <div class="feat-body" data-i18n="f01.body">WtE, biyogaz, ORC ve LFG teknolojilerinin tamamında tasarım ve EPC deneyimi. Karma atık akışları için entegre hibrit çözümler sunabilme kapasitesi.</div>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="feat-title" data-i18n="f02.title">Uluslararası Proje Deneyimi</div>
+        <div class="feat-body" data-i18n="f02.body">Kazakistan, Orta Doğu ve yurt içi projelerde edinilen çok kültürlü proje yönetimi deneyimi. Yerel izin ve düzenleme gereksinimlerine uyum.</div>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="feat-title" data-i18n="f03.title">Çevre Uyumlu Tasarım</div>
+        <div class="feat-body" data-i18n="f03.body">Baca gazı arıtma, süzüntü suyu yönetimi ve kül stabilizasyonu dahil tam çevresel sistem entegrasyonu. IFC/Dünya Bankası çevre standartlarına uygun.</div>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div>
+        <div class="feat-title" data-i18n="f04.title">Operatör Eğitimi & O&M</div>
+        <div class="feat-body" data-i18n="f04.body">Devreye alma sonrası kapsamlı operatör eğitimi, uzaktan izleme sistemi kurulumu ve isteğe bağlı operasyon & bakım sözleşmesi.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="block-sep"></div>
+<div class="cta-band">
+  <div class="cta-pre rv" data-i18n="cta.pre">// Enerji dönüşüm projeniz için</div>
+  <div class="cta-h rv" data-i18n-html="cta.h">Atık Enerjinizi<br><span style="color:#2874B2">Değere Dönüştürün</span></div>
+  <p class="cta-p rv" data-i18n="cta.p">Atık türü, miktar ve lokasyon bilgilerini paylaşın — ZYT mühendisleri enerji dönüşüm potansiyelinizi hesaplayıp en uygun teknoloji önerisini sunsun.</p>
+  <div class="cta-btns rv">
+    <a href="iletisim.html" class="btn-p" data-i18n="cta.btn1">Teklif İste →</a>
+    <a href="index.html#about" class="btn-o" data-i18n="cta.btn2">Hakkımızda</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="block-sep"></div>
+<footer id="foot">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="foot-inner">
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:13px">
+        <svg width="50" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#fff"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#2874B2"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#fff"/>
+        </svg>
+        <span style="font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.38);text-transform:uppercase">ZYT Global Industry</span>
+      </a>
+      <a href="blog.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Blog</a>
+      <div class="ft-social">
+        <a href="https://linkedin.com/company/zyt-global-industry" class="ft-soc-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://youtube.com/@ZYTGlobalIndustry" class="ft-soc-link" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://instagram.com/zytglobalindustry" class="ft-soc-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://tiktok.com/@zytglobalindustry" class="ft-soc-link" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a href="https://github.com/ZYTGlobalIndustry" class="ft-soc-link" aria-label="GitHub" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      </div>
+    </div>
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(40,116,178,.18),transparent);margin-bottom:20px"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.18);text-transform:uppercase" data-i18n="foot.copy">© 2026 ZYT Global Industry Grubu — Tüm Hakları Saklıdır</span>
+      <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.18);text-transform:uppercase">Ankara · Türkiye</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const T = {
+  tr: {
+    'nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.sectors':'Sektörler','nav.contact':'İletişim',
+    'bc.back':'ZYT Global Industry',
+    'hero.label':'// ZYT Enerji · Atık-Enerji Dönüşüm',
+    'hero.h1':'ATIKTAN ENERJİYE —<br><span class="acc">DÖNÜŞÜM</span> TESİSLERİ',
+    'hero.sub':'Kentsel katı atık, biyogaz, endüstriyel atık ısı ve düzenli depolama gazından 1 MW\'dan 50 MW\'a enerji dönüşüm tesisleri.',
+    'hero.btn1':'Teknolojileri İncele','hero.btn2':'Teklif Al →',
+    'hstat.1':'MW Maks. Kapasite','hstat.2':'Dönüşüm Teknolojisi','hstat.3':'Anahtar Teslim Süreç',
+    's01.num':'§ 01 — Teknolojiler','s01.title':'Dönüşüm Teknolojileri','s01.sub':'Farklı atık akışlarına uygun dört temel enerji dönüşüm teknolojisi — her biri EPC modeli ile eksiksiz devreye alım.',
+    't01.tag':'// KAA — Kentsel Katı Atık','t01.title':'Atıktan Elektrik Enerjisi (WtE)','t01.body':'Kentsel katı atığın yakılması ile buhar türbinleri aracılığıyla elektrik ve ısı enerjisi üretimi.','t01.spec1':'1–50 MW','t01.spec2':'Izgara / Döner Fırın',
+    't02.tag':'// Organik Atık','t02.title':'Biyogaz Tesisleri','t02.body':'Organik atık, tarımsal artık ve gıda atığının anaerobik çürütme yoluyla biyogaza dönüştürülmesi.','t02.spec1':'500 kW–10 MW','t02.spec3':'Membran / PSA',
+    't03.tag':'// Endüstriyel Atık Isı','t03.title':'Atık Isı Geri Kazanım','t03.body':'Çimento, cam, çelik ve kimya tesislerinden çıkan baca gazı atık ısısının ORC veya buhar türbini ile elektriğe dönüştürülmesi.','t03.spec1':'100 kW–20 MW','t03.spec3':'≥ 200°C Giriş',
+    't04.tag':'// Depolama Gazı','t04.title':'Düzenli Depolama Gazı (LFG)','t04.body':'Çöp deponi sahalarından çıkan metan gazının toplanması, saflaştırılması ve gaz motorları ile enerji üretimine dönüştürülmesi.','t04.spec1':'200 kW–5 MW','t04.spec3':'CH₄ > 35%',
+    's02.num':'§ 02 — EPC Süreci','s02.title':'Anahtar Teslim Proje Adımları','s02.sub':'Fizibilite çalışmasından ticari işletmeye — tek muhatap, kesintisiz proje yönetimi.',
+    'epc01.title':'Fizibilite & FS','epc01.body':'Atık karakterizasyonu, enerji potansiyeli hesabı, tekno-ekonomik analiz ve izin fizibilitesi.',
+    'epc02.title':'Temel Tasarım','epc02.body':'Teknoloji seçimi, akış şemaları, P&ID, ekipman listesi ve temel mühendislik paketi (FEED).',
+    'epc03.title':'Detay Mühendislik','epc03.body':'Yapısal, mekanik, elektrik ve otomasyon detay çizimleri, tedarik spesifikasyonları ve satın alma.',
+    'epc04.title':'İnşaat & Montaj','epc04.body':'Saha hazırlığı, inşaat, ekipman montajı, boru ve elektrik tesisatı — sahada tam ZYT gözetimi.',
+    'epc05.title':'Devreye Alma & İşletme','epc05.body':'Soğuk & sıcak devreye alma, performans testleri, operatör eğitimi ve O&M sözleşme seçenekleri.',
+    's03.num':'§ 03 — Kapasite','s03.title':'Teknik Kapasite Aralıkları','s03.sub':'Her teknoloji için onaylanmış asgari ve azami proje kapasiteleri ile tipik uygulama senaryoları.',
+    'tbl.tech':'Teknoloji','tbl.min':'Min. Kapasite','tbl.max':'Maks. Kapasite','tbl.feedstock':'Hammadde','tbl.output':'Çıktı',
+    'tbl.wte':'Atıktan Enerji (WtE)','tbl.wte.feed':'Kentsel katı atık','tbl.wte.out':'Elektrik + Isı',
+    'tbl.bg':'Biyogaz','tbl.bg.feed':'Organik / Tarımsal','tbl.bg.out':'Elektrik + Isı / BioCNG',
+    'tbl.whru':'Atık Isı Geri Kazanım','tbl.whru.feed':'Baca gazı (≥200°C)','tbl.whru.out':'Elektrik',
+    'tbl.lfg':'Depolama Gazı (LFG)','tbl.lfg.feed':'Deponi sahası (CH₄>35%)','tbl.lfg.out':'Elektrik + Karbon Kredi',
+    's04.num':'§ 04 — Referans Projeler','s04.title':'Tamamlanan Projeler','s04.sub':'Orta Asya\'dan Orta Doğu\'ya farklı coğrafyalarda gerçekleştirilen enerji dönüşüm tesisi referansları.',
+    'prj01.badge':'12 MW · WtE','prj01.country':'Kazakistan','prj01.name':'Kentsel KAA Enerji Tesisi','prj01.cap':'12 MW · 400 ton/gün işleme · EPC',
+    'prj02.badge':'2 MW · Biyogaz','prj02.country':'Türkiye','prj02.name':'Organik Atık Biyogaz Tesisi','prj02.cap':'2 MW · CHP · Anaerobik Çürütme',
+    'prj03.badge':'3.5 MW · ORC','prj03.country':'Türkiye','prj03.name':'Çimento Fabrikası Atık Isı','prj03.cap':'3.5 MW · ORC Türbini · Baca Gazı',
+    's05.num':'§ 05 — Neden ZYT','s05.title':'Rekabet Avantajları','s05.sub':'Enerji dönüşüm alanında çok disiplinli mühendislik yetkinliği ve EPC teslim garantisi.',
+    'f01.title':'Çok Teknoloji Yetkinliği','f01.body':'WtE, biyogaz, ORC ve LFG teknolojilerinin tamamında tasarım ve EPC deneyimi.',
+    'f02.title':'Uluslararası Proje Deneyimi','f02.body':'Kazakistan, Orta Doğu ve yurt içi projelerde edinilen çok kültürlü proje yönetimi deneyimi.',
+    'f03.title':'Çevre Uyumlu Tasarım','f03.body':'Baca gazı arıtma, süzüntü suyu yönetimi dahil tam çevresel sistem entegrasyonu.',
+    'f04.title':'Operatör Eğitimi & O&M','f04.body':'Devreye alma sonrası kapsamlı operatör eğitimi ve isteğe bağlı O&M sözleşmesi.',
+    'cta.pre':'// Enerji dönüşüm projeniz için',
+    'cta.h':'Atık Enerjinizi<br><span style="color:#2874B2">Değere Dönüştürün</span>',
+    'cta.p':'Atık türü, miktar ve lokasyon bilgilerini paylaşın — ZYT mühendisleri enerji dönüşüm potansiyelinizi hesaplayıp en uygun teknoloji önerisini sunsun.',
+    'cta.btn1':'Teklif İste →','cta.btn2':'Hakkımızda',
+    'foot.home':'Ana Sayfa','foot.beton':'ZYT Beton','foot.galvaniz':'ZYT Galvaniz','foot.about':'Hakkımızda'
+  },
+  en: {
+    'nav.about':'About','nav.companies':'Companies','nav.sectors':'Sectors','nav.contact':'Contact',
+    'bc.back':'ZYT Global Industry',
+    'hero.label':'// ZYT Enerji · Waste-to-Energy Plants',
+    'hero.h1':'WASTE TO ENERGY —<br><span class="acc">CONVERSION</span> PLANTS',
+    'hero.sub':'Municipal solid waste, biogas, industrial waste heat and landfill gas to energy conversion plants from 1 MW to 50 MW.',
+    'hero.btn1':'Explore Technologies','hero.btn2':'Request Quote →',
+    'hstat.1':'MW Max. Capacity','hstat.2':'Conversion Technologies','hstat.3':'Turnkey EPC',
+    's01.num':'§ 01 — Technologies','s01.title':'Conversion Technologies','s01.sub':'Four core energy conversion technologies for different waste streams — each with full EPC turnkey delivery.',
+    't01.tag':'// MSW — Municipal Solid Waste','t01.title':'Waste-to-Energy (WtE)','t01.body':'Electricity and heat generation from municipal solid waste combustion via steam turbines. Advanced combustion boiler, flue gas treatment and turbo-generator integration.','t01.spec1':'1–50 MW','t01.spec2':'Grate / Rotary Kiln',
+    't02.tag':'// Organic Waste','t02.title':'Biogas Plants','t02.body':'Anaerobic digestion of organic waste, agricultural residues and food waste into biogas. CHP electricity & heat or biomethane upgrading (BioCNG/BioLNG) option.','t02.spec1':'500 kW–10 MW','t02.spec3':'Membrane / PSA',
+    't03.tag':'// Industrial Waste Heat','t03.title':'Waste Heat Recovery','t03.body':'Conversion of flue gas waste heat from cement, glass, steel and chemical plants to electricity via ORC (Organic Rankine Cycle) or steam turbine.','t03.spec1':'100 kW–20 MW','t03.spec3':'≥ 200°C Inlet',
+    't04.tag':'// Landfill Gas','t04.title':'Landfill Gas (LFG)','t04.body':'Collection, purification and conversion of methane gas from landfill sites to electricity via gas engines. Designed for carbon credit mechanism eligibility.','t04.spec1':'200 kW–5 MW','t04.spec3':'CH₄ > 35%',
+    's02.num':'§ 02 — EPC Process','s02.title':'Turnkey Project Steps','s02.sub':'From feasibility study to commercial operation — single point of contact, uninterrupted project management.',
+    'epc01.title':'Feasibility & FS','epc01.body':'Waste characterization, energy potential calculation, techno-economic analysis and permit feasibility.',
+    'epc02.title':'Basic Design','epc02.body':'Technology selection, flow sheets, P&ID, equipment list and front-end engineering design (FEED).',
+    'epc03.title':'Detail Engineering','epc03.body':'Structural, mechanical, electrical and automation detail drawings, procurement specifications and purchasing.',
+    'epc04.title':'Construction & Installation','epc04.body':'Site preparation, civil work, equipment installation, piping and electrical — full ZYT supervision on site.',
+    'epc05.title':'Commissioning & Operations','epc05.body':'Cold & hot commissioning, performance tests, operator training and optional O&M contract.',
+    's03.num':'§ 03 — Capacity','s03.title':'Technical Capacity Ranges','s03.sub':'Minimum and maximum project capacities for each technology with typical application scenarios.',
+    'tbl.tech':'Technology','tbl.min':'Min. Capacity','tbl.max':'Max. Capacity','tbl.feedstock':'Feedstock','tbl.output':'Output',
+    'tbl.wte':'Waste-to-Energy (WtE)','tbl.wte.feed':'Municipal solid waste','tbl.wte.out':'Electricity + Heat',
+    'tbl.bg':'Biogas','tbl.bg.feed':'Organic / Agricultural','tbl.bg.out':'Electricity + Heat / BioCNG',
+    'tbl.whru':'Waste Heat Recovery','tbl.whru.feed':'Flue gas (≥200°C)','tbl.whru.out':'Electricity',
+    'tbl.lfg':'Landfill Gas (LFG)','tbl.lfg.feed':'Landfill (CH₄>35%)','tbl.lfg.out':'Electricity + Carbon Credits',
+    's04.num':'§ 04 — Reference Projects','s04.title':'Completed Projects','s04.sub':'Energy conversion plant references across diverse geographies from Central Asia to the Middle East.',
+    'prj01.badge':'12 MW · WtE','prj01.country':'Kazakhstan','prj01.name':'Municipal MSW Energy Plant','prj01.cap':'12 MW · 400 t/day processing · EPC',
+    'prj02.badge':'2 MW · Biogas','prj02.country':'Turkey','prj02.name':'Organic Waste Biogas Plant','prj02.cap':'2 MW · CHP · Anaerobic Digestion',
+    'prj03.badge':'3.5 MW · ORC','prj03.country':'Turkey','prj03.name':'Cement Plant Waste Heat Recovery','prj03.cap':'3.5 MW · ORC Turbine · Flue Gas',
+    's05.num':'§ 05 — Why ZYT','s05.title':'Competitive Advantages','s05.sub':'Multi-disciplinary engineering competence and EPC delivery guarantee in energy conversion.',
+    'f01.title':'Multi-Technology Expertise','f01.body':'Design and EPC experience across WtE, biogas, ORC and LFG technologies. Integrated hybrid solutions for mixed waste streams.',
+    'f02.title':'International Project Experience','f02.body':'Multicultural project management experience from Kazakhstan, Middle East and domestic projects. Compliance with local permits and regulations.',
+    'f03.title':'Environmentally Compliant Design','f03.body':'Full environmental system integration including flue gas treatment, leachate management and ash stabilization to IFC/World Bank standards.',
+    'f04.title':'Operator Training & O&M','f04.body':'Comprehensive post-commissioning operator training, remote monitoring system setup and optional O&M contract.',
+    'cta.pre':'// For your energy conversion project',
+    'cta.h':'Turn Your Waste<br><span style="color:#2874B2">Into Energy Value</span>',
+    'cta.p':'Share your waste type, volume and location — ZYT engineers will calculate your energy potential and propose the optimal technology.',
+    'cta.btn1':'Request Quote →','cta.btn2':'About Us',
+    'foot.home':'Home','foot.beton':'ZYT Beton','foot.galvaniz':'ZYT Galvaniz','foot.about':'About'
+  },
+  ar: {
+    'nav.about':'من نحن','nav.companies':'شركاتنا','nav.sectors':'القطاعات','nav.contact':'اتصل بنا',
+    'bc.back':'ZYT Global Industry',
+    'hero.label':'// ZYT Enerji · منشآت تحويل النفايات إلى طاقة',
+    'hero.h1':'من النفايات إلى الطاقة —<br><span class="acc">منشآت التحويل</span>',
+    'hero.sub':'منشآت تحويل النفايات البلدية الصلبة والغاز الحيوي وحرارة النفايات الصناعية وغاز مكبات النفايات إلى طاقة من 1 ميجاوات إلى 50 ميجاوات.',
+    'hero.btn1':'استعرض التقنيات','hero.btn2':'طلب عرض سعر →',
+    'hstat.1':'ميجاوات أقصى طاقة','hstat.2':'تقنية تحويل','hstat.3':'تسليم مفتاح EPC',
+    's01.num':'§ 01 — التقنيات','s01.title':'تقنيات التحويل','s01.sub':'أربع تقنيات أساسية لتحويل الطاقة لتدفقات نفايات مختلفة — كل منها مع تسليم مفتاح EPC كامل.',
+    't01.tag':'// النفايات البلدية الصلبة','t01.title':'الطاقة من النفايات (WtE)','t01.body':'توليد الكهرباء والحرارة من حرق النفايات البلدية الصلبة عبر توربينات البخار. مرجل احتراق متقدم ومعالجة غاز المداخن وتكامل توربو-مولد.','t01.spec1':'1–50 ميجاوات','t01.spec2':'شبكة / فرن دوار',
+    't02.tag':'// النفايات العضوية','t02.title':'منشآت الغاز الحيوي','t02.body':'تحويل النفايات العضوية والمخلفات الزراعية ونفايات الأغذية إلى غاز حيوي بالهضم اللاهوائي. خيار CHP أو ترقية الميثان الحيوي.','t02.spec1':'500 كيلوواط–10 ميجاوات','t02.spec3':'غشاء / PSA',
+    't03.tag':'// حرارة النفايات الصناعية','t03.title':'استرداد حرارة النفايات','t03.body':'تحويل حرارة نفايات غاز المداخن من مصانع الأسمنت والزجاج والصلب والكيماويات إلى كهرباء عبر ORC أو توربين بخار.','t03.spec1':'100 كيلوواط–20 ميجاوات','t03.spec3':'≥ 200°C مدخل',
+    't04.tag':'// غاز المكبات','t04.title':'غاز مكبات النفايات (LFG)','t04.body':'تجميع وتنقية وتحويل غاز الميثان من مواقع المكبات إلى كهرباء عبر محركات الغاز. تصميم مؤهل لآلية الائتمانات الكربونية.','t04.spec1':'200 كيلوواط–5 ميجاوات','t04.spec3':'CH₄ > 35%',
+    's02.num':'§ 02 — عملية EPC','s02.title':'خطوات المشروع تسليم مفتاح','s02.sub':'من دراسة الجدوى إلى التشغيل التجاري — جهة اتصال واحدة وإدارة مشروع متواصلة.',
+    'epc01.title':'الجدوى & FS','epc01.body':'توصيف النفايات وحساب إمكانات الطاقة والتحليل التقني الاقتصادي وجدوى التصاريح.',
+    'epc02.title':'التصميم الأساسي','epc02.body':'اختيار التقنية ومخططات التدفق وP&ID وقائمة المعدات وحزمة الهندسة الأمامية FEED.',
+    'epc03.title':'الهندسة التفصيلية','epc03.body':'رسومات تفصيلية للهياكل والميكانيكا والكهرباء والأتمتة ومواصفات الشراء.',
+    'epc04.title':'البناء والتركيب','epc04.body':'تجهيز الموقع والأعمال المدنية وتركيب المعدات والأنابيب والكهرباء — إشراف ZYT كامل في الموقع.',
+    'epc05.title':'التشغيل والتشغيل','epc05.body':'التشغيل البارد والساخن واختبارات الأداء وتدريب المشغلين وخيار عقد O&M.',
+    's03.num':'§ 03 — الطاقة','s03.title':'نطاقات الطاقة التقنية','s03.sub':'الحد الأدنى والأقصى لطاقة المشروع لكل تقنية مع سيناريوهات التطبيق النموذجية.',
+    'tbl.tech':'التقنية','tbl.min':'أدنى طاقة','tbl.max':'أقصى طاقة','tbl.feedstock':'المادة الخام','tbl.output':'الناتج',
+    'tbl.wte':'الطاقة من النفايات WtE','tbl.wte.feed':'النفايات البلدية الصلبة','tbl.wte.out':'كهرباء + حرارة',
+    'tbl.bg':'غاز حيوي','tbl.bg.feed':'عضوي / زراعي','tbl.bg.out':'كهرباء + حرارة / BioCNG',
+    'tbl.whru':'استرداد حرارة النفايات','tbl.whru.feed':'غاز مداخن (≥200°C)','tbl.whru.out':'كهرباء',
+    'tbl.lfg':'غاز المكبات LFG','tbl.lfg.feed':'مكب (CH₄>35%)','tbl.lfg.out':'كهرباء + ائتمانات كربون',
+    's04.num':'§ 04 — مشاريع مرجعية','s04.title':'المشاريع المنجزة','s04.sub':'مراجع منشآت تحويل الطاقة عبر جغرافيات متنوعة من آسيا الوسطى إلى الشرق الأوسط.',
+    'prj01.badge':'12 ميجاوات · WtE','prj01.country':'كازاخستان','prj01.name':'منشأة طاقة النفايات البلدية','prj01.cap':'12 ميجاوات · 400 طن/يوم معالجة · EPC',
+    'prj02.badge':'2 ميجاوات · غاز حيوي','prj02.country':'تركيا','prj02.name':'منشأة غاز حيوي للنفايات العضوية','prj02.cap':'2 ميجاوات · CHP · هضم لاهوائي',
+    'prj03.badge':'3.5 ميجاوات · ORC','prj03.country':'تركيا','prj03.name':'استرداد حرارة مصنع الأسمنت','prj03.cap':'3.5 ميجاوات · توربين ORC · غاز مداخن',
+    's05.num':'§ 05 — لماذا ZYT','s05.title':'المزايا التنافسية','s05.sub':'كفاءة هندسية متعددة التخصصات وضمان التسليم EPC في مجال تحويل الطاقة.',
+    'f01.title':'خبرة متعددة التقنيات','f01.body':'تصميم وخبرة EPC عبر تقنيات WtE والغاز الحيوي وORC وLFG. حلول هجينة متكاملة لتدفقات النفايات المختلطة.',
+    'f02.title':'خبرة مشاريع دولية','f02.body':'خبرة إدارة مشاريع متعددة الثقافات من كازاخستان والشرق الأوسط والمشاريع المحلية.',
+    'f03.title':'تصميم متوافق بيئياً','f03.body':'تكامل أنظمة بيئية كاملة بما فيها معالجة غاز المداخن وإدارة العصارة وفق معايير IFC/البنك الدولي.',
+    'f04.title':'تدريب المشغلين & O&M','f04.body':'تدريب شامل للمشغلين بعد التشغيل وإعداد نظام المراقبة عن بُعد وعقد O&M اختياري.',
+    'cta.pre':'// لمشروع تحويل الطاقة الخاص بك',
+    'cta.h':'حوّل نفاياتك<br><span style="color:#2874B2">إلى قيمة طاقة</span>',
+    'cta.p':'شارك نوع نفاياتك وحجمها وموقعها — سيحسب مهندسو ZYT إمكانات الطاقة ويقترحون التقنية المثلى.',
+    'cta.btn1':'طلب عرض سعر →','cta.btn2':'من نحن',
+    'foot.home':'الرئيسية','foot.beton':'ZYT Beton','foot.galvaniz':'ZYT Galvaniz','foot.about':'من نحن'
+  }
+};
+
+function setLang(lang){
+  const t=T[lang]; if(!t) return;
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=t[el.dataset.i18n];if(v!==undefined)el.textContent=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const v=t[el.dataset.i18nHtml];if(v!==undefined)el.innerHTML=v;});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const v=t[el.dataset.i18nPh];if(v!==undefined)el.placeholder=v;});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const v=t[el.dataset.i18nAria];if(v!==undefined)el.setAttribute('aria-label',v);});
+  document.querySelectorAll('.l-btn,.mob-l-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  localStorage.setItem('zyt-lang',lang);
+}
+const _initLang=localStorage.getItem('zyt-lang')||(navigator.language.startsWith('ar')?'ar':navigator.language.startsWith('tr')?'tr':'en');
+setLang(_initLang);
+document.querySelectorAll('.l-btn,.mob-l-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+
+const hamBtn=document.getElementById('ham-btn');
+const mobNav=document.getElementById('mob-nav');
+function closeMobNav(){
+  hamBtn.classList.remove('open');
+  mobNav.classList.remove('open');
+  mobNav.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+hamBtn.addEventListener('click',()=>{
+  const open=mobNav.classList.toggle('open');
+  hamBtn.classList.toggle('open',open);
+  mobNav.setAttribute('aria-hidden',String(!open));
+  document.body.style.overflow=open?'hidden':'';
+});
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',closeMobNav));
+
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>observer.observe(el));
+
+window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(b)b.classList.toggle('vis',scrollY>400);},{passive:true});
+</script>
+
+<!-- BACK TO TOP -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukarı Git" aria-label="Yukarı Git">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 9.5L7 4.5L12 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</body>
+</html>

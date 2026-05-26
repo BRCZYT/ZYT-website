@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>İletişim — ZYT Global Industry</title>
+<meta name="description" content="ZYT Global Industry ile iletişime geçin. Beton santrali, galvaniz tesisi, enerji dönüşüm ve tedarik zinciri projeleriniz için teklif alın.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora@5.0.21/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/manrope@5.0.20/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.0.21/index.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0A2540',mid:'#051728',blue:'#2874B2'},fontFamily:{display:["'Sora Variable'","Sora","sans-serif"],body:["'Manrope Variable'","Manrope","sans-serif"],mono:["'JetBrains Mono Variable'","monospace"]}}}}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#051728;color:#fff;font-family:'Manrope Variable',Manrope,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px 56px;background:linear-gradient(to bottom,rgba(5,23,40,.92),transparent);backdrop-filter:blur(12px);transition:background .3s,padding .3s}
+#nav.scrolled{background:rgba(5,23,40,.97);padding:14px 56px}
+.nav-logo{display:flex;align-items:center;gap:13px;text-decoration:none}
+.nl-z,.nl-y,.nl-t{transition:transform .35s cubic-bezier(.34,1.56,.64,1);transform-box:fill-box;transform-origin:center}
+.nav-logo:hover .nl-z{transform:translateX(-4px)}
+.nav-logo:hover .nl-y{transform:translateY(-4px)}
+.nav-logo:hover .nl-t{transform:translateX(4px)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-link{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-link:hover{color:#fff}
+/* DARK SECTION SEPARATOR — subtle glow edge at top of every dark section */
+.sec-dark,.cta-band{box-shadow:inset 0 1px 0 rgba(40,116,178,.28),inset 0 60px 60px -60px rgba(40,116,178,.07)}
+#foot{border-top:1px solid rgba(40,116,178,.22) !important}
+/* BACK TO TOP */
+#btt{position:fixed;right:24px;bottom:32px;width:44px;height:44px;border-radius:50%;background:rgba(10,37,64,.88);border:1px solid rgba(40,116,178,.45);color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:190;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s,box-shadow .2s;backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 1px rgba(40,116,178,.1)}
+#btt.vis{opacity:1;transform:none}
+#btt:hover{background:rgba(40,116,178,.65);box-shadow:0 6px 28px rgba(40,116,178,.35),0 0 0 1px rgba(40,116,178,.3)}
+/* DARK SECTION AMBIENT */
+.cta-band,.stats-band,.clients-band,#plant-sec{position:relative;overflow:hidden;isolation:isolate}
+#foot{position:relative;overflow:hidden;isolation:isolate}
+.sec-dark{position:relative;overflow:hidden;isolation:isolate}
+.cta-band::before,.stats-band::before,.clients-band::before,#plant-sec::before,#foot::before,.sec-dark::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 75% 200% at 50% 50%,rgba(40,116,178,.18) 0%,transparent 55%),radial-gradient(ellipse 60% 180% at 8% 50%,rgba(40,116,178,.38) 0%,transparent 55%),radial-gradient(ellipse 48% 180% at 92% 50%,rgba(40,116,178,.26) 0%,transparent 55%);animation:hamb 10s ease-in-out infinite alternate}
+/* HERO AMBIENT */
+.h-amb{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.h-amb::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.28) 0%,transparent 65%);top:-220px;left:-200px;animation:hamb 8s ease-in-out infinite alternate}
+.h-amb::after{content:'';position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.2) 0%,transparent 65%);bottom:-120px;right:-100px;animation:hamb 6s ease-in-out infinite alternate-reverse}
+@keyframes hamb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(28px,-24px)}}
+.h-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(40,116,178,.55) 30%,rgba(100,180,255,.7) 50%,rgba(40,116,178,.55) 70%,transparent 100%);animation:hscan 6s ease-in-out infinite;pointer-events:none;z-index:1;top:0}
+@keyframes hscan{0%{top:-2px;opacity:0}5%{opacity:1}90%{opacity:.5}100%{top:100%;opacity:0}}
+.h-dots{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(40,116,178,.35) 1px,transparent 1px);background-size:80px 80px;opacity:.25;animation:hdot 4s ease-in-out infinite alternate}
+@keyframes hdot{from{opacity:.15}to{opacity:.32}}
+/* HERO BACKGROUND LIFT */
+#hero{background:linear-gradient(150deg,#0f3d72 0%,#09274a 30%,#061e3a 55%,#051728 80%) !important}
+.lang-sw{display:flex;align-items:center;border:1px solid rgba(255,255,255,.14);border-radius:4px;overflow:hidden;margin-left:12px;flex-shrink:0}
+.l-btn{font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.38);background:transparent;border:none;border-right:1px solid rgba(255,255,255,.1);padding:7px 10px;cursor:pointer;transition:color .15s,background .15s;line-height:1}
+.l-btn:last-child{border-right:none}
+.l-btn.active{color:#fff;background:rgba(40,116,178,.32)}
+.l-btn:hover:not(.active){color:rgba(255,255,255,.7);background:rgba(255,255,255,.05)}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;background:transparent;border:none;cursor:pointer;padding:6px;z-index:301;width:34px;height:34px}
+.ham-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:1px;transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .2s}
+.ham-btn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;transform:translateX(-6px)}
+.ham-btn.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mob-nav{position:fixed;inset:0;background:#051728;z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;pointer-events:none;transition:opacity .4s cubic-bezier(.22,1,.36,1)}
+#mob-nav.open{opacity:1;pointer-events:all}
+.mob-link{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.8rem,8vw,2.6rem);font-weight:300;letter-spacing:-.025em;color:rgba(255,255,255,.55);text-decoration:none;padding:10px 0;transition:color .2s,transform .2s;background:transparent;border:none;cursor:pointer;text-align:center;width:100%}
+.mob-link:hover{color:#fff;transform:translateX(6px)}
+.mob-sep{width:40px;height:1px;background:rgba(40,116,178,.3);margin:8px 0}
+.mob-lang{display:flex;gap:12px;margin-top:24px}
+.mob-l-btn{font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);background:transparent;border:1px solid rgba(255,255,255,.12);padding:8px 14px;border-radius:3px;cursor:pointer;transition:color .15s,border-color .15s}
+.mob-l-btn.active{color:#fff;border-color:rgba(40,116,178,.7)}
+
+/* DROPDOWN NAV */
+.has-dd{position:relative;display:flex;align-items:center}
+.dd-tog{cursor:default;user-select:none;display:flex;align-items:center;gap:4px}
+.dd-caret{transition:transform .22s cubic-bezier(.22,1,.36,1);flex-shrink:0}
+.has-dd:hover .dd-caret,.has-dd:focus-within .dd-caret{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;pointer-events:none;transition:opacity .18s,transform .22s cubic-bezier(.22,1,.36,1);background:rgba(5,23,40,.98);border:1px solid rgba(255,255,255,.1);border-radius:8px;min-width:230px;padding:14px 7px 7px;backdrop-filter:blur(24px);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(40,116,178,.08);z-index:300}
+.has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}.dd-menu::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:5px;text-decoration:none;color:rgba(255,255,255,.62);font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;transition:color .15s,background .15s;white-space:nowrap}
+.dd-item:hover{color:#fff;background:rgba(40,116,178,.18)}
+.dd-item-num{color:rgba(40,116,178,.65);font-size:8px;min-width:18px;flex-shrink:0}
+.dd-divider{height:1px;background:rgba(255,255,255,.06);margin:4px 0}
+
+/* MOBILE DROPDOWN */
+.mob-dd-inner{overflow:hidden;max-height:0;transition:max-height .32s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;padding-left:0}
+.mob-dd-wrap.open .mob-dd-inner{max-height:320px}
+.mob-sub-link{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.1rem,5vw,1.6rem);font-weight:300;color:rgba(255,255,255,.38);text-decoration:none;padding:6px 0;transition:color .2s;display:block;text-align:center}
+.mob-sub-link:hover{color:#2874B2}
+.mob-dd-arr{font-family:'JetBrains Mono Variable',monospace;font-size:14px;color:rgba(40,116,178,.7);transition:transform .25s cubic-bezier(.22,1,.36,1);display:inline-block;margin-left:8px}
+.mob-dd-wrap.open .mob-dd-arr{transform:rotate(45deg)}
+
+/* HERO */
+#hero{min-height:36vh;display:flex;align-items:flex-end;padding:0 80px 70px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(40,116,178,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(40,116,178,.14) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 40%,transparent 100%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.hero-eyebrow{font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(40,116,178,.7);margin-bottom:16px}
+.hero-title{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(3rem,8vw,6rem);font-weight:300;line-height:.95;letter-spacing:-.04em;margin-bottom:20px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;max-width:520px}
+
+/* SECTIONS */
+.sec{padding:100px 80px}
+.sec-light{background:#f0f4f8}
+
+/* CONTACT LAYOUT */
+.ct-wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.ct-info-label{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:6px}
+.ct-info-val{font-family:'Manrope Variable',Manrope,sans-serif;font-size:15px;color:#0A2540;font-weight:500}
+.ct-info-val a{color:#0A2540;text-decoration:none;transition:color .2s}
+.ct-info-val a:hover{color:#2874B2}
+.ct-row{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(10,37,64,.07)}
+.ct-row:first-of-type{padding-top:0}
+.ct-icon{width:36px;height:36px;border-radius:8px;background:rgba(40,116,178,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+
+/* WHATSAPP */
+.wa-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#25D366;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono Variable',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;font-weight:600;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(37,211,102,.28)}
+.wa-btn:hover{background:#1ebe5c;transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.38)}
+.wa-btn:active{transform:translateY(0)}
+
+/* SOCIAL LINKS */
+.soc-row{display:flex;gap:12px;flex-wrap:wrap}
+.soc-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid rgba(10,37,64,.14);border-radius:6px;text-decoration:none;font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#3A4858;transition:color .15s,border-color .15s,background .15s}
+.soc-btn:hover{color:#0A2540;border-color:#2874B2;background:rgba(40,116,178,.06)}
+
+/* FORM */
+.f-lbl{font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#3A4858;display:block;margin-bottom:7px}
+.f-inp{width:100%;background:#fff;border:1px solid rgba(10,37,64,.14);border-radius:6px;padding:11px 14px;font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:#0A2540;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.f-inp:focus{border-color:#2874B2;box-shadow:0 0 0 3px rgba(40,116,178,.12)}
+.f-inp::placeholder{color:rgba(10,37,64,.3)}
+select.f-inp{cursor:pointer}
+textarea.f-inp{resize:vertical;line-height:1.65;min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#2874B2;border:none;border-radius:4px;padding:12px 24px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s}
+.btn-p:hover{background:#1e5f9a;transform:translateY(-1px)}
+.btn-p:active{transform:translateY(0)}
+.btn-navy{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);background:transparent;border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:12px 24px;cursor:pointer;text-decoration:none;transition:color .2s,border-color .2s}
+.btn-navy:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+/* QUICK CONTACT CARDS */
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1160px;margin:0 auto}
+.quick-card{background:rgba(40,116,178,.07);border:1px solid rgba(40,116,178,.15);border-radius:10px;padding:28px 24px;text-align:center;transition:background .2s,border-color .2s}
+.quick-card:hover{background:rgba(40,116,178,.12);border-color:rgba(40,116,178,.3)}
+.qc-icon{width:44px;height:44px;border-radius:10px;background:rgba(40,116,178,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.qc-label{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(40,116,178,.8);margin-bottom:8px}
+.qc-val{font-family:'Sora Variable',Sora,sans-serif;font-size:15px;font-weight:400;color:#fff;margin-bottom:4px}
+.qc-sub{font-family:'Manrope Variable',Manrope,sans-serif;font-size:12px;color:rgba(255,255,255,.35)}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+
+/* FOOTER */
+#foot{background:linear-gradient(180deg,#0e2d52 0%,#071e38 50%,#051728 100%);padding:44px 80px;border-top:1px solid rgba(255,255,255,.05)}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;flex-wrap:wrap;gap:16px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.ft-link{font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.ft-link:hover{color:#fff}
+.ft-social{display:flex;align-items:center;gap:16px}
+.ft-soc-link{color:rgba(255,255,255,.35);transition:color .2s,transform .2s;display:flex}
+.ft-soc-link:hover{color:#fff;transform:translateY(-2px)}
+
+/* RTL */
+html[dir="rtl"] #nav{flex-direction:row-reverse}
+html[dir="rtl"] .nav-links{flex-direction:row-reverse}
+html[dir="rtl"] .lang-sw{margin-left:0;margin-right:12px}
+html[dir="rtl"] .mob-link:hover{transform:translateX(-6px)}
+html[dir="rtl"] #hero{text-align:right}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .ct-wrap{grid-template-columns:1fr;gap:48px}
+  .quick-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #nav{padding:14px 20px}
+  .nav-links{display:none}
+  .ham-btn{display:flex}
+  #hero{padding:0 24px 60px;padding-top:100px}
+  .sec{padding:70px 24px}
+  .form-row{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:1fr}
+  #foot{padding:36px 20px}
+  .dd-menu{display:none}
+}
+
+/* BLOCK SEP */
+.block-sep{height:2px;background:linear-gradient(90deg,transparent 0%,rgba(40,116,178,.48) 12%,rgba(100,180,255,.92) 32%,rgba(180,230,255,1) 50%,rgba(100,180,255,.92) 68%,rgba(40,116,178,.48) 88%,transparent 100%);box-shadow:0 0 18px 8px rgba(40,116,178,.28),0 0 45px 16px rgba(40,116,178,.12);position:relative;z-index:2;animation:sep-pulse 3.5s ease-in-out infinite alternate}
+@keyframes sep-pulse{from{opacity:.55;box-shadow:0 0 12px 4px rgba(40,116,178,.18)}to{opacity:1;box-shadow:0 0 28px 10px rgba(40,116,178,.42),0 0 60px 22px rgba(40,116,178,.18)}}
+@keyframes foot-glow{0%,100%{opacity:.6}50%{opacity:1}}
+#foot::before{animation:foot-glow 5s ease-in-out infinite !important;background:radial-gradient(ellipse 80% 220% at 50% 50%,rgba(40,116,178,.28) 0%,transparent 52%),radial-gradient(ellipse 65% 200% at 5% 50%,rgba(40,116,178,.48) 0%,transparent 52%),radial-gradient(ellipse 55% 200% at 95% 50%,rgba(40,116,178,.35) 0%,transparent 52%) !important}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="66" height="24" viewBox="140 65 400 120" xmlns="http://www.w3.org/2000/svg">
+      <g class="nl-z"><path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#fff"/></g>
+      <g class="nl-y"><path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#2874B2"/></g>
+      <g class="nl-t"><path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#fff"/></g>
+    </svg>
+    <div style="border-left:1px solid rgba(255,255,255,.13);padding-left:12px">
+      <div style="font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2.5px;color:rgba(255,255,255,.35);text-transform:uppercase;line-height:1.8">Global</div>
+      <div style="font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2.5px;color:rgba(255,255,255,.35);text-transform:uppercase;line-height:1.8">Industry</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#about" class="nav-link" data-i18n="nav.about">Hakkımızda</a>
+    <div class="has-dd">
+      <span class="nav-link dd-tog"><span data-i18n="nav.companies">Şirketlerimiz</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="dd-menu">
+        <a href="beton.html" class="dd-item"><span class="dd-item-num">01</span>ZYT Beton</a>
+        <a href="galvaniz.html" class="dd-item"><span class="dd-item-num">02</span>ZYT Galvaniz</a>
+        <a href="enerji.html" class="dd-item"><span class="dd-item-num">03</span>ZYT Enerji</a>
+        <a href="atik-donusum.html" class="dd-item"><span class="dd-item-num">04</span>ZYT Makina</a>
+        <a href="tedarik-zinciri.html" class="dd-item"><span class="dd-item-num">05</span>ZYT Tedarik</a>
+      </div>
+    </div>
+    <a href="iletisim.html" class="nav-link" style="color:rgba(255,255,255,.9)" data-i18n="nav.contact">İletişim</a>
+  </div>
+  <div class="lang-sw" id="lang-sw">
+    <button class="l-btn active" data-lang="tr">TR</button>
+    <button class="l-btn" data-lang="en">EN</button>
+    <button class="l-btn" data-lang="ar">AR</button>
+  </div>
+  <button class="ham-btn" id="ham-btn" aria-label="Menüyü Aç">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav" aria-hidden="true">
+  <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:3px;color:rgba(40,116,178,.7);text-transform:uppercase;margin-bottom:24px">ZYT Global Industry</div>
+  <a href="index.html#about" class="mob-link" data-i18n="nav.about" onclick="closeMobNav()">Hakkımızda</a>
+  <div class="mob-sep"></div>
+  <div class="mob-dd-wrap">
+    <button class="mob-link mob-dd-tog" data-i18n="nav.companies" onclick="toggleMobDd(this)">Şirketlerimiz <span class="mob-dd-arr">+</span></button>
+    <div class="mob-dd-inner">
+      <a href="beton.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Beton</a>
+      <a href="galvaniz.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Galvaniz</a>
+      <a href="enerji.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Enerji</a>
+      <a href="atik-donusum.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Makina</a>
+      <a href="tedarik-zinciri.html" class="mob-sub-link" onclick="closeMobNav()">ZYT Tedarik</a>
+    </div>
+  </div>
+  <div class="mob-sep"></div>
+  <a href="blog.html" class="mob-link" onclick="closeMobNav()">Blog</a>
+  <div class="mob-sep"></div>
+  <a href="iletisim.html" class="mob-link" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
+  <div class="mob-lang">
+    <button class="mob-l-btn active" data-lang="tr">TR</button>
+    <button class="mob-l-btn" data-lang="en">EN</button>
+    <button class="mob-l-btn" data-lang="ar">AR</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero" style="padding-top:130px;min-height:42vh">
+  <div class="hero-grid"></div>
+  <div style="position:absolute;inset:0;background:url('https://picsum.photos/seed/architecture/1440/860') center/cover no-repeat;opacity:.05;mix-blend-mode:luminosity;pointer-events:none"></div>
+  <div class="h-amb"></div>
+  <div class="h-scan"></div>
+  <div class="h-dots"></div>
+  <div class="hero-orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(40,116,178,.14),transparent 70%);top:-100px;left:-80px"></div>
+  <div class="hero-orb" style="width:360px;height:360px;background:radial-gradient(circle,rgba(40,116,178,.09),transparent 70%);bottom:-60px;right:10%"></div>
+  <div style="position:relative;z-index:1;max-width:1160px;margin:0 auto;width:100%">
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">// ZYT Global Industry · İletişim</div>
+    <h1 class="hero-title" data-i18n-html="hero.title">Projenizi <span style="color:#2874B2;font-weight:500">konuşalım.</span></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Şirketlerimizden biriyle çalışmak için formu doldurun ya da doğrudan ulaşın — 48 saat içinde uzman ekibimizden yanıt alırsınız.</p>
+  </div>
+</section>
+
+<!-- QUICK CONTACT CARDS -->
+<div class="sec-dark" style="background:#0A2540;padding:48px 80px;position:relative;">
+  <div class="quick-grid">
+    <div class="quick-card rv d1">
+      <div class="qc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.99 12 19.79 19.79 0 011.93 3.4 2 2 0 013.9 1.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9c1.91 3.19 4.72 5.99 7.9 7.9l1.15-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg>
+      </div>
+      <div class="qc-label" data-i18n="qc.phone.label">Telefon</div>
+      <div class="qc-val"><a href="tel:#ZYT_PHONE#" style="color:#fff;text-decoration:none">#ZYT_PHONE#</a></div>
+      <div class="qc-sub" data-i18n="qc.phone.sub">Pazartesi – Cuma, 09:00 – 18:00</div>
+    </div>
+    <div class="quick-card rv d2">
+      <div class="qc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="qc-label" data-i18n="qc.email.label">E-Posta</div>
+      <div class="qc-val"><a href="mailto:#ZYT_EMAIL#" style="color:#fff;text-decoration:none">#ZYT_EMAIL#</a></div>
+      <div class="qc-sub" data-i18n="qc.email.sub">48 saat içinde yanıt</div>
+    </div>
+    <div class="quick-card rv d3">
+      <div class="qc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="qc-label" data-i18n="qc.address.label">Adres</div>
+      <div class="qc-val" style="font-size:14px" data-i18n="qc.address.val">Ankara, Türkiye</div>
+      <div class="qc-sub" data-i18n="qc.address.sub">Genel Merkez</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="sec sec-light">
+  <div class="ct-wrap">
+    <!-- LEFT: INFO + WHATSAPP + SOCIAL -->
+    <div>
+      <div class="rv" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:16px" data-i18n="ct.tag">§ 01 / Bize Ulaşın</div>
+      <h2 class="rv d1" style="font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;color:#0A2540;margin-bottom:12px" data-i18n-html="ct.title">Birlikte <span style="color:#2874B2;font-weight:500">büyüyelim.</span></h2>
+      <p class="rv d2" style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:#3A4858;line-height:1.75;margin-bottom:36px;max-width:400px" data-i18n="ct.sub">Beton santrali, galvaniz tesisi, enerji dönüşüm veya tedarik zinciri projeleriniz için doğru ekiple buluşun.</p>
+
+      <!-- Info rows -->
+      <div class="rv d3">
+        <div class="ct-row">
+          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.99 12 19.79 19.79 0 011.93 3.4 2 2 0 013.9 1.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9c1.91 3.19 4.72 5.99 7.9 7.9l1.15-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg></div>
+          <div><div class="ct-info-label" data-i18n="ct.phone.label">Telefon</div><div class="ct-info-val"><a href="tel:#ZYT_PHONE#">#ZYT_PHONE#</a></div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="ct-info-label" data-i18n="ct.email.label">E-Posta</div><div class="ct-info-val"><a href="mailto:#ZYT_EMAIL#">#ZYT_EMAIL#</a></div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="ct-info-label" data-i18n="ct.address.label">Adres</div><div class="ct-info-val" data-i18n="ct.address.val">Ankara, Türkiye</div></div>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="rv d4" style="margin-top:32px;padding:24px;background:#fff;border-radius:10px;border:1px solid rgba(37,211,102,.2);box-shadow:0 4px 20px rgba(0,0,0,.06)">
+        <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#3A4858;margin-bottom:10px" data-i18n="wa.title">Hızlı İletişim</div>
+        <p style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:13.5px;color:#3A4858;line-height:1.65;margin-bottom:16px" data-i18n="wa.desc">WhatsApp üzerinden anlık mesaj gönderin — ekibimiz en kısa sürede yanıt verir.</p>
+        <a href="https://wa.me/#WHATSAPP_NUMBER#?text=Merhaba%2C%20ZYT%20Global%20Industry%20ile%20iletişime%20geçmek%20istiyorum." class="wa-btn" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="wa.btn">WhatsApp ile Yaz</span>
+        </a>
+      </div>
+
+      <!-- Social -->
+      <div class="rv d5" style="margin-top:28px">
+        <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#3A4858;margin-bottom:14px" data-i18n="soc.title">Sosyal Medya</div>
+        <div class="soc-row">
+          <a href="https://linkedin.com/company/zyt-global-industry" class="soc-btn" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://instagram.com/zytglobalindustry" class="soc-btn" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://youtube.com/@zytglobalindustry" class="soc-btn" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="rv d2" style="background:#fff;border-radius:12px;padding:40px;box-shadow:0 8px 40px rgba(10,37,64,.1)">
+      <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#2874B2;margin-bottom:8px" data-i18n="form.tag">§ 02 / Mesaj Gönder</div>
+      <h3 style="font-family:'Sora Variable',Sora,sans-serif;font-size:22px;font-weight:400;color:#0A2540;margin-bottom:28px;letter-spacing:-.02em" data-i18n="form.title">Teklif ve proje sorguları</h3>
+      <form id="contact-form" style="display:flex;flex-direction:column;gap:16px" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div><label class="f-lbl" data-i18n="form.name.lbl">Ad Soyad</label><input type="text" class="f-inp" data-i18n-ph="form.name.ph" placeholder="Adınız Soyadınız" required></div>
+          <div><label class="f-lbl" data-i18n="form.company.lbl">Şirket</label><input type="text" class="f-inp" data-i18n-ph="form.company.ph" placeholder="Şirket Adı"></div>
+        </div>
+        <div class="form-row">
+          <div><label class="f-lbl" data-i18n="form.email.lbl">E-Posta</label><input type="email" class="f-inp" data-i18n-ph="form.email.ph" placeholder="email@sirket.com" required></div>
+          <div><label class="f-lbl" data-i18n="form.phone.lbl">Telefon</label><input type="tel" class="f-inp" placeholder="+90 5__ ___ __ __"></div>
+        </div>
+        <div>
+          <label class="f-lbl" data-i18n="form.sector.lbl">İlgili Şirket / Sektör</label>
+          <select class="f-inp">
+            <option value="">Seçin…</option>
+            <option>ZYT Beton — Beton Santralleri</option>
+            <option>ZYT Galvaniz — Galvaniz Tesisleri</option>
+            <option>ZYT Enerji — Atık-Enerji Dönüşüm</option>
+            <option>ZYT Makina — Çelik Yapı & Mekanik İmalat</option>
+            <option>ZYT Tedarik — Tedarik Zinciri Yönetimi</option>
+            <option>Genel Bilgi</option>
+          </select>
+        </div>
+        <div>
+          <label class="f-lbl" data-i18n="form.topic.lbl">Konu</label>
+          <select class="f-inp">
+            <option value="">Seçin…</option>
+            <option>Fiyat Teklifi</option>
+            <option>Teknik Bilgi</option>
+            <option>Proje Değerlendirmesi</option>
+            <option>Ortaklık / İşbirliği</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div>
+          <label class="f-lbl" data-i18n="form.msg.lbl">Mesajınız</label>
+          <textarea class="f-inp" rows="5" data-i18n-ph="form.msg.ph" placeholder="Projenizi kısaca anlatın — kapasite, lokasyon, bütçe aralığı veya diğer gereksinimlerinizi belirtin." required></textarea>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <button type="submit" class="btn-p">
+            <span data-i18n="form.submit">Gönder</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1px;color:rgba(58,72,88,.4)"><span data-i18n="form.privacy">48 saat içinde yanıt · Bilgileriniz gizli tutulur</span></span>
+        </div>
+        <div id="form-success" style="display:none;padding:14px 18px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.3);border-radius:6px;font-family:'JetBrains Mono Variable',monospace;font-size:11px;letter-spacing:1px;color:#1a8a40">
+          <span data-i18n="form.success">✓ Mesajınız alındı — en geç 48 saat içinde dönüş yapılacak.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="block-sep"></div>
+<footer id="foot">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="foot-inner">
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:13px">
+        <svg width="50" viewBox="140 60 400 130" xmlns="http://www.w3.org/2000/svg">
+          <path d="M150,70 L250,70 L260,80 L260,86 L180,164 L260,164 L260,180 L160,180 L150,170 L150,164 L158,164 L238,86 L150,86 Z" fill="#fff"/>
+          <path d="M285,76 L291,70 L303,70 L336,122 L344,122 L377,70 L389,70 L395,76 L348,130 L348,180 L332,180 L332,130 Z" fill="#2874B2"/>
+          <path d="M420,80 L430,70 L520,70 L530,80 L530,86 L483,86 L483,180 L467,180 L467,86 L420,86 Z" fill="#fff"/>
+        </svg>
+        <span style="font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.38);text-transform:uppercase">ZYT Global Industry</span>
+      </a>
+      <a href="blog.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Blog</a>
+      <div class="ft-social">
+        <a href="https://linkedin.com/company/zyt-global-industry" class="ft-soc-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://youtube.com/@ZYTGlobalIndustry" class="ft-soc-link" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://instagram.com/zytglobalindustry" class="ft-soc-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://tiktok.com/@zytglobalindustry" class="ft-soc-link" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a href="https://github.com/ZYTGlobalIndustry" class="ft-soc-link" aria-label="GitHub" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      </div>
+    </div>
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(40,116,178,.18),transparent);margin-bottom:20px"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.18);text-transform:uppercase" data-i18n="foot.copy">© 2026 ZYT Global Industry Grubu — Tüm Hakları Saklıdır</span>
+      <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.18);text-transform:uppercase">Ankara · Türkiye</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
+  document.getElementById('btt').classList.toggle('vis',scrollY>400);
+},{passive:true});
+
+/* Scroll reveal */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
+},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* Hamburger */
+const hamBtn=document.getElementById('ham-btn');
+const mobNav=document.getElementById('mob-nav');
+function closeMobNav(){mobNav.classList.remove('open');hamBtn.classList.remove('open');mobNav.setAttribute('aria-hidden','true');}
+hamBtn.addEventListener('click',()=>{
+  const open=mobNav.classList.toggle('open');
+  hamBtn.classList.toggle('open',open);
+  mobNav.setAttribute('aria-hidden',String(!open));
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMobNav(); });
+
+/* Mobile dropdown */
+function toggleMobDd(el){
+  const wrap=el.closest('.mob-dd-wrap');
+  wrap.classList.toggle('open');
+}
+
+/* i18n */
+const T={
+  tr:{
+    'nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.contact':'İletişim',
+    'hero.eyebrow':'// ZYT Global Industry · İletişim',
+    'hero.title':'Projenizi <span style="color:#2874B2;font-weight:500">konuşalım.</span>',
+    'hero.sub':'Şirketlerimizden biriyle çalışmak için formu doldurun ya da doğrudan ulaşın — 48 saat içinde uzman ekibimizden yanıt alırsınız.',
+    'qc.phone.label':'Telefon','qc.phone.sub':'Pazartesi – Cuma, 09:00 – 18:00',
+    'qc.email.label':'E-Posta','qc.email.sub':'48 saat içinde yanıt',
+    'qc.address.label':'Adres','qc.address.val':'Ankara, Türkiye','qc.address.sub':'Genel Merkez',
+    'ct.tag':'§ 01 / Bize Ulaşın',
+    'ct.title':'Birlikte <span style="color:#2874B2;font-weight:500">büyüyelim.</span>',
+    'ct.sub':'Beton santrali, galvaniz tesisi, enerji dönüşüm veya tedarik zinciri projeleriniz için doğru ekiple buluşun.',
+    'ct.phone.label':'Telefon','ct.email.label':'E-Posta','ct.address.label':'Adres','ct.address.val':'Ankara, Türkiye',
+    'wa.title':'Hızlı İletişim',
+    'wa.desc':'WhatsApp üzerinden anlık mesaj gönderin — ekibimiz en kısa sürede yanıt verir.',
+    'wa.btn':'WhatsApp ile Yaz',
+    'soc.title':'Sosyal Medya',
+    'form.tag':'§ 02 / Mesaj Gönder','form.title':'Teklif ve proje sorguları',
+    'form.name.lbl':'Ad Soyad','form.name.ph':'Adınız Soyadınız',
+    'form.company.lbl':'Şirket','form.company.ph':'Şirket Adı',
+    'form.email.lbl':'E-Posta','form.email.ph':'email@sirket.com',
+    'form.phone.lbl':'Telefon',
+    'form.sector.lbl':'İlgili Şirket / Sektör',
+    'form.topic.lbl':'Konu',
+    'form.msg.lbl':'Mesajınız','form.msg.ph':'Projenizi kısaca anlatın — kapasite, lokasyon, bütçe aralığı veya diğer gereksinimlerinizi belirtin.',
+    'form.submit':'Gönder',
+    'form.privacy':'48 saat içinde yanıt · Bilgileriniz gizli tutulur',
+    'form.success':'✓ Mesajınız alındı — en geç 48 saat içinde dönüş yapılacak.',
+    'foot.copy':'© 2026 ZYT Global Industry Grubu — Tüm Hakları Saklıdır'
+  },
+  en:{
+    'nav.about':'About','nav.companies':'Companies','nav.contact':'Contact',
+    'hero.eyebrow':'// ZYT Global Industry · Contact',
+    'hero.title':"Let\'s discuss <span style=\"color:#2874B2;font-weight:500\">your project.</span>",
+    'hero.sub':"Fill out the form or reach us directly — you\'ll hear from our team within 48 hours.",
+    'qc.phone.label':'Phone','qc.phone.sub':'Monday – Friday, 09:00 – 18:00',
+    'qc.email.label':'E-Mail','qc.email.sub':'Reply within 48 hours',
+    'qc.address.label':'Address','qc.address.val':'Ankara, Turkey','qc.address.sub':'Headquarters',
+    'ct.tag':'§ 01 / Get in Touch',
+    'ct.title':'Let\'s grow <span style="color:#2874B2;font-weight:500">together.</span>',
+    'ct.sub':'Connect with the right team for your concrete plant, galvanising facility, energy conversion or supply chain project.',
+    'ct.phone.label':'Phone','ct.email.label':'E-Mail','ct.address.label':'Address','ct.address.val':'Ankara, Turkey',
+    'wa.title':'Quick Contact',
+    'wa.desc':'Send an instant message on WhatsApp — our team will reply as soon as possible.',
+    'wa.btn':'Write on WhatsApp',
+    'soc.title':'Social Media',
+    'form.tag':'§ 02 / Send a Message','form.title':'Quote & project enquiries',
+    'form.name.lbl':'Full Name','form.name.ph':'Your Name',
+    'form.company.lbl':'Company','form.company.ph':'Company Name',
+    'form.email.lbl':'E-Mail','form.email.ph':'email@company.com',
+    'form.phone.lbl':'Phone',
+    'form.sector.lbl':'Relevant Company / Sector',
+    'form.topic.lbl':'Subject',
+    'form.msg.lbl':'Your Message','form.msg.ph':'Briefly describe your project — capacity, location, budget or other requirements.',
+    'form.submit':'Send',
+    'form.privacy':'Reply within 48 h · Your information is kept confidential',
+    'form.success':'✓ Message received — we will get back to you within 48 hours.',
+    'foot.copy':'© 2026 ZYT Global Industry Group — All Rights Reserved'
+  },
+  ar:{
+    'nav.about':'من نحن','nav.companies':'شركاتنا','nav.contact':'اتصل بنا',
+    'hero.eyebrow':'// ZYT Global Industry · التواصل',
+    'hero.title':'دعنا نتحدث عن <span style="color:#2874B2;font-weight:500">مشروعك.</span>',
+    'hero.sub':'أملأ النموذج أو تواصل معنا مباشرةً — سيرد فريقنا خلال 48 ساعة.',
+    'qc.phone.label':'هاتف','qc.phone.sub':'الاثنين – الجمعة، 09:00 – 18:00',
+    'qc.email.label':'البريد الإلكتروني','qc.email.sub':'رد خلال 48 ساعة',
+    'qc.address.label':'العنوان','qc.address.val':'أنقرة، تركيا','qc.address.sub':'المقر الرئيسي',
+    'ct.tag':'§ 01 / تواصل معنا',
+    'ct.title':'لننمو <span style="color:#2874B2;font-weight:500">معاً.</span>',
+    'ct.sub':'تواصل مع الفريق المناسب لمشروع محطة خرسانة أو منشأة جلفنة أو تحويل طاقة أو سلسلة توريد.',
+    'ct.phone.label':'هاتف','ct.email.label':'البريد الإلكتروني','ct.address.label':'العنوان','ct.address.val':'أنقرة، تركيا',
+    'wa.title':'تواصل سريع',
+    'wa.desc':'أرسل رسالة فورية عبر واتساب — سيرد فريقنا في أقرب وقت ممكن.',
+    'wa.btn':'اكتب عبر واتساب',
+    'soc.title':'وسائل التواصل الاجتماعي',
+    'form.tag':'§ 02 / أرسل رسالة','form.title':'استفسارات العروض والمشاريع',
+    'form.name.lbl':'الاسم الكامل','form.name.ph':'اسمك الكامل',
+    'form.company.lbl':'الشركة','form.company.ph':'اسم الشركة',
+    'form.email.lbl':'البريد الإلكتروني','form.email.ph':'email@company.com',
+    'form.phone.lbl':'هاتف',
+    'form.sector.lbl':'الشركة / القطاع المعني',
+    'form.topic.lbl':'الموضوع',
+    'form.msg.lbl':'رسالتك','form.msg.ph':'صف مشروعك باختصار — السعة، الموقع، نطاق الميزانية أو المتطلبات الأخرى.',
+    'form.submit':'إرسال',
+    'form.privacy':'رد خلال 48 ساعة · معلوماتك تُحفظ بسرية',
+    'form.success':'✓ تم استلام رسالتك — سنتواصل معك خلال 48 ساعة.',
+    'foot.copy':'© 2026 مجموعة ZYT Global Industry — جميع الحقوق محفوظة'
+  }
+};
+function setLang(l){
+  const t=T[l];if(!t)return;
+  document.documentElement.lang=l;
+  document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=t[e.dataset.i18n];if(v!==undefined)e.textContent=v});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>{const v=t[e.dataset.i18nHtml];if(v!==undefined)e.innerHTML=v});
+  document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const v=t[e.dataset.i18nPh];if(v!==undefined)e.placeholder=v});
+  document.querySelectorAll('.l-btn,.mob-l-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  localStorage.setItem('zyt-lang',l);
+}
+const _l=localStorage.getItem('zyt-lang')||(navigator.language.startsWith('ar')?'ar':navigator.language.startsWith('tr')?'tr':'en');
+setLang(_l);
+document.querySelectorAll('.l-btn,.mob-l-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+/* Form submit */
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type="submit"]');
+  btn.textContent='Gönderiliyor…';
+  btn.disabled=true;
+  setTimeout(()=>{
+    document.getElementById('form-success').style.display='block';
+    e.target.reset();
+    btn.innerHTML='Gönder <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.disabled=false;
+  },900);
+}
+</script>
+
+<!-- BACK TO TOP -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Yukarı Git" aria-label="Yukarı Git">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 9.5L7 4.5L12 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</body>
+</html>
