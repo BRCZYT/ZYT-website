@@ -25,11 +25,11 @@ tailwind.config={theme:{extend:{colors:{navy:'#0A2540',mid:'#051728',blue:'#2874
 /* ── Reset ── */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#051728;color:#fff;font-family:'Manrope Variable',Manrope,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:#081f33;color:#f5fbff;font-family:'Manrope Variable',Manrope,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.loading{overflow:hidden}
 
 /* ── Grain ── */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.03;
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.06;
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
 /* ══════════════════════════════════════════
@@ -91,7 +91,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .nav-link{font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .nav-link:hover{color:#fff}
 /* DARK SECTION SEPARATOR — subtle glow edge at top of every dark section */
-.sec-dark,.cta-band{box-shadow:inset 0 1px 0 rgba(40,116,178,.28),inset 0 60px 60px -60px rgba(40,116,178,.07)}
+.sec-dark,.cta-band{box-shadow:inset 0 1px 0 rgba(40,116,178,.32),inset 0 60px 60px -60px rgba(40,116,178,.1)}
 #foot{border-top:1px solid rgba(40,116,178,.22) !important}
 /* BACK TO TOP */
 #btt{position:fixed;right:24px;bottom:32px;width:44px;height:44px;border-radius:50%;background:rgba(10,37,64,.88);border:1px solid rgba(40,116,178,.45);color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:190;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s,box-shadow .2s;backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.35),0 0 0 1px rgba(40,116,178,.1)}
@@ -101,16 +101,23 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .cta-band,.stats-band,.clients-band,#plant-sec{position:relative;overflow:hidden;isolation:isolate}
 #foot{position:relative;overflow:hidden;isolation:isolate}
 .sec-dark{position:relative;overflow:hidden;isolation:isolate}
-.cta-band::before,.stats-band::before,.clients-band::before,#plant-sec::before,#foot::before,.sec-dark::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 75% 200% at 50% 50%,rgba(40,116,178,.18) 0%,transparent 55%),radial-gradient(ellipse 60% 180% at 8% 50%,rgba(40,116,178,.38) 0%,transparent 55%),radial-gradient(ellipse 48% 180% at 92% 50%,rgba(40,116,178,.26) 0%,transparent 55%);animation:hamb 10s ease-in-out infinite alternate}
+.cta-band::before,.stats-band::before,.clients-band::before,#plant-sec::before,#foot::before,.sec-dark::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 75% 200% at 50% 50%,rgba(40,116,178,.26) 0%,transparent 55%),radial-gradient(ellipse 60% 180% at 8% 50%,rgba(40,116,178,.48) 0%,transparent 55%),radial-gradient(ellipse 48% 180% at 92% 50%,rgba(40,116,178,.34) 0%,transparent 55%);animation:hamb 12s ease-in-out infinite alternate, bg-pulse 18s ease-in-out infinite}
 /* HERO AMBIENT */
 .h-amb{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.h-amb::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.28) 0%,transparent 65%);top:-220px;left:-200px;animation:hamb 8s ease-in-out infinite alternate}
-.h-amb::after{content:'';position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.2) 0%,transparent 65%);bottom:-120px;right:-100px;animation:hamb 6s ease-in-out infinite alternate-reverse}
+.h-amb::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.38) 0%,transparent 65%);top:-240px;left:-220px;animation:hamb 10s ease-in-out infinite alternate, bg-pulse 14s ease-in-out infinite}
+.h-amb::after{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(40,116,178,.32) 0%,transparent 65%);bottom:-140px;right:-110px;animation:hamb 7s ease-in-out infinite alternate-reverse, bg-pulse 16s ease-in-out infinite}
 @keyframes hamb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(28px,-24px)}}
 .h-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(40,116,178,.55) 30%,rgba(100,180,255,.7) 50%,rgba(40,116,178,.55) 70%,transparent 100%);animation:hscan 6s ease-in-out infinite;pointer-events:none;z-index:1;top:0}
 @keyframes hscan{0%{top:-2px;opacity:0}5%{opacity:1}90%{opacity:.5}100%{top:100%;opacity:0}}
-.h-dots{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(40,116,178,.35) 1px,transparent 1px);background-size:80px 80px;opacity:.25;animation:hdot 4s ease-in-out infinite alternate}
+.h-dots{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(40,116,178,.4) 1px,transparent 1px);background-size:64px 64px;opacity:.36;animation:hdot 5s ease-in-out infinite alternate}
 @keyframes hdot{from{opacity:.15}to{opacity:.32}}
+
+/* Soft background pulse to add liveliness */
+@keyframes bg-pulse{0%{transform:scale(1);opacity:.98}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.98}}
+
+/* Logo entrance */
+@keyframes logo-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.nav-logo{animation:logo-in .8s .9s both}
 /* HERO BACKGROUND LIFT */
 #hero{background:linear-gradient(150deg,#0f3d72 0%,#09274a 30%,#061e3a 55%,#051728 80%) !important}
 .menu-btn{font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.22);padding:9px 20px;border-radius:3px;cursor:pointer;transition:border-color .2s,background .2s}
