@@ -410,6 +410,12 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
   background:linear-gradient(90deg,#2874B2 0%,rgba(92,141,184,.7) 100%);
   transform-origin:left;transform:scaleX(0);
   box-shadow:0 0 10px rgba(40,116,178,.8),0 0 24px rgba(40,116,178,.4)}
+/* foot-top-brightness-added */
+/* footer top brightness */
+#foot{background:linear-gradient(180deg,#1e4f84 0%,#102d56 18%,#071e38 52%,#051728 100%) !important}
+#foot::after{content:'';position:absolute;top:0;left:0;right:0;height:220px;background:radial-gradient(ellipse 90% 100% at 50% 0%,rgba(40,116,178,.55) 0%,rgba(40,116,178,.22) 40%,transparent 70%);pointer-events:none;z-index:0;animation:foot-top-pulse 6s ease-in-out infinite}
+@keyframes foot-top-pulse{0%,100%{opacity:.75}50%{opacity:1}}
+
 </style>
 </head>
 <body>
@@ -801,21 +807,6 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
     </div>
   </div>
 </section>
-
-<!-- CTA BAND -->
-<div class="block-sep"></div>
-<div class="cta-band rv">
-  <div class="cta-line"></div>
-  <div class="cta-card">
-  <div class="cta-pre rv" data-i18n="cta.pre">// Enerji dönüşüm projeniz için</div>
-  <div class="cta-h rv" data-i18n-html="cta.h">Atık Enerjinizi<br><span style="color:#2874B2">Değere Dönüştürün</span></div>
-  <p class="cta-p rv" data-i18n="cta.p">Atık türü, miktar ve lokasyon bilgilerini paylaşın — ZYT mühendisleri enerji dönüşüm potansiyelinizi hesaplayıp en uygun teknoloji önerisini sunsun.</p>
-  <div class="cta-btns rv">
-    <a href="iletisim.html" class="btn-p" data-i18n="cta.btn1">Teklif İste →</a>
-    <a href="index.html#about" class="btn-o" data-i18n="cta.btn2">Hakkımızda</a>
-  </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <div class="block-sep"></div>
