@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -477,6 +477,116 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 @keyframes sep-pulse{from{opacity:.55;box-shadow:0 0 12px 4px rgba(40,116,178,.18)}to{opacity:1;box-shadow:0 0 28px 10px rgba(40,116,178,.42),0 0 60px 22px rgba(40,116,178,.18)}}
 @keyframes foot-glow{0%,100%{opacity:.6}50%{opacity:1}}
 #foot::before{animation:foot-glow 5s ease-in-out infinite !important;background:radial-gradient(ellipse 80% 220% at 50% 50%,rgba(40,116,178,.28) 0%,transparent 52%),radial-gradient(ellipse 65% 200% at 5% 50%,rgba(40,116,178,.48) 0%,transparent 52%),radial-gradient(ellipse 55% 200% at 95% 50%,rgba(40,116,178,.35) 0%,transparent 52%) !important}
+
+/* ════════════════════════════════════════════
+   ZYT LIGHT MODE
+════════════════════════════════════════════ */
+body{background:#F5F7FA!important;color:#0D1F2D!important}
+body::before{opacity:.015!important}
+
+/* Dark accent sections — keep explicitly dark */
+.sec-dark{background:#0A2540!important}
+.cta-band{background:linear-gradient(135deg,#051728,#0A2540)!important}
+.stats-band{background:#051728!important}
+.clients-band{background:#0A2540!important}
+.ticker-outer{background:#0A2540!important}
+
+/* ── NAV ── */
+#nav{background:rgba(255,255,255,.95)!important;border-bottom:1px solid rgba(13,31,45,.09)!important}
+#nav.scrolled{background:rgba(255,255,255,.98)!important;box-shadow:0 2px 20px rgba(13,31,45,.07)!important;border-bottom:1px solid rgba(13,31,45,.11)!important}
+/* Logo SVG — Z and T letters: white → dark */
+#nav .nl-z path,#nav .nl-t path{fill:#0D1F2D!important}
+/* Logo sub-text */
+#nav .nav-logo>div{border-left-color:rgba(13,31,45,.14)!important}
+#nav .nav-logo>div>div{color:rgba(13,31,45,.4)!important}
+/* Nav links */
+.nav-link{color:rgba(13,31,45,.56)!important}
+.nav-link:hover,.nav-link.active{color:#0D1F2D!important}
+/* Menu button (index.html) */
+.menu-btn{color:#0D1F2D!important;border-color:rgba(13,31,45,.22)!important}
+.menu-btn:hover{background:rgba(13,31,45,.04)!important;border-color:rgba(13,31,45,.45)!important}
+
+/* ── DROPDOWN ── */
+.dd-menu{background:rgba(255,255,255,.99)!important;border-color:rgba(13,31,45,.1)!important;box-shadow:0 16px 48px rgba(13,31,45,.09),0 0 0 1px rgba(13,31,45,.04)!important}
+.dd-item{color:rgba(13,31,45,.65)!important}
+.dd-item:hover{color:#0D1F2D!important;background:rgba(40,116,178,.07)!important}
+.dd-divider{background:rgba(13,31,45,.07)!important}
+
+/* ── MOBILE NAV ── */
+#mob-nav{background:#F5F7FA!important}
+.mob-link{color:rgba(13,31,45,.65)!important}
+.mob-link:hover{color:#0D1F2D!important}
+.mob-sub-link{color:rgba(13,31,45,.5)!important}
+.mob-sep{background:rgba(13,31,45,.12)!important}
+
+/* ── LANG SWITCHER ── */
+.lang-sw{border-color:rgba(13,31,45,.15)!important}
+.l-btn{color:rgba(13,31,45,.5)!important;border-right-color:rgba(13,31,45,.1)!important}
+.l-btn.active{color:#0D1F2D!important;background:rgba(40,116,178,.13)!important}
+.l-btn:hover:not(.active){color:rgba(13,31,45,.8)!important;background:rgba(13,31,45,.04)!important}
+
+/* ── HAMBURGER ── */
+.ham-btn span{background:#0D1F2D!important}
+
+/* ── MOBILE LANG BUTTONS ── */
+.mob-l-btn{color:rgba(13,31,45,.5)!important;border-color:rgba(13,31,45,.12)!important}
+.mob-l-btn.active{color:#0D1F2D!important;border-color:rgba(40,116,178,.5)!important;background:rgba(40,116,178,.08)!important}
+.mob-l-btn:hover:not(.active){color:rgba(13,31,45,.7)!important}
+
+/* ── BACK TO TOP ── */
+#btt{background:rgba(255,255,255,.9)!important;border-color:rgba(13,31,45,.14)!important;color:rgba(13,31,45,.65)!important;box-shadow:0 4px 16px rgba(13,31,45,.08),0 0 0 1px rgba(13,31,45,.05)!important}
+#btt:hover{background:#2874B2!important;color:#fff!important;border-color:transparent!important;box-shadow:0 6px 24px rgba(40,116,178,.3)!important}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar-track{background:#F5F7FA!important}
+
+/* ── BLOG CARDS ── */
+.blog-card{background:#FFFFFF!important;border-color:rgba(13,31,45,.08)!important}
+.blog-card:hover{border-color:rgba(40,116,178,.22)!important;box-shadow:0 8px 32px rgba(13,31,45,.08)!important;transform:translateY(-4px)!important}
+.blog-title{color:#0D1F2D!important}
+.blog-excerpt{color:rgba(13,31,45,.6)!important}
+.blog-date{color:rgba(13,31,45,.38)!important}
+.blog-cat{color:rgba(13,31,45,.45)!important}
+.blog-link{color:#2874B2!important}
+.featured-card{background:#FFFFFF!important;border:1px solid rgba(13,31,45,.08)!important}
+.featured-text-panel{background:#FFFFFF!important}
+.blog-tag{background:rgba(40,116,178,.1)!important;color:#2874B2!important}
+.filter-tab{color:rgba(13,31,45,.5)!important;border-color:rgba(13,31,45,.12)!important;background:transparent!important}
+.filter-tab.active{color:#0D1F2D!important;background:#0D1F2D!important;color:#fff!important;border-color:#0D1F2D!important}
+
+/* ── BLOG SECTION LIGHT ── */
+#blog-section{background:linear-gradient(180deg,#EDF2F8 0%,#E4EBF5 100%)!important}
+
+/* ── SEC-LIGHT SECTION UPGRADE ── */
+.sec-light{background:#EDF2F8!important}
+
+/* ── PRELOADER ── */
+#pl{background:#F5F7FA!important}
+#pl .pl-seq-label{color:rgba(13,31,45,.28)!important}
+#pl path[fill="#fff"]{fill:#0D1F2D!important}
+
+/* ── HERO ── */
+#hero{background:linear-gradient(160deg,#EBF1FA 0%,#F0F5FC 40%,#F5F7FA 100%)!important}
+.hero-grid-bg{background-image:linear-gradient(rgba(10,37,64,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(10,37,64,.06) 1px,transparent 1px)!important}
+.hero-orb-1{background:radial-gradient(circle,rgba(40,116,178,.09) 0%,transparent 65%)!important}
+.hero-orb-2{background:radial-gradient(circle,rgba(40,116,178,.06) 0%,transparent 65%)!important}
+.h-amb::before{background:radial-gradient(circle,rgba(40,116,178,.07) 0%,transparent 65%)!important}
+.h-amb::after{background:radial-gradient(circle,rgba(40,116,178,.05) 0%,transparent 65%)!important}
+.h-scan{opacity:.08!important}
+.h-dots{background-image:radial-gradient(circle,rgba(10,37,64,.12) 1px,transparent 1px)!important;opacity:.16!important}
+.hero-eyebrow{color:rgba(40,116,178,.85)!important}
+.hero-h1{color:#0A2540!important}
+[data-i18n="hero.eco"]{color:rgba(13,31,45,.42)!important}
+#hero svg text{fill:rgba(10,37,64,.52)!important}
+#hero svg circle[fill="#2874B2"]{fill:#2874B2!important}
+.sector-bar{border-top-color:rgba(10,37,64,.08)!important}
+.s-tab{color:rgba(13,31,45,.45)!important;border-color:rgba(40,116,178,.18)!important;background:transparent!important}
+.s-tab.active{background:#0A2540!important;color:#fff!important;border-color:#0A2540!important}
+.s-tab:hover:not(.active){border-color:rgba(40,116,178,.5)!important;color:#0A2540!important}
+.s-arrow{border-color:rgba(10,37,64,.14)!important;color:rgba(10,37,64,.38)!important}
+.s-arrow:hover{border-color:rgba(40,116,178,.45)!important;color:#0A2540!important}
+.scroll-hint span{color:rgba(10,37,64,.2)!important}
+.scroll-line{background:linear-gradient(to bottom,rgba(40,116,178,.35),transparent)!important}
 </style>
 </head>
 <body class="loading">
