@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const files = [
   'index.html','beton.html','galvaniz.html','enerji.html',
-  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','blog.html'
+  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','akademi.html'
 ];
 
 const BTT_JS = `window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(b)b.classList.toggle('vis',scrollY>400);},{passive:true});`;
@@ -15,7 +15,7 @@ const SEP_CSS = `
 const FOOT_ANIM = `@keyframes foot-glow{0%,100%{opacity:.6}50%{opacity:1}}
 #foot::before{animation:foot-glow 5s ease-in-out infinite !important;background:radial-gradient(ellipse 80% 220% at 50% 50%,rgba(40,116,178,.28) 0%,transparent 52%),radial-gradient(ellipse 65% 200% at 5% 50%,rgba(40,116,178,.48) 0%,transparent 52%),radial-gradient(ellipse 55% 200% at 95% 50%,rgba(40,116,178,.35) 0%,transparent 52%) !important}`;
 
-// Minimal T dict for blog.html which has no i18n system
+// Minimal T dict for akademi.html which has no i18n system
 const BLOG_SETLANG = `const T={
   tr:{'nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.contact':'İletişim',
       'cta.h':'Projeniz için konuşalım.','cta.sub':'Sektörünüze özel çözüm için uzman ekibimize ulaşın.',
@@ -143,7 +143,7 @@ for (const file of files) {
 
   // ══ 6. BLOG.HTML: add full i18n system ══════════════════════════════
 
-  if (file === 'blog.html') {
+  if (file === 'akademi.html') {
 
     // Add data-i18n to nav links that lack it
     html = html.replace(

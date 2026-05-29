@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const files = [
   'index.html','beton.html','galvaniz.html','enerji.html',
-  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','blog.html'
+  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','akademi.html'
 ];
 
 // isolation:isolate creates a stacking context so z-index:-1 pseudo-element
@@ -37,7 +37,7 @@ for (const file of files) {
   );
   if (html !== before2) changed.push('sec-dark-class');
 
-  // 3. blog.html has a <section style="...background:#051728..."> without sec class
+  // 3. akademi.html has a <section style="...background:#051728..."> without sec class
   html = html.replace(
     /<section style="([^"]*background:#051728[^"]*)"/g,
     '<section class="sec-dark" style="$1"'

@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const files = [
   'index.html','beton.html','galvaniz.html','enerji.html',
-  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','blog.html'
+  'atik-donusum.html','tedarik-zinciri.html','iletisim.html','akademi.html'
 ];
 
 // ── CSS chunks to inject ──────────────────────────────────────────────
@@ -27,7 +27,7 @@ const HERO_GRID_FIX2 = `.05) 1px,transparent 1px),linear-gradient(90deg,rgba(40,
 const HERO_GRID_NEW2 = `.14) 1px,transparent 1px),linear-gradient(90deg,rgba(40,116,178,.14)`;
 
 // ── Blog footer link HTML ─────────────────────────────────────────────
-const BLOG_FT_LINK = `<a href="blog.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Blog</a>`;
+const BLOG_FT_LINK = `<a href="akademi.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Blog</a>`;
 
 for (const file of files) {
   if (!fs.existsSync(file)) { console.log(`[${file}] NOT FOUND`); continue; }
@@ -55,7 +55,7 @@ for (const file of files) {
   changed.push('blog-from-nav');
 
   // 3. ADD BLOG LINK TO FOOTER near ft-social
-  if (!html.includes('blog.html" style="font-family')) {
+  if (!html.includes('akademi.html" style="font-family')) {
     html = html.replace(
       '<div class="ft-social">',
       BLOG_FT_LINK + '\n      <div class="ft-social">'

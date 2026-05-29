@@ -29,7 +29,7 @@ const DD_NAV_NEW = `    <div class="has-dd">
         <a href="tedarik-zinciri.html" class="dd-item"><span class="dd-item-num">05</span>ZYT Tedarik</a>
       </div>
     </div>
-    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="akademi.html" class="nav-link">Blog</a>
     <a href="iletisim.html" class="nav-link" style="color:rgba(255,255,255,.8)" data-i18n="nav.contact">İletişim</a>
   </div>`;
 
@@ -44,7 +44,7 @@ const MOB_DD_NEW = `  <div class="mob-dd-wrap">
     </div>
   </div>
   <div class="mob-sep"></div>
-  <a href="blog.html" class="mob-link" onclick="closeMobNav()">Blog</a>
+  <a href="akademi.html" class="mob-link" onclick="closeMobNav()">Blog</a>
   <div class="mob-sep"></div>
   <a href="iletisim.html" class="mob-link" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>`;
 

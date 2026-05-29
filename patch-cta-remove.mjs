@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 const ctaPages  = ['beton.html','galvaniz.html','enerji.html','atik-donusum.html','tedarik-zinciri.html'];
-const allPages  = [...ctaPages, 'index.html', 'blog.html', 'iletisim.html'];
+const allPages  = [...ctaPages, 'index.html', 'akademi.html', 'iletisim.html'];
 
 // ── 1. Remove CTA blocks ────────────────────────────────────────────────────
 for (const f of ctaPages) {

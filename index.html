@@ -293,6 +293,13 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .stat-n{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(2rem,4.2vw,3.4rem);font-weight:300;letter-spacing:-.035em;color:#fff;line-height:1}
 .stat-n sup{font-size:.55em;color:#2874B2;font-weight:500}
 .stat-lbl{font-family:'JetBrains Mono Variable',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:6px}
+/* ── Stats-band tagline ── */
+.stats-tagline-wrap{display:inline-block;position:relative;padding-bottom:14px;cursor:default}
+.stats-tagline-txt{display:block;font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:1.5px;color:#2874B2;font-style:italic;white-space:nowrap}
+.stats-tagline-svg{position:absolute;bottom:0;left:0;width:100%;height:20px;overflow:visible}
+.stats-tagline-path{stroke-dasharray:320;stroke-dashoffset:320;transition:d .8s cubic-bezier(.22,1,.36,1)}
+.stats-tagline-path.drawn{animation:drawTagline 1.5s ease-in-out forwards}
+@keyframes drawTagline{to{stroke-dashoffset:0}}
 
 /* ══════════════════════════════════════════
    CONCRETE PLANT ANIMATION
@@ -566,54 +573,56 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 /* ══════════════════════════════════════════
    PROJECTS SCROLL-PIN  §04
 ══════════════════════════════════════════ */
-/* §04 Referanslar — sec-num override (light bg → koyu mavi) */
 .prj-pin-root .sec-num{background:linear-gradient(135deg,#0a4d7a 0%,#1a6da0 35%,#2874B2 50%,#1a5d8a 70%,#0d406d 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* §04 arka plan — background-size morph + merkez nabız */
-@keyframes prj-bg-morph{
-  0%  {background-position:0% 50%}
-  33% {background-position:100% 20%}
-  66% {background-position:50% 100%}
-  100%{background-position:0% 50%}
-}
-@keyframes prj-center-pulse{
-  0%,100%{opacity:.45;transform:scale(1)}
-  50%{opacity:1;transform:scale(1.3)}
-}
-@keyframes prj-side-drift{
-  0%,100%{opacity:.5;transform:translateX(0) scale(1)}
-  50%{opacity:.85;transform:translateX(60px) scale(1.12)}
-}
+/* §04 installation animation keyframes */
+@keyframes prj-side-drift{0%,100%{opacity:.5;transform:translateX(0) scale(1)}50%{opacity:.85;transform:translateX(60px) scale(1.12)}}
+@keyframes col-rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes beam-extend{from{stroke-dashoffset:var(--bl,400)}to{stroke-dashoffset:0}}
+@keyframes inst-appear{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes crane-arm{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes hook-travel{0%,100%{transform:translateY(0)}45%,55%{transform:translateY(68px)}}
+@keyframes pipe-flow{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+@keyframes inst-belt{stroke-dashoffset:0;animation:belt-flow .5s linear infinite}
+@keyframes chimney-rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes worker-walk{0%{transform:translateX(0)}100%{transform:translateX(80px)}}
+@keyframes dot-pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
+/* light background + install SVG container */
 .prj-pin-root{position:relative;background:#dce8f5}
 .prj-pin-stage{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:clamp(80px,13vh,130px);padding-bottom:clamp(36px,5vh,60px);background:linear-gradient(135deg,#f2f7fc 0%,#bcd6f2 18%,#e8eef4 35%,#90bae3 52%,#d8e8f6 68%,#a8c8ec 84%,#edf3f9 100%);background-size:360% 360%;animation:prj-bg-morph 22s ease-in-out infinite}
+@keyframes prj-bg-morph{0%{background-position:0% 50%}33%{background-position:100% 20%}66%{background-position:50% 100%}100%{background-position:0% 50%}}
+.prj-install-anim{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.prj-install-svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* keep existing bg div (unused but harmless) */
 .prj-pin-bg{position:absolute;inset:0;pointer-events:none}
-.prj-pin-bg::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(10,37,64,.04) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(10,37,64,.04) 60px)}
-.prj-pin-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 52% at 50% 48%,rgba(40,116,178,.40) 0%,transparent 62%);animation:prj-center-pulse 6s ease-in-out infinite;pointer-events:none}
+.prj-pin-bg::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(10,37,64,.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(10,37,64,.03) 60px)}
+.prj-pin-bg::after{display:none}
 .prj-pin-side-l,.prj-pin-side-r{position:absolute;top:0;bottom:0;width:38%;pointer-events:none;z-index:0}
-.prj-pin-side-l{left:0;background:radial-gradient(ellipse 80% 70% at 0% 50%,rgba(40,116,178,.30) 0%,transparent 65%);animation:prj-side-drift 14s ease-in-out infinite}
-.prj-pin-side-r{right:0;background:radial-gradient(ellipse 80% 70% at 100% 50%,rgba(92,141,184,.26) 0%,transparent 65%);animation:prj-side-drift 18s ease-in-out infinite reverse}
-.prj-pin-hdr{position:absolute;top:0;left:0;right:0;padding:clamp(18px,2.5vh,32px) clamp(24px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(10,37,64,.1);z-index:2}
+.prj-pin-side-l{left:0;background:radial-gradient(ellipse 80% 70% at 0% 50%,rgba(40,116,178,.18) 0%,transparent 65%);animation:prj-side-drift 14s ease-in-out infinite}
+.prj-pin-side-r{right:0;background:radial-gradient(ellipse 80% 70% at 100% 50%,rgba(92,141,184,.14) 0%,transparent 65%);animation:prj-side-drift 18s ease-in-out infinite reverse}
+.prj-pin-hdr{position:absolute;top:0;left:0;right:0;padding:clamp(18px,2.5vh,32px) clamp(24px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(10,37,64,.1);z-index:4}
 .prj-pin-counter{font-family:'JetBrains Mono Variable',monospace;font-size:11px;letter-spacing:2.5px;color:rgba(10,37,64,.38)}
 .prj-ghost{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(.3rem,.67vw,.52rem);font-weight:300;letter-spacing:-.02em;color:rgba(10,37,64,.15);text-align:center;pointer-events:none;user-select:none;min-height:1.2em;line-height:1.2;transition:opacity .35s;padding:0 clamp(20px,5vw,100px)}
 .prj-ghost--prev{margin-bottom:clamp(14px,2.2vh,28px)}
 .prj-ghost--next{margin-top:clamp(14px,2.2vh,28px)}
-.prj-stage{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
+.prj-stage{display:flex;flex-direction:column;align-items:center;position:relative;z-index:3}
 .prj-img-wrap{width:clamp(360px,60vh,630px);height:clamp(360px,60vh,630px);border-radius:50%;overflow:hidden;border:2px solid rgba(40,116,178,.3);box-shadow:0 0 0 10px rgba(40,116,178,.07),0 20px 60px rgba(10,37,64,.18);margin:0 auto clamp(10px,1.4vh,16px);flex-shrink:0;will-change:opacity,transform;transition:opacity .22s}
 .prj-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 .prj-current{text-align:center;will-change:opacity,transform}
 .prj-curr-meta{font-family:'JetBrains Mono Variable',monospace;font-size:3.5px;letter-spacing:1px;color:#2874B2;text-transform:uppercase;margin-bottom:4px}
 .prj-curr-title{font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(.52rem,1.27vw,1.07rem);font-weight:300;letter-spacing:-.03em;color:#0A2540;line-height:1.05;margin-bottom:clamp(3px,.5vh,5px);max-width:680px}
 .prj-curr-desc{font-family:'Manrope Variable',Manrope,sans-serif;font-size:clamp(4px,.32vw,4.7px);color:rgba(10,37,64,.52);line-height:1.68;max-width:450px;margin:0 auto}
-.prj-pin-bot{position:absolute;bottom:clamp(20px,3.2vh,38px);left:0;right:0;display:flex;align-items:center;justify-content:center;gap:30px;z-index:2}
+.prj-pin-bot{position:absolute;bottom:clamp(20px,3.2vh,38px);left:0;right:0;display:flex;align-items:center;justify-content:center;gap:30px;z-index:4}
 .prj-dots{display:flex;gap:8px;align-items:center}
 .prj-dot{width:6px;height:6px;border-radius:50%;background:rgba(10,37,64,.2);transition:background .3s cubic-bezier(.22,1,.36,1),width .3s cubic-bezier(.22,1,.36,1),border-radius .3s;cursor:default}
 .prj-dot.active{background:#2874B2;width:18px;border-radius:3px}
 .prj-scroll-hint{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(10,37,64,.3)}
-.prj-prog-rail{position:absolute;right:clamp(14px,2.8vw,44px);top:50%;transform:translateY(-50%);width:2px;height:clamp(66px,10vh,100px);background:rgba(10,37,64,.1);border-radius:2px;overflow:hidden;z-index:3}
+.prj-prog-rail{position:absolute;right:clamp(14px,2.8vw,44px);top:50%;transform:translateY(-50%);width:2px;height:clamp(66px,10vh,100px);background:rgba(10,37,64,.1);border-radius:2px;overflow:hidden;z-index:4}
 .prj-prog-fill{width:100%;height:0%;background:linear-gradient(180deg,transparent,#2874B2 40%,#5C8DB8);border-radius:2px;transition:height .5s cubic-bezier(.4,0,.2,1)}
 .prj-pin-step{height:100vh}
-@media(max-width:600px){.prj-curr-title{font-size:clamp(.4rem,1.83vw,.63rem)}.prj-ghost{font-size:clamp(.27rem,1.17vw,.37rem)}.prj-img-wrap{width:clamp(285px,48vh,450px);height:clamp(285px,48vh,450px)}.prj-prog-rail{display:none}.prj-scroll-hint{display:none}}
+@media(max-width:600px){.prj-curr-title{font-size:clamp(.4rem,1.83vw,.63rem)}.prj-ghost{font-size:clamp(.27rem,1.17vw,.37rem)}.prj-img-wrap{width:clamp(285px,48vh,450px);height:clamp(285px,48vh,450px)}.prj-prog-rail{display:none}.prj-scroll-hint{display:none}.prj-install-anim{display:none}}
 
 </style>
 </head>
@@ -678,11 +687,12 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
   </a>
   <div class="nav-links">
     <div class="has-dd">
-      <span class="nav-link dd-tog">ZYT Grup <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="nav-link dd-tog"><span data-i18n="nav.group">ZYT Grup</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="dd-menu">
         <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span>Hakkımızda</a>
         <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span>Belgelerimiz</a>
         <a href="referanslar.html" class="dd-item"><span class="dd-item-num">03</span>Referanslar</a>
+        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span>Akademi</a>
       </div>
     </div>
     <div class="has-dd">
@@ -712,11 +722,12 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 <div id="mob-nav" aria-hidden="true">
   <div style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:3px;color:rgba(40,116,178,.7);text-transform:uppercase;margin-bottom:24px">ZYT Global Industry</div>
   <div class="mob-dd-wrap">
-    <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)">ZYT Grup <span class="mob-dd-arr">+</span></button>
+    <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)"><span data-i18n="nav.group">ZYT Grup</span> <span class="mob-dd-arr">+</span></button>
     <div class="mob-dd-inner">
       <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()">Hakkımızda</a>
       <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()">Belgelerimiz</a>
       <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()">Referanslar</a>
+      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()">Akademi</a>
     </div>
   </div>
   <div class="mob-sep"></div>
@@ -731,7 +742,7 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
     </div>
   </div>
   <div class="mob-sep"></div>
-  <a href="blog.html" class="mob-link" onclick="closeMobNav()">Blog</a>
+  <a href="akademi.html" class="mob-link" onclick="closeMobNav()">Akademi</a>
   <div class="mob-sep"></div>
   <a href="iletisim.html" class="mob-link" id="ml5" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
   <a href="iletisim.html" class="btn-p" style="margin-top:32px;font-size:11px;padding:12px 28px;text-decoration:none;display:inline-flex;align-items:center;gap:9px" onclick="closeMobNav()" data-i18n="mob.cta">Teklif Al →</a>
@@ -955,22 +966,32 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
      STATS BAND
 ════════════════════════════════════ -->
 <div class="stats-band">
-  <div style="max-width:1160px;margin:0 auto" class="st-grid">
-    <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d1">
-      <div class="stat-n"><span class="counter" data-target="24">0</span><sup>+</sup></div>
-      <div class="stat-lbl" data-i18n="s1.lbl">Ülke Operasyonu</div>
+  <div style="max-width:1160px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="stats-tagline-wrap">
+        <span class="stats-tagline-txt">&ldquo;Built for industry. Verified by results.&rdquo;</span>
+        <svg class="stats-tagline-svg" width="100%" height="20" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+          <path class="stats-tagline-path" d="M 0,10 Q 75,0 150,10 Q 225,20 300,10" stroke="#2874B2" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-    <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d2">
-      <div class="stat-n"><span class="counter" data-target="850">0</span><sup>+</sup></div>
-      <div class="stat-lbl" data-i18n="s2.lbl">Tamamlanan Proje</div>
-    </div>
-    <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d3">
-      <div class="stat-n">₺<span class="counter" data-target="24" data-suffix=".4">0</span><sup>B</sup></div>
-      <div class="stat-lbl" data-i18n="s3.lbl">Toplam Proje Değeri</div>
-    </div>
-    <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d4">
-      <div class="stat-n"><span class="counter" data-target="18">0</span><sup>y</sup></div>
-      <div class="stat-lbl" data-i18n="s4.lbl">Sektör Deneyimi</div>
+    <div class="st-grid">
+      <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d1">
+        <div class="stat-n"><span class="counter" data-target="24">0</span><sup>+</sup></div>
+        <div class="stat-lbl" data-i18n="s1.lbl">Ülke Operasyonu</div>
+      </div>
+      <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d2">
+        <div class="stat-n"><span class="counter" data-target="850">0</span><sup>+</sup></div>
+        <div class="stat-lbl" data-i18n="s2.lbl">Tamamlanan Proje</div>
+      </div>
+      <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d3">
+        <div class="stat-n">₺<span class="counter" data-target="24" data-suffix=".4">0</span><sup>B</sup></div>
+        <div class="stat-lbl" data-i18n="s3.lbl">Toplam Proje Değeri</div>
+      </div>
+      <div style="padding-left:20px;border-left:2px solid rgba(40,116,178,.45)" class="rv d4">
+        <div class="stat-n"><span class="counter" data-target="18">0</span><sup>y</sup></div>
+        <div class="stat-lbl" data-i18n="s4.lbl">Sektör Deneyimi</div>
+      </div>
     </div>
   </div>
 </div>
@@ -1284,6 +1305,257 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
   <!-- ◆ STICKY STAGE ◆ -->
   <div class="prj-pin-stage">
     <div class="prj-pin-bg" aria-hidden="true"></div>
+
+    <!-- INSTALLATION ANIMATION BACKGROUND -->
+    <div class="prj-install-anim" aria-hidden="true">
+      <svg class="prj-install-svg" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <filter id="inst-glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <marker id="arr" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><polygon points="0,0 5,2.5 0,5" fill="rgba(40,116,178,.4)"/></marker>
+        </defs>
+
+        <!-- blueprint grid -->
+        <g stroke="rgba(40,116,178,.055)" stroke-width=".8">
+          <line x1="0" y1="180" x2="1440" y2="180"/><line x1="0" y1="360" x2="1440" y2="360"/>
+          <line x1="0" y1="540" x2="1440" y2="540"/><line x1="0" y1="720" x2="1440" y2="720"/>
+          <line x1="240" y1="0" x2="240" y2="900"/><line x1="480" y1="0" x2="480" y2="900"/>
+          <line x1="720" y1="0" x2="720" y2="900"/><line x1="960" y1="0" x2="960" y2="900"/>
+          <line x1="1200" y1="0" x2="1200" y2="900"/>
+        </g>
+
+        <!-- ground / site base -->
+        <line x1="0" y1="740" x2="1440" y2="740" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+        <rect x="0" y="740" width="1440" height="160" fill="rgba(40,116,178,.04)"/>
+        <!-- site hatching -->
+        <g stroke="rgba(40,116,178,.08)" stroke-width=".6">
+          <line x1="0" y1="760" x2="60" y2="740"/><line x1="80" y1="760" x2="140" y2="740"/>
+          <line x1="160" y1="760" x2="220" y2="740"/><line x1="240" y1="760" x2="300" y2="740"/>
+          <line x1="320" y1="760" x2="380" y2="740"/><line x1="400" y1="760" x2="460" y2="740"/>
+          <line x1="480" y1="760" x2="540" y2="740"/><line x1="560" y1="760" x2="620" y2="740"/>
+          <line x1="640" y1="760" x2="700" y2="740"/><line x1="720" y1="760" x2="780" y2="740"/>
+          <line x1="800" y1="760" x2="860" y2="740"/><line x1="880" y1="760" x2="940" y2="740"/>
+          <line x1="960" y1="760" x2="1020" y2="740"/><line x1="1040" y1="760" x2="1100" y2="740"/>
+          <line x1="1120" y1="760" x2="1180" y2="740"/><line x1="1200" y1="760" x2="1260" y2="740"/>
+          <line x1="1280" y1="760" x2="1340" y2="740"/><line x1="1360" y1="760" x2="1420" y2="740"/>
+        </g>
+
+        <!-- ── LEFT: AGGREGATE STORAGE BUNKERS ── -->
+        <g style="animation:inst-appear 1.2s 0.2s cubic-bezier(.22,1,.36,1) both">
+          <rect x="30" y="500" width="100" height="240" rx="2" fill="rgba(10,37,64,.07)" stroke="rgba(40,116,178,.3)" stroke-width="1.2"/>
+          <polygon points="30,500 130,500 110,540 50,540" fill="rgba(40,116,178,.1)" stroke="rgba(40,116,178,.25)" stroke-width="1"/>
+          <rect x="75" y="540" width="22" height="200" fill="rgba(10,37,64,.06)" stroke="rgba(40,116,178,.2)" stroke-width=".8"/>
+          <rect x="32" y="502" width="96" height="8" rx="1" fill="rgba(40,116,178,.12)"/>
+          <text x="80" y="620" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="8" fill="rgba(10,37,64,.3)" letter-spacing="1.5" transform="rotate(-90 80 620)">AGREGA</text>
+        </g>
+        <g style="animation:inst-appear 1.2s 0.5s cubic-bezier(.22,1,.36,1) both">
+          <rect x="145" y="520" width="100" height="220" rx="2" fill="rgba(10,37,64,.07)" stroke="rgba(40,116,178,.3)" stroke-width="1.2"/>
+          <polygon points="145,520 245,520 225,560 165,560" fill="rgba(40,116,178,.1)" stroke="rgba(40,116,178,.25)" stroke-width="1"/>
+          <rect x="190" y="560" width="22" height="180" fill="rgba(10,37,64,.06)" stroke="rgba(40,116,178,.2)" stroke-width=".8"/>
+          <rect x="147" y="522" width="96" height="8" rx="1" fill="rgba(40,116,178,.12)"/>
+          <text x="195" y="640" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="8" fill="rgba(10,37,64,.3)" letter-spacing="1.5" transform="rotate(-90 195 640)">KUM</text>
+        </g>
+        <!-- bunker support legs -->
+        <g stroke="rgba(40,116,178,.3)" stroke-width="2.5" style="animation:inst-appear 1s 0.3s both">
+          <line x1="45" y1="740" x2="45" y2="760"/><line x1="115" y1="740" x2="115" y2="760"/>
+          <line x1="160" y1="740" x2="160" y2="760"/><line x1="230" y1="740" x2="230" y2="760"/>
+        </g>
+
+        <!-- ── DIAGONAL BELT CONVEYOR ── -->
+        <g style="animation:inst-appear 1s 1s cubic-bezier(.22,1,.36,1) both">
+          <line x1="255" y1="730" x2="410" y2="520" stroke="rgba(40,116,178,.35)" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 8" class="belt-anim"/>
+          <line x1="252" y1="727" x2="407" y2="517" stroke="rgba(40,116,178,.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="258" y1="733" x2="413" y2="523" stroke="rgba(40,116,178,.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="255" cy="730" r="7" fill="rgba(10,37,64,.12)" stroke="rgba(40,116,178,.45)" stroke-width="1.5" class="roll"/>
+          <circle cx="410" cy="520" r="7" fill="rgba(10,37,64,.12)" stroke="rgba(40,116,178,.45)" stroke-width="1.5" class="roll" style="animation-delay:.35s"/>
+          <!-- particles on belt -->
+          <circle r="3" fill="rgba(40,116,178,.45)"><animateMotion dur="2.2s" repeatCount="indefinite" path="M255,730 L410,520"/></circle>
+          <circle r="2" fill="rgba(40,116,178,.3)"><animateMotion dur="2.2s" begin=".7s" repeatCount="indefinite" path="M255,730 L410,520"/></circle>
+        </g>
+
+        <!-- ── CENTER: MAIN PROCESS BUILDING ── -->
+        <!-- foundation -->
+        <rect x="400" y="732" width="320" height="10" rx="2" fill="rgba(10,37,64,.14)" stroke="rgba(40,116,178,.3)" stroke-width="1"
+          style="animation:inst-appear .8s 0.8s both"/>
+        <!-- columns (rise from ground) -->
+        <rect x="408" y="380" width="14" height="360" rx="1" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.35)" stroke-width="1.2"
+          style="transform-origin:415px 740px;transform:scaleY(0);animation:col-rise 1.8s 1s cubic-bezier(.22,1,.36,1) forwards"/>
+        <rect x="510" y="380" width="14" height="360" rx="1" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.35)" stroke-width="1.2"
+          style="transform-origin:517px 740px;transform:scaleY(0);animation:col-rise 1.8s 1.3s cubic-bezier(.22,1,.36,1) forwards"/>
+        <rect x="612" y="380" width="14" height="360" rx="1" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.35)" stroke-width="1.2"
+          style="transform-origin:619px 740px;transform:scaleY(0);animation:col-rise 1.8s 1.6s cubic-bezier(.22,1,.36,1) forwards"/>
+        <rect x="706" y="380" width="14" height="360" rx="1" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.35)" stroke-width="1.2"
+          style="transform-origin:713px 740px;transform:scaleY(0);animation:col-rise 1.8s 1.9s cubic-bezier(.22,1,.36,1) forwards"/>
+        <!-- beams top -->
+        <line x1="408" y1="382" x2="720" y2="382" stroke="rgba(40,116,178,.45)" stroke-width="3"
+          stroke-dasharray="312" stroke-dashoffset="312" style="--bl:312;animation:beam-extend 1.5s 2.8s ease-in-out forwards"/>
+        <!-- beams mid -->
+        <line x1="408" y1="520" x2="720" y2="520" stroke="rgba(40,116,178,.3)" stroke-width="2"
+          stroke-dasharray="312" stroke-dashoffset="312" style="--bl:312;animation:beam-extend 1.5s 3.2s ease-in-out forwards"/>
+        <line x1="408" y1="630" x2="720" y2="630" stroke="rgba(40,116,178,.25)" stroke-width="1.5"
+          stroke-dasharray="312" stroke-dashoffset="312" style="--bl:312;animation:beam-extend 1.5s 3.5s ease-in-out forwards"/>
+        <!-- roof panels (appear) -->
+        <rect x="408" y="358" width="312" height="26" rx="2" fill="rgba(40,116,178,.12)" stroke="rgba(40,116,178,.3)" stroke-width="1"
+          style="animation:inst-appear 1s 4.2s both"/>
+        <!-- cross bracing -->
+        <g stroke="rgba(40,116,178,.18)" stroke-width=".8" style="animation:inst-appear 1s 4.5s both">
+          <line x1="408" y1="382" x2="524" y2="520"/><line x1="524" y1="382" x2="408" y2="520"/>
+          <line x1="524" y1="382" x2="626" y2="520"/><line x1="626" y1="382" x2="524" y2="520"/>
+          <line x1="626" y1="382" x2="720" y2="520"/><line x1="720" y1="382" x2="626" y2="520"/>
+        </g>
+        <!-- building label -->
+        <text x="560" y="345" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="9" fill="rgba(40,116,178,.55)" letter-spacing="2"
+          style="animation:inst-appear .8s 4.8s both">PROSES BİNASI</text>
+        <line x1="560" y1="348" x2="560" y2="358" stroke="rgba(40,116,178,.35)" stroke-width=".8" stroke-dasharray="3 3"
+          style="animation:inst-appear .8s 4.8s both"/>
+
+        <!-- ── MIXER / PROCESS UNIT inside building ── -->
+        <g style="animation:inst-appear 1.2s 5s cubic-bezier(.22,1,.36,1) both">
+          <rect x="455" y="545" width="200" height="90" rx="5" fill="rgba(10,37,64,.08)" stroke="rgba(40,116,178,.4)" stroke-width="1.5"/>
+          <ellipse cx="510" cy="590" rx="30" ry="30" fill="rgba(10,37,64,.06)" stroke="rgba(40,116,178,.4)" stroke-width="1.5"/>
+          <ellipse cx="600" cy="590" rx="30" ry="30" fill="rgba(10,37,64,.06)" stroke="rgba(40,116,178,.4)" stroke-width="1.5"/>
+          <g class="mixer-rot"><line x1="510" y1="560" x2="510" y2="620" stroke="#2874B2" stroke-width="2"/><line x1="480" y1="590" x2="540" y2="590" stroke="#2874B2" stroke-width="2"/><circle cx="510" cy="590" r="4" fill="#2874B2"/></g>
+          <g class="mixer-rot" style="animation-direction:reverse;animation-duration:3.4s"><line x1="600" y1="560" x2="600" y2="620" stroke="#5C8DB8" stroke-width="2"/><line x1="570" y1="590" x2="630" y2="590" stroke="#5C8DB8" stroke-width="2"/><circle cx="600" cy="590" r="4" fill="#5C8DB8"/></g>
+        </g>
+
+        <!-- ── CEMENT SILO (tall, right of building) ── -->
+        <g style="transform-origin:790px 740px;transform:scaleY(0);animation:chimney-rise 2s 2.2s cubic-bezier(.22,1,.36,1) forwards">
+          <rect x="760" y="160" width="60" height="580" rx="3" fill="rgba(10,37,64,.07)" stroke="rgba(40,116,178,.4)" stroke-width="1.5"/>
+          <ellipse cx="790" cy="162" rx="30" ry="10" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.45)" stroke-width="1.5"/>
+          <rect x="774" y="148" width="10" height="16" rx="2" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <rect x="763" y="220" width="6" height="2" rx="1" fill="rgba(40,116,178,.5)"/>
+          <rect x="763" y="245" width="6" height="2" rx="1" fill="rgba(40,116,178,.4)"/>
+          <rect x="763" y="270" width="6" height="2" rx="1" fill="rgba(40,116,178,.35)"/>
+          <rect x="763" y="295" width="6" height="2" rx="1" fill="rgba(40,116,178,.25)"/>
+          <polygon points="760,740 820,740 808,770 772,770" fill="rgba(10,37,64,.08)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <text x="790" y="460" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="8" fill="rgba(10,37,64,.28)" letter-spacing="1.5" transform="rotate(-90 790 460)">ÇİMENTO SİLOSU</text>
+          <!-- animated fill level -->
+          <rect x="762" y="350" width="56" height="40" rx="1" fill="rgba(40,116,178,.12)" class="level-osc" style="transform-box:fill-box;transform-origin:top center;animation-delay:1s"/>
+        </g>
+        <!-- silo pipe to building -->
+        <path d="M760 620 Q720 620 700 600" stroke="rgba(40,116,178,.3)" stroke-width="2.5" fill="none"
+          stroke-dasharray="80" stroke-dashoffset="80" style="--bl:80;animation:beam-extend 1s 5.5s ease-in-out forwards"/>
+        <path d="M760 620 Q720 620 700 600" stroke="rgba(40,116,178,.5)" stroke-width="1" fill="none" stroke-dasharray="6 5" class="mat-flow" style="opacity:.6"/>
+
+        <!-- ── WATER TANK ── -->
+        <g style="animation:inst-appear 1.2s 3.5s cubic-bezier(.22,1,.36,1) both">
+          <rect x="840" y="540" width="55" height="120" rx="3" fill="rgba(10,37,64,.06)" stroke="rgba(92,141,184,.35)" stroke-width="1.2"/>
+          <ellipse cx="867" cy="542" rx="27" ry="9" fill="rgba(10,37,64,.08)" stroke="rgba(92,141,184,.4)" stroke-width="1.2"/>
+          <rect x="843" y="556" width="48" height="36" rx="1" fill="rgba(40,116,178,.05)"/>
+          <line x1="843" y1="590" x2="893" y2="590" stroke="rgba(92,141,184,.25)" stroke-width=".8"/>
+          <text x="867" y="610" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="7.5" fill="rgba(10,37,64,.28)" letter-spacing="1">SU TANKI</text>
+          <line x1="867" y1="660" x2="867" y2="740" stroke="rgba(92,141,184,.3)" stroke-width="2.5"/>
+          <line x1="867" y1="660" x2="867" y2="740" stroke="rgba(92,141,184,.5)" stroke-width="1" stroke-dasharray="5 4" class="mat-flow" style="animation-duration:2.5s"/>
+        </g>
+        <!-- water pipe to building -->
+        <line x1="840" y1="600" x2="720" y2="600" stroke="rgba(92,141,184,.3)" stroke-width="2" stroke-dasharray="7 5"
+          style="stroke-dashoffset:120;animation:beam-extend 1.2s 6s ease-in-out forwards;--bl:120"/>
+
+        <!-- ── CONTROL CABIN ── -->
+        <g style="animation:inst-appear 1.3s 4s cubic-bezier(.22,1,.36,1) both">
+          <rect x="920" y="595" width="90" height="145" rx="3" fill="rgba(10,37,64,.08)" stroke="rgba(40,116,178,.4)" stroke-width="1.5"/>
+          <polygon points="915,597 1015,597 1010,579 920,579" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <rect x="930" y="610" width="26" height="22" rx="2" fill="rgba(4,13,24,.35)" stroke="rgba(40,116,178,.35)" stroke-width="1"><animate attributeName="fill" values="rgba(4,13,24,.35);rgba(8,24,44,.5);rgba(4,13,24,.35)" dur="4s" repeatCount="indefinite"/></rect>
+          <rect x="974" y="610" width="26" height="22" rx="2" fill="rgba(4,13,24,.35)" stroke="rgba(40,116,178,.35)" stroke-width="1"><animate attributeName="fill" values="rgba(4,13,24,.35);rgba(6,18,35,.45);rgba(4,13,24,.35)" dur="4s" begin="2s" repeatCount="indefinite"/></rect>
+          <rect x="950" y="650" width="25" height="90" rx="2" fill="rgba(10,37,64,.08)" stroke="rgba(40,116,178,.25)" stroke-width="1"/>
+          <circle cx="973" cy="665" r="2.5" fill="rgba(40,116,178,.55)"/>
+          <circle cx="965" cy="577" r="4" fill="#5DCAA5" class="led-a" filter="url(#inst-glow)"/>
+          <text x="965" y="568" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="7" fill="rgba(40,116,178,.5)" letter-spacing="1">ONLINE</text>
+        </g>
+        <!-- control cable tray to building -->
+        <line x1="920" y1="650" x2="720" y2="650" stroke="rgba(40,116,178,.2)" stroke-width="3" stroke-dasharray="6 4"
+          style="stroke-dashoffset:200;animation:beam-extend 1.4s 6.5s ease-in-out forwards;--bl:200"/>
+
+        <!-- ── TOWER CRANE ── -->
+        <g style="animation:inst-appear 1s 0.1s both">
+          <!-- mast -->
+          <rect x="1110" y="200" width="18" height="540" rx="1" fill="rgba(10,37,64,.09)" stroke="rgba(40,116,178,.35)" stroke-width="1.2"/>
+          <!-- mast cross-bracing -->
+          <g stroke="rgba(40,116,178,.18)" stroke-width=".8">
+            <line x1="1110" y1="260" x2="1128" y2="320"/><line x1="1128" y1="260" x2="1110" y2="320"/>
+            <line x1="1110" y1="320" x2="1128" y2="380"/><line x1="1128" y1="320" x2="1110" y2="380"/>
+            <line x1="1110" y1="380" x2="1128" y2="440"/><line x1="1128" y1="380" x2="1110" y2="440"/>
+            <line x1="1110" y1="440" x2="1128" y2="500"/><line x1="1128" y1="440" x2="1110" y2="500"/>
+            <line x1="1110" y1="500" x2="1128" y2="560"/><line x1="1128" y1="500" x2="1110" y2="560"/>
+          </g>
+          <!-- operator cab -->
+          <rect x="1104" y="192" width="30" height="24" rx="2" fill="rgba(10,37,64,.12)" stroke="rgba(40,116,178,.5)" stroke-width="1"/>
+          <!-- jib (swings) -->
+          <g style="transform-origin:1119px 196px;animation:crane-arm 8s ease-in-out infinite">
+            <line x1="1119" y1="196" x2="1340" y2="196" stroke="rgba(40,116,178,.45)" stroke-width="3"/>
+            <line x1="1119" y1="196" x2="1119" y2="130" stroke="rgba(40,116,178,.35)" stroke-width="2"/>
+            <line x1="1119" y1="130" x2="1290" y2="196" stroke="rgba(40,116,178,.3)" stroke-width="1.5"/>
+            <!-- trolley on jib -->
+            <rect x="1265" y="188" width="16" height="10" rx="2" fill="rgba(40,116,178,.4)" stroke="rgba(40,116,178,.6)" stroke-width=".8"/>
+            <!-- hook cable + payload -->
+            <g style="animation:hook-travel 5s 1s ease-in-out infinite">
+              <line x1="1273" y1="198" x2="1273" y2="310" stroke="rgba(40,116,178,.45)" stroke-width="1"/>
+              <!-- hook -->
+              <path d="M1269,308 Q1265,318 1273,322 Q1281,318 1277,308" stroke="rgba(40,116,178,.6)" stroke-width="1.5" fill="none"/>
+              <!-- payload: equipment piece being lifted -->
+              <rect x="1255" y="322" width="36" height="22" rx="2" fill="rgba(10,37,64,.12)" stroke="rgba(40,116,178,.5)" stroke-width="1.2"/>
+              <line x1="1255" y1="322" x2="1291" y2="344" stroke="rgba(40,116,178,.3)" stroke-width=".8"/>
+              <line x1="1291" y1="322" x2="1255" y2="344" stroke="rgba(40,116,178,.3)" stroke-width=".8"/>
+            </g>
+          </g>
+          <!-- counter-jib -->
+          <line x1="1119" y1="196" x2="1020" y2="196" stroke="rgba(40,116,178,.3)" stroke-width="2"/>
+          <rect x="1000" y="190" width="20" height="12" rx="1" fill="rgba(10,37,64,.12)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <!-- mast base -->
+          <rect x="1100" y="738" width="38" height="8" rx="1" fill="rgba(10,37,64,.15)" stroke="rgba(40,116,178,.35)" stroke-width="1"/>
+        </g>
+
+        <!-- ── DIMENSION / ANNOTATION LINES ── -->
+        <g font-family="'JetBrains Mono Variable',monospace" font-size="8" fill="rgba(40,116,178,.45)" letter-spacing="1"
+          style="animation:inst-appear 1s 7s both">
+          <!-- height dimension on silo -->
+          <line x1="826" y1="162" x2="826" y2="740" stroke="rgba(40,116,178,.25)" stroke-width=".8" marker-start="url(#arr)" marker-end="url(#arr)"/>
+          <text x="818" y="455" text-anchor="middle" transform="rotate(-90 818 455)" fill="rgba(40,116,178,.4)">H = 18m</text>
+          <!-- building width dimension -->
+          <line x1="408" y1="780" x2="720" y2="780" stroke="rgba(40,116,178,.25)" stroke-width=".8" marker-start="url(#arr)" marker-end="url(#arr)"/>
+          <text x="564" y="796" text-anchor="middle">L = 32m</text>
+        </g>
+
+        <!-- ── OUTPUT CONVEYOR (bottom) ── -->
+        <g style="animation:inst-appear 1.2s 5.8s cubic-bezier(.22,1,.36,1) both">
+          <rect x="408" y="726" width="380" height="8" rx="3" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <line x1="412" y1="729" x2="782" y2="729" stroke="rgba(40,116,178,.45)" stroke-width="3" stroke-dasharray="10 7" class="belt-anim" style="animation-duration:.45s"/>
+          <circle cx="415" cy="730" r="5" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.38)" stroke-width="1" class="roll" style="animation-duration:.9s"/>
+          <circle cx="560" cy="730" r="5" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.38)" stroke-width="1" class="roll" style="animation-duration:.9s;animation-delay:.18s"/>
+          <circle cx="700" cy="730" r="5" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.38)" stroke-width="1" class="roll" style="animation-duration:.9s;animation-delay:.35s"/>
+          <circle cx="780" cy="730" r="5" fill="rgba(10,37,64,.1)" stroke="rgba(40,116,178,.38)" stroke-width="1" class="roll" style="animation-duration:.9s;animation-delay:.5s"/>
+          <text x="595" y="718" text-anchor="middle" font-family="'JetBrains Mono Variable',monospace" font-size="7.5" fill="rgba(40,116,178,.4)" letter-spacing="1.5">ÇIKIŞ KONVEYÖRÜ</text>
+        </g>
+
+        <!-- ── WORKERS (silhouette) ── -->
+        <g fill="rgba(10,37,64,.22)" style="animation:inst-appear 1s 6.5s both">
+          <!-- worker 1 (at building base) -->
+          <circle cx="440" cy="726" r="5"/>
+          <line x1="440" y1="731" x2="440" y2="748" stroke="rgba(10,37,64,.22)" stroke-width="2.5"/>
+          <line x1="430" y1="737" x2="450" y2="737" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <line x1="440" y1="748" x2="432" y2="762" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <line x1="440" y1="748" x2="448" y2="762" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <!-- hard hat -->
+          <path d="M435,721 Q440,716 445,721" stroke="rgba(40,116,178,.4)" stroke-width="1.5" fill="none"/>
+          <!-- worker 2 (at silo) -->
+          <circle cx="810" cy="726" r="5"/>
+          <line x1="810" y1="731" x2="810" y2="748" stroke="rgba(10,37,64,.22)" stroke-width="2.5"/>
+          <line x1="800" y1="737" x2="820" y2="737" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <line x1="810" y1="748" x2="802" y2="762" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <line x1="810" y1="748" x2="818" y2="762" stroke="rgba(10,37,64,.22)" stroke-width="2"/>
+          <path d="M805,721 Q810,716 815,721" stroke="rgba(40,116,178,.4)" stroke-width="1.5" fill="none"/>
+        </g>
+
+        <!-- ── STATUS BADGE (bottom-left) ── -->
+        <g style="animation:inst-appear 1s 7.5s both">
+          <rect x="16" y="796" width="170" height="36" rx="4" fill="rgba(40,116,178,.1)" stroke="rgba(40,116,178,.3)" stroke-width="1"/>
+          <circle cx="32" cy="814" r="4" fill="#5DCAA5" class="led-a" filter="url(#inst-glow)"/>
+          <text x="44" y="811" font-family="'JetBrains Mono Variable',monospace" font-size="7.5" fill="rgba(40,116,178,.85)" letter-spacing="1.5">KURULUM DEVAM</text>
+          <text x="44" y="824" font-family="'JetBrains Mono Variable',monospace" font-size="7" fill="rgba(10,37,64,.45)" letter-spacing="1">EDT: 90 GÜN</text>
+        </g>
+      </svg>
+    </div>
+    <!-- /INSTALLATION ANIMATION -->
+
     <div class="prj-pin-side-l" aria-hidden="true"></div>
     <div class="prj-pin-side-r" aria-hidden="true"></div>
 
@@ -1343,60 +1615,6 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 
 
 <!-- ════════════════════════════════════
-     CONTACT  (light)
-════════════════════════════════════ -->
-<section id="contact" class="sec sec-light">
-  <div style="max-width:1160px;margin:0 auto" class="ct-grid">
-    <div>
-      <div class="sec-num rv" style="margin-bottom:20px" data-i18n="ct.num">§ 05 / İletişim</div>
-      <h2 class="rv d1" style="font-family:'Sora Variable',Sora,sans-serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:300;line-height:1.05;letter-spacing:-.035em;color:#0A2540;margin-bottom:18px" data-i18n-html="ct.h2">Projenizi<br><span style="color:#2874B2;font-weight:500">hayata geçirelim.</span></h2>
-      <p class="rv d2" style="font-family:'Manrope Variable',Manrope,sans-serif;font-size:14px;color:#3A4858;line-height:1.7;max-width:360px;margin-bottom:40px" data-i18n="ct.p">Şirketlerimizden biriyle proje geliştirmek için 48 saat içinde uzman ekibimizden yanıt alırsınız.</p>
-      <div style="display:flex;flex-direction:column;gap:20px">
-        <div class="c-row rv d3">
-          <div class="c-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.99 12 19.79 19.79 0 011.93 3.4 2 2 0 013.9 1.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9c1.91 3.19 4.72 5.99 7.9 7.9l1.15-1.15a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg></div>
-          <div><div class="c-tag" data-i18n="ph.tag">Telefon</div><div class="c-val">+90 312 000 00 00</div></div>
-        </div>
-        <div class="c-row rv d4">
-          <div class="c-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="c-tag" data-i18n="em.tag">E-posta</div><div class="c-val">info@zytindustry.com</div></div>
-        </div>
-        <div class="c-row rv d5">
-          <div class="c-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2874B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="c-tag" data-i18n="ad.tag">Adres</div><div class="c-val" data-i18n="ad.val">Ankara · Türkiye</div></div>
-        </div>
-      </div>
-      <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(10,37,64,.1)" class="rv d6">
-        <p style="font-family:'JetBrains Mono Variable',monospace;font-size:10.5px;letter-spacing:1.5px;color:#2874B2;font-style:italic">"Built for industry. Verified by results."</p>
-      </div>
-    </div>
-    <div class="rv d2">
-      <form style="display:flex;flex-direction:column;gap:14px" onsubmit="return false">
-        <div class="form-row">
-          <div><label class="f-lbl" data-i18n="form.nl">Ad Soyad</label><input type="text" class="f-inp" placeholder="Adınız" data-i18n-ph="form.nph"></div>
-          <div><label class="f-lbl" data-i18n="form.cl">Şirket</label><input type="text" class="f-inp" placeholder="Şirket Adı" data-i18n-ph="form.cph"></div>
-        </div>
-        <div><label class="f-lbl" data-i18n="form.el">E-posta</label><input type="email" class="f-inp" placeholder="email@sirket.com" data-i18n-ph="form.eph"></div>
-        <div><label class="f-lbl" data-i18n="form.sl">İlgili Şirket / Sektör</label>
-          <select class="f-inp">
-            <option value="" data-i18n="form.sph">Seçin</option>
-            <option data-i18n="opt.1">ZYT Beton — Beton Santralleri</option>
-            <option data-i18n="opt.2">ZYT Enerji — Atık-Enerji Dönüşüm</option>
-            <option data-i18n="opt.3">ZYT Galvaniz — Galvaniz Tesisleri</option>
-            <option data-i18n="opt.4">ZYT Mühendislik — Tedarik & Anahtar Teslim</option>
-          </select>
-        </div>
-        <div><label class="f-lbl" data-i18n="form.ml">Proje Özeti</label><textarea class="f-inp" rows="4" style="resize:vertical;line-height:1.6" placeholder="Projenizi kısaca anlatın..." data-i18n-ph="form.mph"></textarea></div>
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <button type="submit" class="btn-p"><span data-i18n="form.sub">Gönder</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <span style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1px;color:rgba(58,72,88,.4)" data-i18n="form.note">48 saat içinde yanıt</span>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════
      FOOTER
 ════════════════════════════════════ -->
 <div class="block-sep"></div>
@@ -1411,7 +1629,7 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
         </svg>
         <span style="font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.38);text-transform:uppercase">ZYT Global Industry</span>
       </a>
-      <a href="blog.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Blog</a>
+      <a href="akademi.html" style="font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:6px 12px;transition:color .15s,border-color .15s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(40,116,178,.5)'" onmouseout="this.style.color='rgba(255,255,255,.35)';this.style.borderColor='rgba(255,255,255,.1)'">Akademi</a>
       <div class="ft-social">
         <a href="https://linkedin.com/company/zyt-global-industry" class="ft-soc-link" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1519,6 +1737,25 @@ const cro = new IntersectionObserver(entries=>{
 }, {threshold:0.5});
 document.querySelectorAll('.counter').forEach(el=> cro.observe(el));
 
+/* ── Stats tagline underline draw ── */
+(function(){
+  const wrap = document.querySelector('.stats-tagline-wrap');
+  const p    = document.querySelector('.stats-tagline-path');
+  if(!wrap||!p) return;
+  const pD = 'M 0,10 Q 75,0 150,10 Q 225,20 300,10';
+  const pH = 'M 0,10 Q 75,20 150,10 Q 225,0 300,10';
+  const len = Math.ceil(p.getTotalLength());
+  p.setAttribute('stroke-dasharray', len);
+  p.setAttribute('stroke-dashoffset', len);
+  p.style.d = `path("${pD}")`;
+  wrap.addEventListener('mouseenter', ()=> p.style.d = `path("${pH}")`);
+  wrap.addEventListener('mouseleave', ()=> p.style.d = `path("${pD}")`);
+  const tro = new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){ setTimeout(()=> p.classList.add('drawn'), 300); tro.disconnect(); }
+  },{threshold:0.4});
+  tro.observe(document.querySelector('.stats-band'));
+})();
+
 /* ── Sector tabs ──────────────────────────── */
 const tabs = document.querySelectorAll('.s-tab');
 let cur = 0;
@@ -1539,7 +1776,7 @@ document.querySelectorAll('.f-inp').forEach(el=>{
 /* ── i18n ─────────────────────────────────── */
 const T = {
   tr: {
-    'nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.sectors':'Sektörler',
+    'nav.group':'ZYT Grup','nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.sectors':'Sektörler',
     'nav.contact':'İletişim','nav.menu':'Menü','ham.label':'Menüyü Aç',
     'mob.projects':'Projeler','mob.cta':'Teklif Al →',
     'hero.eyebrow':'// Ankara · Türkiye · Şirketlerimiz · Küresel Operasyonlar',
@@ -1601,7 +1838,7 @@ const T = {
     'ticker':['Beton Santralleri','Atık-Enerji Dönüşüm','Galvaniz Tesisleri','Tedarik Zinciri','Anahtar Teslim Projeler','ZYT Global Industry']
   },
   en: {
-    'nav.about':'About','nav.companies':'Companies','nav.sectors':'Sectors',
+    'nav.group':'ZYT Group','nav.about':'About','nav.companies':'Companies','nav.sectors':'Sectors',
     'nav.contact':'Contact','nav.menu':'Menu','ham.label':'Open Menu',
     'mob.projects':'Projects','mob.cta':'Request Quote',
     'hero.eyebrow':'// Ankara · Turkey · Our Companies · Global Operations',
@@ -1663,7 +1900,7 @@ const T = {
     'ticker':['Concrete Batching Plants','Waste-Energy Conversion','Galvanizing Facilities','Supply Chain','Turnkey Projects','ZYT Global Industry']
   },
   ar: {
-    'nav.about':'من نحن','nav.companies':'شركاتنا','nav.sectors':'القطاعات',
+    'nav.group':'مجموعة ZYT','nav.about':'من نحن','nav.companies':'شركاتنا','nav.sectors':'القطاعات',
     'nav.contact':'اتصل بنا','nav.menu':'القائمة','ham.label':'فتح القائمة',
     'mob.projects':'المشاريع','mob.cta':'طلب عرض سعر',
     'hero.eyebrow':'// أنقرة · تركيا · شركاتنا · العمليات العالمية',

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mira · ZYT Akademi Panel</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora@5.0.21/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/manrope@5.0.20/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.0.21/index.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Manrope Variable',Manrope,sans-serif;background:#f0f4f9;color:#0a2540;-webkit-font-smoothing:antialiased}
+
+/* ─── TOP BAR ─────────────────────────────────────────────── */
+#topbar{display:flex;align-items:center;gap:16px;padding:0 28px;height:60px;background:#fff;border-bottom:1px solid rgba(10,37,64,.08);box-shadow:0 2px 12px rgba(10,37,64,.05);flex-shrink:0;position:sticky;top:0;z-index:100}
+.topbar-logo{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono Variable',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#0a2540;font-weight:400}
+.mira-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.topbar-sep{width:1px;height:28px;background:rgba(10,37,64,.1);margin:0 4px}
+.topbar-status{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(10,37,64,.4)}
+.topbar-status.active{color:#22c55e}
+.topbar-status.error{color:#ef4444}
+#btn-generate{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#2874B2;border:none;border-radius:6px;padding:10px 20px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 14px rgba(40,116,178,.3);flex-shrink:0}
+#btn-generate:hover:not(:disabled){background:#1e5f9a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(40,116,178,.4)}
+#btn-generate:disabled{opacity:.5;cursor:not-allowed;transform:none}
+#btn-site{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(10,37,64,.45);background:transparent;border:1px solid rgba(10,37,64,.14);border-radius:6px;padding:9px 14px;cursor:pointer;text-decoration:none;transition:color .2s,border-color .2s;flex-shrink:0}
+#btn-site:hover{color:#2874B2;border-color:#2874B2}
+
+/* ─── LAYOUT ──────────────────────────────────────────────── */
+#layout{display:flex;height:calc(100vh - 60px);overflow:hidden}
+
+/* ─── LEFT SIDEBAR ────────────────────────────────────────── */
+#sidebar{width:320px;flex-shrink:0;background:#fff;border-right:1px solid rgba(10,37,64,.08);display:flex;flex-direction:column;overflow:hidden}
+#sidebar-head{padding:20px 20px 12px;border-bottom:1px solid rgba(10,37,64,.06)}
+.sidebar-title{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(10,37,64,.38);margin-bottom:8px}
+#draft-count{font-family:'Sora Variable',Sora,sans-serif;font-size:1.5rem;font-weight:300;color:#0a2540;letter-spacing:-.02em}
+#draft-list{flex:1;overflow-y:auto;padding:8px}
+#draft-list::-webkit-scrollbar{width:4px}
+#draft-list::-webkit-scrollbar-thumb{background:rgba(10,37,64,.1);border-radius:2px}
+
+/* Draft card */
+.draft-item{padding:14px 16px;border-radius:8px;cursor:pointer;transition:background .15s,box-shadow .15s;margin-bottom:6px;border:1.5px solid transparent;position:relative}
+.draft-item:hover{background:rgba(40,116,178,.04);border-color:rgba(40,116,178,.12)}
+.draft-item.selected{background:rgba(40,116,178,.07);border-color:#2874B2}
+.draft-item.published{opacity:.5}
+.draft-sector-chip{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.draft-sector-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.draft-title{font-family:'Sora Variable',Sora,sans-serif;font-size:13px;font-weight:400;line-height:1.4;color:#0a2540;margin-bottom:8px}
+.draft-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.draft-meta{font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:1px;color:rgba(10,37,64,.3)}
+.draft-badge{font-family:'JetBrains Mono Variable',monospace;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:10px}
+.draft-badge.draft{color:#d97706;background:rgba(217,119,6,.1)}
+.draft-badge.published{color:#16a34a;background:rgba(22,163,74,.1)}
+
+/* empty state */
+#empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:40px 20px;color:rgba(10,37,64,.35)}
+#empty-state svg{margin-bottom:16px;opacity:.35}
+#empty-state p{font-size:13px;line-height:1.7}
+
+/* ─── MAIN AREA ───────────────────────────────────────────── */
+#main{flex:1;overflow-y:auto;background:#f0f4f9;display:flex;flex-direction:column}
+#main::-webkit-scrollbar{width:6px}
+#main::-webkit-scrollbar-thumb{background:rgba(10,37,64,.1);border-radius:3px}
+
+/* Welcome screen */
+#welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:60px 40px;text-align:center}
+.welcome-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2874B2,#5ba3e0);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 8px 32px rgba(40,116,178,.25)}
+.welcome-h{font-family:'Sora Variable',Sora,sans-serif;font-size:1.8rem;font-weight:300;color:#0a2540;letter-spacing:-.02em;margin-bottom:10px}
+.welcome-sub{font-size:15px;color:rgba(10,37,64,.45);line-height:1.7;max-width:400px;margin:0 auto 32px}
+
+/* Preview area */
+#preview{padding:32px 40px;max-width:860px;width:100%;margin:0 auto}
+
+/* Preview header */
+.preview-head{background:#fff;border-radius:12px;padding:28px 32px;margin-bottom:20px;border:1px solid rgba(10,37,64,.07);box-shadow:0 2px 12px rgba(10,37,64,.05)}
+.preview-cat-chip{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.preview-cat-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.preview-title{font-family:'Sora Variable',Sora,sans-serif;font-size:1.6rem;font-weight:300;color:#0a2540;line-height:1.25;letter-spacing:-.02em;margin-bottom:14px}
+.preview-meta{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(10,37,64,.35);display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.preview-excerpt{font-size:14px;color:rgba(10,37,64,.6);line-height:1.8;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(10,37,64,.07)}
+.preview-seo{background:rgba(40,116,178,.04);border:1px solid rgba(40,116,178,.12);border-radius:8px;padding:14px 18px}
+.preview-seo-label{font-family:'JetBrains Mono Variable',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#2874B2;margin-bottom:6px}
+.preview-meta-desc{font-size:13px;color:rgba(10,37,64,.6);line-height:1.6}
+
+/* Preview body */
+.preview-body{background:#fff;border-radius:12px;padding:32px;margin-bottom:20px;border:1px solid rgba(10,37,64,.07);box-shadow:0 2px 12px rgba(10,37,64,.05)}
+.preview-body-label{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(10,37,64,.35);margin-bottom:20px}
+.article-preview{font-size:15px;line-height:1.85;color:rgba(10,37,64,.8)}
+.article-preview h2{font-family:'Sora Variable',Sora,sans-serif;font-size:1.25rem;font-weight:400;color:#0a2540;margin:2em 0 .75em;padding-left:14px;border-left:3px solid #2874B2;line-height:1.3}
+.article-preview h3{font-family:'Sora Variable',Sora,sans-serif;font-size:1.05rem;color:#0a2540;margin:1.5em 0 .5em}
+.article-preview p{margin-bottom:1.3em}
+.article-preview strong{color:#0a2540;font-weight:600}
+.article-preview code{font-family:'JetBrains Mono Variable',monospace;font-size:.87em;background:rgba(40,116,178,.08);border:1px solid rgba(40,116,178,.15);border-radius:3px;padding:2px 6px}
+.article-preview table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:13px}
+.article-preview th{background:rgba(40,116,178,.07);font-family:'JetBrains Mono Variable',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:#0a2540;padding:9px 12px;text-align:left;border:1px solid rgba(10,37,64,.09)}
+.article-preview td{padding:9px 12px;border:1px solid rgba(10,37,64,.07);color:rgba(10,37,64,.7);font-size:13px}
+.article-preview tr:nth-child(even) td{background:rgba(40,116,178,.02)}
+.article-preview ul,.article-preview ol{padding-left:1.5em;margin-bottom:1.3em}
+.article-preview li{margin-bottom:.4em}
+
+/* References */
+.preview-refs{background:#fff;border-radius:12px;padding:24px 32px;margin-bottom:20px;border:1px solid rgba(10,37,64,.07);box-shadow:0 2px 12px rgba(10,37,64,.05)}
+.refs-label{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(10,37,64,.35);margin-bottom:14px}
+.ref-item{font-size:13px;color:rgba(10,37,64,.55);line-height:1.6;margin-bottom:8px;padding-left:2em;position:relative}
+.ref-num{position:absolute;left:0;color:#2874B2;font-family:'JetBrains Mono Variable',monospace;font-size:11px}
+
+/* Action bar */
+#action-bar{background:#fff;border-radius:12px;padding:20px 24px;margin-bottom:32px;border:1px solid rgba(10,37,64,.07);box-shadow:0 2px 12px rgba(10,37,64,.05);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.action-info{flex:1;min-width:200px}
+.action-info-title{font-size:14px;font-weight:500;color:#0a2540;margin-bottom:2px}
+.action-info-sub{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:1px;color:rgba(10,37,64,.38)}
+#btn-approve{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#16a34a;border:none;border-radius:6px;padding:12px 22px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 14px rgba(22,163,74,.3);flex-shrink:0}
+#btn-approve:hover{background:#15803d;transform:translateY(-1px)}
+#btn-approve:disabled{opacity:.5;cursor:not-allowed}
+#btn-reject{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#dc2626;background:transparent;border:1.5px solid rgba(220,38,38,.25);border-radius:6px;padding:12px 22px;cursor:pointer;transition:all .2s;flex-shrink:0}
+#btn-reject:hover{background:rgba(220,38,38,.06);border-color:#dc2626}
+#btn-reject:disabled{opacity:.4;cursor:not-allowed}
+
+/* Generate log */
+#gen-log{background:#0a2540;border-radius:12px;padding:20px 24px;margin-bottom:24px;display:none}
+#gen-log.visible{display:block}
+.gen-log-title{font-family:'JetBrains Mono Variable',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#2874B2;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.gen-spinner{width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(40,116,178,.3);border-top-color:#2874B2;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#gen-log-lines{font-family:'JetBrains Mono Variable',monospace;font-size:11px;color:rgba(255,255,255,.6);line-height:1.9;max-height:180px;overflow-y:auto}
+.log-success{color:#4ade80}
+.log-error{color:#f87171}
+.log-info{color:rgba(255,255,255,.55)}
+
+/* Toast */
+#toast{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast-item{padding:14px 20px;border-radius:8px;font-family:'JetBrains Mono Variable',monospace;font-size:11px;letter-spacing:1px;color:#fff;box-shadow:0 8px 32px rgba(0,0,0,.18);animation:toast-in .3s cubic-bezier(.22,1,.36,1) forwards;pointer-events:all}
+.toast-item.success{background:#16a34a}
+.toast-item.error{background:#dc2626}
+.toast-item.info{background:#2874B2}
+@keyframes toast-in{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+/* Sector colors */
+:root{
+  --c-galvaniz:#2874B2;--c-beton:#d97706;--c-enerji:#16a34a;
+  --c-tedarik:#dc2626;--c-makina:#7c3aed;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:rgba(10,37,64,.12);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div id="topbar">
+  <div class="topbar-logo">
+    <span class="mira-dot"></span>
+    Mira · Akademi Paneli
+  </div>
+  <div class="topbar-sep"></div>
+  <div id="topbar-status" class="topbar-status">Hazır</div>
+  <div class="topbar-sep"></div>
+  <div id="today-sectors" class="topbar-status" style="display:none"></div>
+  <a href="http://localhost:3000/akademi.html" target="_blank" id="btn-site">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M5 2H2a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7M8 1h3m0 0v3m0-3L5 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Siteyi Görüntüle
+  </a>
+  <button id="btn-generate" onclick="triggerGenerate()">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.93 2.93l1.41 1.41M9.66 9.66l1.41 1.41M2.93 11.07l1.41-1.41M9.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    Yeni Üret
+  </button>
+</div>
+
+<!-- LAYOUT -->
+<div id="layout">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="sidebar-head">
+      <div class="sidebar-title">Taslaklar</div>
+      <div id="draft-count">0 taslak</div>
+    </div>
+    <div id="draft-list">
+      <div id="empty-state">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M24 16v8M24 28v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p>"Yeni Üret"e basın.<br>Mira iki sektör için yazı hazırlayacak.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+
+    <!-- Welcome -->
+    <div id="welcome">
+      <div class="welcome-icon">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <path d="M18 6C11.37 6 6 11.37 6 18s5.37 12 12 12 12-5.37 12-12S24.63 6 18 6z" stroke="#fff" stroke-width="1.5"/>
+          <path d="M14 18h8M18 14v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 class="welcome-h">Mira Hazır</h2>
+      <p class="welcome-sub">Günlük 2 blog yazısı üretmek için "Yeni Üret"e tıklayın. Taslakları inceleyip onaylayın — Mira otomatik yayınlar.</p>
+      <button onclick="triggerGenerate()" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono Variable',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#2874B2;border:none;border-radius:6px;padding:14px 28px;cursor:pointer;transition:background .2s;box-shadow:0 6px 20px rgba(40,116,178,.3)">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.93 2.93l1.41 1.41M9.66 9.66l1.41 1.41M2.93 11.07l1.41-1.41M9.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Yeni Üret
+      </button>
+    </div>
+
+    <!-- Preview (hidden initially) -->
+    <div id="preview" style="display:none">
+
+      <!-- Generate log -->
+      <div id="gen-log">
+        <div class="gen-log-title">
+          <div id="gen-spinner" class="gen-spinner"></div>
+          Mira Çalışıyor...
+        </div>
+        <div id="gen-log-lines"></div>
+      </div>
+
+      <!-- Actions -->
+      <div id="action-bar">
+        <div class="action-info">
+          <div class="action-info-title" id="action-title">Taslak seçin</div>
+          <div class="action-info-sub" id="action-sub">Sol panelden bir taslak seçin</div>
+        </div>
+        <button id="btn-reject" onclick="rejectCurrent()" disabled>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Reddet
+        </button>
+        <button id="btn-approve" onclick="approveCurrent()" disabled>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Onayla &amp; Yayınla
+        </button>
+      </div>
+
+      <!-- Draft preview content -->
+      <div id="preview-content" style="display:none">
+        <div class="preview-head">
+          <div class="preview-cat-chip" id="pv-cat"></div>
+          <h1 class="preview-title" id="pv-title"></h1>
+          <div class="preview-meta" id="pv-meta"></div>
+          <div class="preview-excerpt" id="pv-excerpt"></div>
+          <div class="preview-seo">
+            <div class="preview-seo-label">SEO · Meta Description</div>
+            <div class="preview-meta-desc" id="pv-meta-desc"></div>
+          </div>
+        </div>
+
+        <div class="preview-body">
+          <div class="preview-body-label">İçerik Önizlemesi</div>
+          <div class="article-preview" id="pv-body"></div>
+        </div>
+
+        <div class="preview-refs" id="pv-refs-wrap">
+          <div class="refs-label">Kaynaklar</div>
+          <div id="pv-refs"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+// ─── State ──────────────────────────────────────────────────────────────────
+let drafts = [];
+let selectedId = null;
+let pollTimer = null;
+let isGenerating = false;
+
+const API = 'http://localhost:3001';
+
+const SECTOR_COLORS = {
+  galvaniz:'#2874B2', beton:'#d97706', enerji:'#16a34a',
+  tedarik:'#dc2626', makina:'#7c3aed'
+};
+
+// ─── Toast ───────────────────────────────────────────────────────────────────
+function toast(msg, type = 'info', dur = 4000) {
+  const t = document.getElementById('toast');
+  const el = document.createElement('div');
+  el.className = `toast-item ${type}`;
+  el.textContent = msg;
+  t.appendChild(el);
+  setTimeout(() => el.remove(), dur);
+}
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+function sectorColor(s) { return SECTOR_COLORS[s] || '#2874B2'; }
+
+function timeSince(isoStr) {
+  const diff = Date.now() - new Date(isoStr).getTime();
+  const m = Math.floor(diff / 60000);
+  if (m < 1) return 'Az önce';
+  if (m < 60) return `${m} dk önce`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h} sa önce`;
+  return `${Math.floor(h/24)} gün önce`;
+}
+
+// ─── Draft list rendering ─────────────────────────────────────────────────────
+function renderDraftList() {
+  const list = document.getElementById('draft-list');
+  const count = document.getElementById('draft-count');
+  const emptyState = document.getElementById('empty-state');
+
+  const pending = drafts.filter(d => d.status === 'draft');
+  const published = drafts.filter(d => d.status === 'published');
+  const all = [...pending, ...published];
+
+  count.textContent = pending.length + ' taslak' + (published.length ? ` · ${published.length} yayında` : '');
+
+  if (all.length === 0) {
+    list.innerHTML = '';
+    emptyState && (emptyState.style.display = 'flex');
+    return;
+  }
+  emptyState && (emptyState.style.display = 'none');
+
+  list.innerHTML = all.map(d => {
+    const color = sectorColor(d.sector);
+    const isSelected = d.id === selectedId;
+    return `<div class="draft-item${isSelected ? ' selected' : ''}${d.status === 'published' ? ' published' : ''}"
+      onclick="selectDraft('${d.id}')">
+      <div class="draft-sector-chip" style="color:${color}">
+        <span class="draft-sector-dot" style="background:${color}"></span>
+        ${d.category_label || d.sector}
+      </div>
+      <div class="draft-title">${d.title || '(başlıksız)'}</div>
+      <div class="draft-footer">
+        <span class="draft-meta">${timeSince(d.generated_at)} · ${d.reading_time || '?'} dak.</span>
+        <span class="draft-badge ${d.status}">${d.status === 'draft' ? 'Taslak' : 'Yayında'}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── Select draft ─────────────────────────────────────────────────────────────
+async function selectDraft(id) {
+  selectedId = id;
+  renderDraftList();
+
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('preview').style.display = 'block';
+
+  try {
+    const res = await fetch(`${API}/api/drafts/${encodeURIComponent(id)}`);
+    if (!res.ok) throw new Error('Taslak alınamadı');
+    const d = await res.json();
+    renderPreview(d);
+  } catch (e) {
+    toast('Taslak yüklenemedi: ' + e.message, 'error');
+  }
+}
+
+// ─── Render preview ───────────────────────────────────────────────────────────
+function renderPreview(d) {
+  const color = sectorColor(d.sector);
+  const isPublished = d.status === 'published';
+
+  // Action bar
+  document.getElementById('action-title').textContent = d.title?.slice(0, 60) + (d.title?.length > 60 ? '…' : '');
+  document.getElementById('action-sub').textContent =
+    `${d.category_label} · ${d.reading_time || '?'} dak. okuma · ${d.news_count || 0} haber · ${d.papers_count || 0} akademik kaynak`;
+
+  document.getElementById('btn-approve').disabled = isPublished;
+  document.getElementById('btn-reject').disabled  = isPublished;
+
+  if (isPublished) {
+    document.getElementById('btn-approve').textContent = '✓ Yayınlandı';
+    document.getElementById('btn-approve').style.background = '#16a34a';
+  } else {
+    document.getElementById('btn-approve').innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Onayla &amp; Yayınla`;
+  }
+
+  // Preview content
+  document.getElementById('preview-content').style.display = 'block';
+
+  const catEl = document.getElementById('pv-cat');
+  catEl.innerHTML = `<span class="preview-cat-dot" style="background:${color}"></span>${d.category_label || d.sector}`;
+  catEl.style.color = color;
+
+  document.getElementById('pv-title').textContent = d.title || '';
+  document.getElementById('pv-meta').innerHTML = [
+    `<span>Mira</span>`,
+    `<span>${new Date(d.generated_at).toLocaleDateString('tr-TR')}</span>`,
+    `<span>${d.reading_time || '?'} dakika</span>`,
+    `<span>${d.sector}</span>`
+  ].join('<span style="opacity:.3">·</span>');
+
+  document.getElementById('pv-excerpt').textContent = d.excerpt || '';
+  document.getElementById('pv-meta-desc').textContent = d.meta_description || '';
+  document.getElementById('pv-body').innerHTML = d.body_html || '';
+
+  const refs = d.references || [];
+  const refsWrap = document.getElementById('pv-refs-wrap');
+  if (refs.length) {
+    document.getElementById('pv-refs').innerHTML = refs.map((r, i) =>
+      `<div class="ref-item"><span class="ref-num">[${i+1}]</span>${r}</div>`
+    ).join('');
+    refsWrap.style.display = 'block';
+  } else {
+    refsWrap.style.display = 'none';
+  }
+}
+
+// ─── Approve ──────────────────────────────────────────────────────────────────
+async function approveCurrent() {
+  if (!selectedId) return;
+  const btn = document.getElementById('btn-approve');
+  btn.disabled = true;
+  btn.innerHTML = `<span style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:spin .7s linear infinite;display:inline-block"></span> Yayınlanıyor...`;
+
+  try {
+    const res = await fetch(`${API}/api/approve/${encodeURIComponent(selectedId)}`, { method: 'POST' });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Yayınlama başarısız');
+
+    toast(`✓ Yayınlandı: ${data.path}`, 'success', 6000);
+
+    // Open published post in browser tab
+    if (data.url) window.open(data.url, '_blank');
+
+    // Refresh list
+    await loadDrafts();
+    if (selectedId) selectDraft(selectedId);
+  } catch (e) {
+    toast('Yayınlama hatası: ' + e.message, 'error');
+    btn.disabled = false;
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Onayla &amp; Yayınla`;
+  }
+}
+
+// ─── Reject ───────────────────────────────────────────────────────────────────
+async function rejectCurrent() {
+  if (!selectedId) return;
+  if (!confirm('Bu taslağı silmek istediğinizden emin misiniz?')) return;
+
+  try {
+    const res = await fetch(`${API}/api/reject/${encodeURIComponent(selectedId)}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Silme başarısız');
+    toast('Taslak silindi', 'info');
+    selectedId = null;
+    document.getElementById('preview-content').style.display = 'none';
+    document.getElementById('welcome').style.display = 'flex';
+    document.getElementById('preview').style.display = 'none';
+    await loadDrafts();
+  } catch (e) {
+    toast('Silme hatası: ' + e.message, 'error');
+  }
+}
+
+// ─── Generate ─────────────────────────────────────────────────────────────────
+async function triggerGenerate() {
+  const btn = document.getElementById('btn-generate');
+  btn.disabled = true;
+  btn.innerHTML = `<span style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:spin .7s linear infinite;display:inline-block"></span> Başlatılıyor...`;
+
+  try {
+    const res = await fetch(`${API}/api/generate`);
+    const data = await res.json();
+
+    if (data.status === 'already_running') {
+      toast('Mira zaten çalışıyor...', 'info');
+    } else {
+      toast(`Mira başladı: ${(data.sectors || []).join(', ')}`, 'info');
+    }
+
+    // Show log panel
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('preview').style.display = 'block';
+    document.getElementById('gen-log').classList.add('visible');
+
+    // Start polling log + drafts
+    startPolling();
+  } catch (e) {
+    toast('Sunucuya bağlanılamadı: ' + e.message, 'error');
+    btn.disabled = false;
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.93 2.93l1.41 1.41M9.66 9.66l1.41 1.41M2.93 11.07l1.41-1.41M9.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Yeni Üret`;
+  }
+}
+
+// ─── Poll status ──────────────────────────────────────────────────────────────
+function startPolling() {
+  if (pollTimer) return;
+  pollTimer = setInterval(pollStatus, 3000);
+  pollStatus(); // immediate
+}
+
+function stopPolling() {
+  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+}
+
+let lastLogLength = 0;
+
+async function pollStatus() {
+  try {
+    const [statusRes, draftsRes] = await Promise.all([
+      fetch(`${API}/api/status`),
+      fetch(`${API}/api/drafts`)
+    ]);
+    const status = await statusRes.json();
+    const newDrafts = await draftsRes.json();
+
+    // Update status bar
+    const statusEl = document.getElementById('topbar-status');
+    const sectorsEl = document.getElementById('today-sectors');
+
+    if (status.generating) {
+      statusEl.textContent = 'Mira Yazıyor...';
+      statusEl.className = 'topbar-status active';
+      isGenerating = true;
+    } else {
+      statusEl.textContent = isGenerating ? 'Tamamlandı' : 'Hazır';
+      statusEl.className = 'topbar-status';
+      if (isGenerating) {
+        isGenerating = false;
+        // Stop polling after generation done
+        setTimeout(stopPolling, 5000);
+        resetGenerateBtn();
+        document.getElementById('gen-spinner').style.display = 'none';
+        document.getElementById('gen-log').querySelector('.gen-log-title').firstChild.textContent = ' Tamamlandı';
+      }
+    }
+
+    if (status.today_sectors?.length) {
+      sectorsEl.style.display = 'block';
+      sectorsEl.textContent = 'Bugün: ' + status.today_sectors.join(' + ');
+    }
+
+    // Update log
+    const logLines = status.log || [];
+    if (logLines.length !== lastLogLength) {
+      lastLogLength = logLines.length;
+      const logEl = document.getElementById('gen-log-lines');
+      logEl.innerHTML = logLines.map(l => {
+        const cls = l.includes('✓') ? 'log-success' : l.includes('✗') || l.includes('Hata') ? 'log-error' : 'log-info';
+        return `<div class="${cls}">${l}</div>`;
+      }).join('');
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    // Update draft list
+    if (JSON.stringify(newDrafts.map(d => d.id + d.status)) !== JSON.stringify(drafts.map(d => d.id + d.status))) {
+      drafts = newDrafts;
+      renderDraftList();
+
+      // Auto-select first new draft
+      const firstPending = newDrafts.find(d => d.status === 'draft');
+      if (firstPending && !selectedId) {
+        selectDraft(firstPending.id);
+      }
+    }
+  } catch (e) {
+    console.error('[Poll]', e.message);
+  }
+}
+
+function resetGenerateBtn() {
+  const btn = document.getElementById('btn-generate');
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v2M7 11v2M1 7h2M11 7h2M2.93 2.93l1.41 1.41M9.66 9.66l1.41 1.41M2.93 11.07l1.41-1.41M9.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Yeni Üret`;
+}
+
+// ─── Load drafts ──────────────────────────────────────────────────────────────
+async function loadDrafts() {
+  try {
+    const res = await fetch(`${API}/api/drafts`);
+    drafts = await res.json();
+    renderDraftList();
+  } catch (e) {
+    console.error('[LoadDrafts]', e.message);
+  }
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+(async function init() {
+  await loadDrafts();
+  if (drafts.length) {
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('preview').style.display = 'block';
+  }
+
+  // Check if already generating
+  try {
+    const res = await fetch(`${API}/api/status`);
+    const s = await res.json();
+    if (s.generating) {
+      isGenerating = true;
+      document.getElementById('gen-log').classList.add('visible');
+      const btn = document.getElementById('btn-generate');
+      btn.disabled = true;
+      startPolling();
+    }
+  } catch {}
+})();
+</script>
+</body>
+</html>

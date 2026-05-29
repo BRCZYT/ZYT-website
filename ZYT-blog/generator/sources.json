@@ -1,0 +1,52 @@
+{
+  "galvaniz": {
+    "label_tr": "ZYT Galvaniz",
+    "page": "galvaniz.html",
+    "rss": "https://news.google.com/rss/search?q=galvaniz+%C3%A7inko+kaplama+s%C4%B1cak+dald%C4%B1rma&hl=tr&gl=TR&ceid=TR:tr",
+    "rss_en": "https://news.google.com/rss/search?q=hot+dip+galvanizing+zinc+coating+steel&hl=en&gl=TR&ceid=TR:en",
+    "scholar": "hot dip galvanizing zinc coating corrosion protection",
+    "arxiv": "galvanizing zinc corrosion steel protection",
+    "cover_photo": "photo-1565197261854-57f69e7028c6",
+    "cover_alt": "Sıcak Daldırma Galvanizleme Tesisi"
+  },
+  "beton": {
+    "label_tr": "ZYT Beton",
+    "page": "beton.html",
+    "rss": "https://news.google.com/rss/search?q=beton+santrali+haz%C4%B1r+beton+in%C5%9Faat&hl=tr&gl=TR&ceid=TR:tr",
+    "rss_en": "https://news.google.com/rss/search?q=concrete+batching+plant+ready+mix+construction&hl=en&gl=TR&ceid=TR:en",
+    "scholar": "concrete batching plant capacity production efficiency",
+    "arxiv": "concrete mix design durability construction",
+    "cover_photo": "photo-1504307651254-35680f356dfd",
+    "cover_alt": "Beton Santrali"
+  },
+  "enerji": {
+    "label_tr": "ZYT Enerji",
+    "page": "enerji.html",
+    "rss": "https://news.google.com/rss/search?q=EPC+anahtar+teslim+enerji+tesisi+sanayi&hl=tr&gl=TR&ceid=TR:tr",
+    "rss_en": "https://news.google.com/rss/search?q=EPC+turnkey+industrial+plant+energy+project&hl=en&gl=TR&ceid=TR:en",
+    "scholar": "EPC project management earned value turnkey industrial plant",
+    "arxiv": "industrial plant commissioning project management risk",
+    "cover_photo": "photo-1611273426858-450d8e3c9fce",
+    "cover_alt": "EPC Anahtar Teslim Sanayi Tesisi"
+  },
+  "tedarik": {
+    "label_tr": "ZYT Tedarik",
+    "page": "tedarik-zinciri.html",
+    "rss": "https://news.google.com/rss/search?q=tedarik+zinciri+lojistik+global+k%C3%BCresel&hl=tr&gl=TR&ceid=TR:tr",
+    "rss_en": "https://news.google.com/rss/search?q=supply+chain+logistics+global+disruption+2025&hl=en&gl=TR&ceid=TR:en",
+    "scholar": "supply chain resilience disruption risk management logistics",
+    "arxiv": "supply chain optimization logistics network resilience",
+    "cover_photo": "photo-1586528116311-ad8dd3c8310d",
+    "cover_alt": "Küresel Lojistik ve Tedarik Zinciri"
+  },
+  "makina": {
+    "label_tr": "ZYT Makina",
+    "page": "atik-donusum.html",
+    "rss": "https://news.google.com/rss/search?q=at%C4%B1k+enerji+d%C3%B6n%C3%BC%C5%9F%C3%BCm+WtE+T%C3%BCrkiye&hl=tr&gl=TR&ceid=TR:tr",
+    "rss_en": "https://news.google.com/rss/search?q=waste+to+energy+WtE+steel+fabrication+manufacturing&hl=en&gl=TR&ceid=TR:en",
+    "scholar": "waste to energy municipal solid waste steel fabrication welding",
+    "arxiv": "waste energy conversion thermal treatment steel manufacturing",
+    "cover_photo": "photo-1558618666-fcd25c85cd64",
+    "cover_alt": "Çelik İmalat ve Atık Dönüşüm"
+  }
+}
