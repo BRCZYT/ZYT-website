@@ -689,10 +689,10 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
     <div class="has-dd">
       <span class="nav-link dd-tog"><span data-i18n="nav.group">ZYT Grup</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="dd-menu">
-        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span>Hakkımızda</a>
-        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span>Belgelerimiz</a>
-        <a href="referanslar.html" class="dd-item"><span class="dd-item-num">03</span>Referanslar</a>
-        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span>Akademi</a>
+        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span><span data-i18n="dd.about">Hakkımızda</span></a>
+        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span><span data-i18n="dd.docs">Belgelerimiz</span></a>
+        <a href="referanslar.html" class="dd-item"><span class="dd-item-num">03</span><span data-i18n="dd.refs">Referanslar</span></a>
+        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span><span data-i18n="dd.academy">Akademi</span></a>
       </div>
     </div>
     <div class="has-dd">
@@ -724,10 +724,10 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
   <div class="mob-dd-wrap">
     <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)"><span data-i18n="nav.group">ZYT Grup</span> <span class="mob-dd-arr">+</span></button>
     <div class="mob-dd-inner">
-      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()">Hakkımızda</a>
-      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()">Belgelerimiz</a>
-      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()">Referanslar</a>
-      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()">Akademi</a>
+      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.about">Hakkımızda</span></a>
+      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.docs">Belgelerimiz</span></a>
+      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.refs">Referanslar</span></a>
+      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.academy">Akademi</span></a>
     </div>
   </div>
   <div class="mob-sep"></div>
@@ -742,7 +742,7 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
     </div>
   </div>
   <div class="mob-sep"></div>
-  <a href="akademi.html" class="mob-link" onclick="closeMobNav()">Akademi</a>
+  <a href="akademi.html" class="mob-link" onclick="closeMobNav()" data-i18n="dd.academy">Akademi</a>
   <div class="mob-sep"></div>
   <a href="iletisim.html" class="mob-link" id="ml5" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
   <a href="iletisim.html" class="btn-p" style="margin-top:32px;font-size:11px;padding:12px 28px;text-decoration:none;display:inline-flex;align-items:center;gap:9px" onclick="closeMobNav()" data-i18n="mob.cta">Teklif Al →</a>
@@ -1778,6 +1778,7 @@ const T = {
   tr: {
     'nav.group':'ZYT Grup','nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.sectors':'Sektörler',
     'nav.contact':'İletişim','nav.menu':'Menü','ham.label':'Menüyü Aç',
+    'dd.about':'Hakkımızda','dd.docs':'Belgelerimiz','dd.refs':'Referanslar','dd.academy':'Akademi',
     'mob.projects':'Projeler','mob.cta':'Teklif Al →',
     'hero.eyebrow':'// Ankara · Türkiye · Şirketlerimiz · Küresel Operasyonlar',
     'hero.h1':'KÜRESEL ÖLÇEKLİ <span class="accent">ENDÜSTRİYEL</span> MÜKEMMELİYET',
@@ -1840,6 +1841,7 @@ const T = {
   en: {
     'nav.group':'ZYT Group','nav.about':'About','nav.companies':'Companies','nav.sectors':'Sectors',
     'nav.contact':'Contact','nav.menu':'Menu','ham.label':'Open Menu',
+    'dd.about':'About Us','dd.docs':'Our Documents','dd.refs':'References','dd.academy':'Academy',
     'mob.projects':'Projects','mob.cta':'Request Quote',
     'hero.eyebrow':'// Ankara · Turkey · Our Companies · Global Operations',
     'hero.h1':'GLOBAL-SCALE <span class="accent">INDUSTRIAL</span> EXCELLENCE',
@@ -1902,6 +1904,7 @@ const T = {
   ar: {
     'nav.group':'مجموعة ZYT','nav.about':'من نحن','nav.companies':'شركاتنا','nav.sectors':'القطاعات',
     'nav.contact':'اتصل بنا','nav.menu':'القائمة','ham.label':'فتح القائمة',
+    'dd.about':'من نحن','dd.docs':'وثائقنا','dd.refs':'المراجع','dd.academy':'الأكاديمية',
     'mob.projects':'المشاريع','mob.cta':'طلب عرض سعر',
     'hero.eyebrow':'// أنقرة · تركيا · شركاتنا · العمليات العالمية',
     'hero.h1':'<span class="accent">التميز الصناعي</span> على المستوى العالمي',

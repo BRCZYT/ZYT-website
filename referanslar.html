@@ -190,10 +190,10 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
     <div class="has-dd">
       <span class="nav-link dd-tog"><span data-i18n="nav.group">ZYT Grup</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="dd-menu">
-        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span>Hakkımızda</a>
-        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span>Belgelerimiz</a>
-        <a href="referanslar.html" class="dd-item" style="color:#fff;background:rgba(40,116,178,.12)"><span class="dd-item-num">03</span>Referanslar</a>
-        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span>Akademi</a>
+        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span><span data-i18n="dd.about">Hakkımızda</span></a>
+        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span><span data-i18n="dd.docs">Belgelerimiz</span></a>
+        <a href="referanslar.html" class="dd-item" style="color:#fff;background:rgba(40,116,178,.12)"><span class="dd-item-num">03</span><span data-i18n="dd.refs">Referanslar</span></a>
+        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span><span data-i18n="dd.academy">Akademi</span></a>
       </div>
     </div>
     <div class="has-dd">
@@ -223,10 +223,10 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
   <div class="mob-dd-wrap">
     <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)"><span data-i18n="nav.group">ZYT Grup</span> <span class="mob-dd-arr">+</span></button>
     <div class="mob-dd-inner">
-      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()">Hakkımızda</a>
-      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()">Belgelerimiz</a>
-      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()">Referanslar</a>
-      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()">Akademi</a>
+      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.about">Hakkımızda</span></a>
+      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.docs">Belgelerimiz</span></a>
+      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.refs">Referanslar</span></a>
+      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.academy">Akademi</span></a>
     </div>
   </div>
   <div class="mob-sep"></div>
@@ -241,7 +241,7 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
     </div>
   </div>
   <div class="mob-sep"></div>
-  <a href="akademi.html" class="mob-link" onclick="closeMobNav()">Akademi</a>
+  <a href="akademi.html" class="mob-link" onclick="closeMobNav()" data-i18n="dd.academy">Akademi</a>
   <div class="mob-sep"></div>
   <a href="iletisim.html" class="mob-link" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
   <div class="mob-lang">
@@ -500,6 +500,7 @@ html[dir="rtl"] .hero-breadcrumb{left:auto;right:80px}
 const T={
   tr:{
     'nav.group':'ZYT Grup','nav.companies':'Şirketlerimiz','nav.contact':'İletişim',
+    'dd.about':'Hakkımızda','dd.docs':'Belgelerimiz','dd.refs':'Referanslar','dd.academy':'Akademi',
     'page.num':'§ 03 / Referanslar',
     'hero.h1':'Tamamlanan projeler,<br><span class="acc">kanıtlanmış yetkinlik.</span>',
     'hero.sub':'24+ ülkede teslim edilmiş beton santralleri, galvaniz tesisleri, çelik yapılar ve enerji dönüşüm projeleri.',
@@ -515,6 +516,7 @@ const T={
   },
   en:{
     'nav.group':'ZYT Group','nav.companies':'Companies','nav.contact':'Contact',
+    'dd.about':'About Us','dd.docs':'Our Documents','dd.refs':'References','dd.academy':'Academy',
     'page.num':'§ 03 / References',
     'hero.h1':'Completed projects,<br><span class="acc">proven competence.</span>',
     'hero.sub':'Concrete plants, galvanizing facilities, steel structures and energy conversion projects delivered across 24+ countries.',
@@ -530,6 +532,7 @@ const T={
   },
   ar:{
     'nav.group':'مجموعة ZYT','nav.companies':'شركاتنا','nav.contact':'اتصل بنا',
+    'dd.about':'من نحن','dd.docs':'وثائقنا','dd.refs':'المراجع','dd.academy':'الأكاديمية',
     'page.num':'03 / المراجع',
     'hero.h1':'مشاريع مكتملة،<br><span class="acc">كفاءة مثبتة.</span>',
     'hero.sub':'محطات خرسانة ومصانع جلفنة وهياكل فولاذية ومشاريع تحويل الطاقة في أكثر من 24 دولة.',

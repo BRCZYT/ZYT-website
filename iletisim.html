@@ -263,10 +263,10 @@ html[dir="rtl"] #hero{text-align:right}
     <div class="has-dd">
       <span class="nav-link dd-tog"><span data-i18n="nav.group">ZYT Grup</span> <svg class="dd-caret" width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="dd-menu">
-        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span>Hakkımızda</a>
-        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span>Belgelerimiz</a>
-        <a href="referanslar.html" class="dd-item"><span class="dd-item-num">03</span>Referanslar</a>
-        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span>Akademi</a>
+        <a href="hakkimizda.html" class="dd-item"><span class="dd-item-num">01</span><span data-i18n="dd.about">Hakkımızda</span></a>
+        <a href="belgelerimiz.html" class="dd-item"><span class="dd-item-num">02</span><span data-i18n="dd.docs">Belgelerimiz</span></a>
+        <a href="referanslar.html" class="dd-item"><span class="dd-item-num">03</span><span data-i18n="dd.refs">Referanslar</span></a>
+        <a href="akademi.html" class="dd-item"><span class="dd-item-num">04</span><span data-i18n="dd.academy">Akademi</span></a>
       </div>
     </div>
     <div class="has-dd">
@@ -297,10 +297,10 @@ html[dir="rtl"] #hero{text-align:right}
   <div class="mob-dd-wrap">
     <button class="mob-link mob-dd-tog" onclick="toggleMobDd(this)"><span data-i18n="nav.group">ZYT Grup</span> <span class="mob-dd-arr">+</span></button>
     <div class="mob-dd-inner">
-      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()">Hakkımızda</a>
-      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()">Belgelerimiz</a>
-      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()">Referanslar</a>
-      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()">Akademi</a>
+      <a href="hakkimizda.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.about">Hakkımızda</span></a>
+      <a href="belgelerimiz.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.docs">Belgelerimiz</span></a>
+      <a href="referanslar.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.refs">Referanslar</span></a>
+      <a href="akademi.html" class="mob-sub-link" onclick="closeMobNav()"><span data-i18n="dd.academy">Akademi</span></a>
     </div>
   </div>
   <div class="mob-sep"></div>
@@ -315,7 +315,7 @@ html[dir="rtl"] #hero{text-align:right}
     </div>
   </div>
   <div class="mob-sep"></div>
-  <a href="akademi.html" class="mob-link" onclick="closeMobNav()">Akademi</a>
+  <a href="akademi.html" class="mob-link" onclick="closeMobNav()" data-i18n="dd.academy">Akademi</a>
   <div class="mob-sep"></div>
   <a href="iletisim.html" class="mob-link" style="color:#2874B2" data-i18n="nav.contact" onclick="closeMobNav()">İletişim</a>
   <div class="mob-lang">
@@ -509,6 +509,7 @@ function toggleMobDd(el){
 const T={
   tr:{
     'nav.group':'ZYT Grup','nav.about':'Hakkımızda','nav.companies':'Şirketlerimiz','nav.contact':'İletişim',
+    'dd.about':'Hakkımızda','dd.docs':'Belgelerimiz','dd.refs':'Referanslar','dd.academy':'Akademi',
     'hero.eyebrow':'// ZYT Global Industry · İletişim',
     'hero.title':'Projenizi <span style="color:#2874B2;font-weight:500">konuşalım.</span>',
     'hero.sub':'Şirketlerimizden biriyle çalışmak için formu doldurun ya da doğrudan ulaşın — 48 saat içinde uzman ekibimizden yanıt alırsınız.',
@@ -538,6 +539,7 @@ const T={
   },
   en:{
     'nav.group':'ZYT Group','nav.about':'About','nav.companies':'Companies','nav.contact':'Contact',
+    'dd.about':'About Us','dd.docs':'Our Documents','dd.refs':'References','dd.academy':'Academy',
     'hero.eyebrow':'// ZYT Global Industry · Contact',
     'hero.title':"Let\'s discuss <span style=\"color:#2874B2;font-weight:500\">your project.</span>",
     'hero.sub':"Fill out the form or reach us directly — you\'ll hear from our team within 48 hours.",
@@ -567,6 +569,7 @@ const T={
   },
   ar:{
     'nav.group':'مجموعة ZYT','nav.about':'من نحن','nav.companies':'شركاتنا','nav.contact':'اتصل بنا',
+    'dd.about':'من نحن','dd.docs':'وثائقنا','dd.refs':'المراجع','dd.academy':'الأكاديمية',
     'hero.eyebrow':'// ZYT Global Industry · التواصل',
     'hero.title':'دعنا نتحدث عن <span style="color:#2874B2;font-weight:500">مشروعك.</span>',
     'hero.sub':'أملأ النموذج أو تواصل معنا مباشرةً — سيرد فريقنا خلال 48 ساعة.',
