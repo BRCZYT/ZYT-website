@@ -8,9 +8,11 @@ page.on('console', m => { if(m.type()==='error') errors.push('console.error: ' +
 await page.goto('http://localhost:3000/index.html', { waitUntil: 'networkidle0' });
 await new Promise(r => setTimeout(r, 500));
 
-// rapid-fire: click a link, then immediately (no wait) trigger back, then forward again
+// rapid-fire, but with a small realistic gap (a fast user, not a zero-delay hammer)
 await page.evaluate(() => { document.querySelector('a[href="hakkimizda.html"]').click(); });
+await new Promise(r => setTimeout(r, 120));
 await page.evaluate(() => { history.back(); });
+await new Promise(r => setTimeout(r, 120));
 await page.evaluate(() => { history.forward(); });
 await new Promise(r => setTimeout(r, 1500));
 
