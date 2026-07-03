@@ -2323,6 +2323,10 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
 
       var transition = document.startViewTransition(function(){
         if(window.__mark) window.__mark('go seq=' + mySeq + ' TRANSITION CALLBACK RUNNING');
+        // the browser can defer this callback (waiting for a frame to capture
+        // the "before" snapshot) long enough for a newer navigation to have
+        // already started — never let a stale callback apply its content
+        if(mySeq !== navSeq) return;
         teardownScrollEngines();
 
         document.title = doc.title;
