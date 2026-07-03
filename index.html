@@ -2295,23 +2295,27 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
     }
 
     var activeTransition = null;
+    var navSeq = 0; // guards against a slower, superseded fetch overwriting a newer navigation
 
     async function go(url, addToHistory){
+      var mySeq = ++navSeq;
       var html;
       try{
         var res = await fetch(url, { credentials: 'same-origin' });
         if(!res.ok) throw new Error('HTTP ' + res.status);
         html = await res.text();
       }catch(e){
-        location.href = url; // network/HTTP failure → real navigation, never stuck
+        if(mySeq === navSeq) location.href = url; // network/HTTP failure → real navigation, never stuck
         return;
       }
+      if(mySeq !== navSeq) return; // a newer navigation started while this one was in flight — drop it
       var doc = new DOMParser().parseFromString(html, 'text/html');
 
       // starting a new transition while one is still running gets it silently
       // skipped by the browser (AbortError) — let a fast double-click or
       // rapid back/forward settle first instead of racing
       if(activeTransition){ try{ await activeTransition.finished; }catch(e){} }
+      if(mySeq !== navSeq) return; // re-check: another navigation may have won while we waited
 
       var transition = document.startViewTransition(function(){
         teardownScrollEngines();
