@@ -22,7 +22,7 @@ const browser = await puppeteer.launch({ headless: 'new' });
     return true;
   });
   console.log('clicked hakkimizda.html link:', clicked);
-  await new Promise(r => setTimeout(r, 900));
+  await new Promise(r => setTimeout(r, 2500));
 
   const after = await page.evaluate(() => ({
     url: location.href,
@@ -36,7 +36,7 @@ const browser = await puppeteer.launch({ headless: 'new' });
   // browser back
   await page.goBack === undefined; // noop guard
   await page.evaluate(() => history.back());
-  await new Promise(r => setTimeout(r, 900));
+  await new Promise(r => setTimeout(r, 2500));
   const afterBack = await page.evaluate(() => ({ url: location.href, title: document.title }));
   console.log('after popstate back:', afterBack);
 
