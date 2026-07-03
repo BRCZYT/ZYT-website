@@ -2047,6 +2047,12 @@ hamBtn.addEventListener('click', ()=>{
 });
 document.querySelectorAll('.mob-link:not(.mob-dd-tog)').forEach(l => l.addEventListener('click', closeMobNav));
 function toggleMobDd(el){el.closest('.mob-dd-wrap').classList.toggle('open');}
+/* explicit window exposure: the §6 view-transition router re-executes this
+   script wrapped in an IIFE (to avoid top-level const/let redeclaration
+   errors across routed navigations), which would otherwise hide these two
+   from the inline onclick="…()" handlers in the mobile nav markup */
+window.closeMobNav = closeMobNav;
+window.toggleMobDd = toggleMobDd;
 
 window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(b)b.classList.toggle('vis',scrollY>400);},{passive:true});
 </script>
@@ -2274,7 +2280,16 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
       Array.prototype.forEach.call(root.querySelectorAll('script'), function(old){
         var s = document.createElement('script');
         for(var i=0;i<old.attributes.length;i++){ s.setAttribute(old.attributes[i].name, old.attributes[i].value); }
-        s.textContent = old.textContent;
+        var isJs = !old.type || /javascript/.test(old.type);
+        if(!old.src && isJs){
+          // wrap in an IIFE: a routed page's top-level const/let (e.g. `ro`,
+          // `cro`, `pl`) would otherwise collide with identical bindings the
+          // previous page's identical script already declared in this same
+          // realm, throwing "Identifier has already been declared"
+          s.textContent = '(function(){\n' + old.textContent + '\n})();';
+        } else {
+          s.textContent = old.textContent; // external src, or non-JS data (e.g. ld+json): leave untouched
+        }
         old.replaceWith(s);
       });
     }
