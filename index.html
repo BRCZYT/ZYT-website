@@ -631,6 +631,11 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 #nav{transition:transform .4s cubic-bezier(.22,1,.36,1),background .3s,padding .3s}
 #nav.cr-nav-hidden{transform:translateY(-100%)}
 
+::view-transition-old(root){animation:cr-vt-out .45s cubic-bezier(.22,1,.36,1) both}
+::view-transition-new(root){animation:cr-vt-in .45s cubic-bezier(.22,1,.36,1) both}
+@keyframes cr-vt-out{to{opacity:0;transform:scale(.98) translateY(-8px)}}
+@keyframes cr-vt-in{from{opacity:0;transform:scale(1.02) translateY(8px)}}
+
 .nav-link,.dd-tog{position:relative}
 .nav-link.cr-active::after,.dd-tog.cr-active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#2874B2;box-shadow:0 0 8px rgba(40,116,178,.6)}
 
@@ -2235,6 +2240,88 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
         var dd = a.closest('.has-dd');
         if(dd){ var tog = dd.querySelector('.dd-tog'); if(tog) tog.classList.add('cr-active'); }
       }
+    });
+  })();
+
+  /* §6 — View Transitions: intercept internal <a> clicks, fetch the target
+     page, and swap it in inside document.startViewTransition() for a smooth
+     cross-fade. Pure progressive enhancement: if the API isn't supported
+     (Safari, older Chrome), this whole block bails out on the very first
+     line and every link behaves exactly like a normal <a> — no interception,
+     no fetch, no risk, no console errors. */
+  (function(){
+    if(!document.startViewTransition) return;
+
+    function isEligible(a){
+      if(!a) return false;
+      var target = a.getAttribute('target');
+      if(target && target !== '_self') return false;
+      if(a.hasAttribute('download')) return false;
+      if(a.origin !== location.origin) return false;
+      var raw = a.getAttribute('href') || '';
+      if(raw === '' || raw.charAt(0) === '#') return false;
+      if(!/\.html?($|[?#])|\/$/.test(a.pathname) && a.pathname !== '/') return false;
+      if(a.href === location.href) return false;
+      return true;
+    }
+
+    function teardownScrollEngines(){
+      if(window.__lenis){ try{ window.__lenis.destroy(); }catch(e){} window.__lenis = null; }
+      if(window.ScrollTrigger){ try{ ScrollTrigger.getAll().forEach(function(t){ t.kill(); }); }catch(e){} }
+    }
+
+    function runInlineScripts(root){
+      Array.prototype.forEach.call(root.querySelectorAll('script'), function(old){
+        var s = document.createElement('script');
+        for(var i=0;i<old.attributes.length;i++){ s.setAttribute(old.attributes[i].name, old.attributes[i].value); }
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
+    }
+
+    async function go(url, addToHistory){
+      var html;
+      try{
+        var res = await fetch(url, { credentials: 'same-origin' });
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        html = await res.text();
+      }catch(e){
+        location.href = url; // network/HTTP failure → real navigation, never stuck
+        return;
+      }
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+
+      var transition = document.startViewTransition(function(){
+        teardownScrollEngines();
+
+        document.title = doc.title;
+        if(doc.documentElement.lang) document.documentElement.lang = doc.documentElement.lang;
+        document.documentElement.dir = doc.documentElement.dir || 'ltr';
+
+        document.querySelectorAll('head style').forEach(function(s){ s.remove(); });
+        doc.querySelectorAll('head style').forEach(function(s){ document.head.appendChild(s.cloneNode(true)); });
+
+        document.body.className = doc.body.className;
+        document.body.innerHTML = doc.body.innerHTML;
+        runInlineScripts(document.body);
+
+        window.scrollTo(0, 0);
+      });
+
+      if(addToHistory) history.pushState({ crRouted: true }, '', url);
+      try{ await transition.finished; }catch(e){}
+    }
+
+    document.addEventListener('click', function(e){
+      if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest('a[href]');
+      if(!isEligible(a)) return;
+      e.preventDefault();
+      go(a.href, true);
+    });
+
+    window.addEventListener('popstate', function(){
+      go(location.href, false);
     });
   })();
 
