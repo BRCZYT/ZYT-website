@@ -2138,8 +2138,11 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
 <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
 <script>
 (function(){
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if(window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  var debugForceMotion = /[?&]motion=on\b/.test(location.search);
+  var reduceMotion = !debugForceMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = !debugForceMotion && window.matchMedia('(hover: none), (pointer: coarse)').matches;
   var isNarrow = window.innerWidth < 768;
   var heavyOK = !reduceMotion && !isTouch && !isNarrow;
 
