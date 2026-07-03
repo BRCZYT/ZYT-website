@@ -624,9 +624,16 @@ html[dir="rtl"] .hero-eyebrow,html[dir="rtl"] .hero-h1{direction:rtl}
 .prj-pin-step{height:100vh}
 @media(max-width:600px){.prj-curr-title{font-size:clamp(.4rem,1.83vw,.63rem)}.prj-ghost{font-size:clamp(.27rem,1.17vw,.37rem)}.prj-img-wrap{width:clamp(285px,48vh,450px);height:clamp(285px,48vh,450px)}.prj-prog-rail{display:none}.prj-scroll-hint{display:none}.prj-install-anim{display:none}}
 
-/* CREATIVE-REFRESH CSS — brief §1-4 (index.html only, for review) */
+/* CREATIVE-REFRESH CSS — brief §1-5, §7 (index.html only, for review) */
 .hero-grid-bg{animation:cr-grid-drift 26s linear infinite}
 @keyframes cr-grid-drift{from{background-position:0 0}to{background-position:160px 160px}}
+
+#nav{transition:transform .4s cubic-bezier(.22,1,.36,1),background .3s,padding .3s}
+#nav.cr-nav-hidden{transform:translateY(-100%)}
+
+.nav-link,.dd-tog{position:relative}
+.nav-link.cr-active::after,.dd-tog.cr-active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#2874B2;box-shadow:0 0 8px rgba(40,116,178,.6)}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto !important}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
@@ -2131,7 +2138,7 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
 })();
 </script>
 
-<!-- CREATIVE-REFRESH — brief §1-4 (index.html only, for review) -->
+<!-- CREATIVE-REFRESH — brief §1-5, §7 (index.html only, for review) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -2177,6 +2184,59 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
       scrollTrigger: { trigger: heroSec, start: 'top top', end: 'bottom top', scrub: .4 }
     });
   }
+
+  /* §5 — Card 3D tilt + shimmer sheen (desktop hover only; index.html's
+     co-hx-card keeps its own hover-expand animation untouched — only the
+     plain .pillar cards get this treatment here) */
+  if(heavyOK){
+    document.querySelectorAll('.pillar').forEach(function(card){
+      if(getComputedStyle(card).position === 'static') card.style.position = 'relative';
+      var sheen = document.createElement('div');
+      sheen.setAttribute('aria-hidden', 'true');
+      sheen.style.cssText = 'position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:5;mix-blend-mode:overlay;border-radius:inherit';
+      card.appendChild(sheen);
+      card.style.transition = (card.style.transition ? card.style.transition + ',' : '') + 'transform .25s cubic-bezier(.22,1,.36,1)';
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        var rx = (0.5 - py) * 7, ry = (px - 0.5) * 9;
+        card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-3px)';
+        sheen.style.opacity = '1';
+        sheen.style.background = 'radial-gradient(circle at ' + (px*100) + '% ' + (py*100) + '%, rgba(255,255,255,.16), transparent 55%)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = '';
+        sheen.style.opacity = '0';
+      });
+    });
+  }
+
+  /* §7 — Nav: hide on scroll-down, reveal on scroll-up */
+  (function(){
+    var nav = document.getElementById('nav');
+    if(!nav) return;
+    var lastY = window.scrollY, ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        nav.classList.toggle('cr-nav-hidden', y > lastY && y > 140);
+        lastY = y; ticking = false;
+      });
+    }, { passive: true });
+  })();
+
+  /* §7 — Nav: underline the link/dropdown matching the current page */
+  (function(){
+    var page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link[href], .dd-item[href]').forEach(function(a){
+      if(a.getAttribute('href') === page){
+        a.classList.add('cr-active');
+        var dd = a.closest('.has-dd');
+        if(dd){ var tog = dd.querySelector('.dd-tog'); if(tog) tog.classList.add('cr-active'); }
+      }
+    });
+  })();
 
   window.addEventListener('load', function(){ if(window.ScrollTrigger) ScrollTrigger.refresh(); });
 })();
