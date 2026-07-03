@@ -2294,6 +2294,8 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
       });
     }
 
+    var activeTransition = null;
+
     async function go(url, addToHistory){
       var html;
       try{
@@ -2305,6 +2307,11 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
         return;
       }
       var doc = new DOMParser().parseFromString(html, 'text/html');
+
+      // starting a new transition while one is still running gets it silently
+      // skipped by the browser (AbortError) — let a fast double-click or
+      // rapid back/forward settle first instead of racing
+      if(activeTransition){ try{ await activeTransition.finished; }catch(e){} }
 
       var transition = document.startViewTransition(function(){
         teardownScrollEngines();
@@ -2323,8 +2330,10 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
         window.scrollTo(0, 0);
       });
 
+      activeTransition = transition;
       if(addToHistory) history.pushState({ crRouted: true }, '', url);
       try{ await transition.finished; }catch(e){}
+      if(activeTransition === transition) activeTransition = null;
     }
 
     document.addEventListener('click', function(e){
