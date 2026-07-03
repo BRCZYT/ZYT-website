@@ -2299,18 +2299,15 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
 
     async function go(url, addToHistory){
       var mySeq = ++navSeq;
-      if(window.__mark) window.__mark('go(' + url + ', seq=' + mySeq + ') START');
       var html;
       try{
         var res = await fetch(url, { credentials: 'same-origin' });
         if(!res.ok) throw new Error('HTTP ' + res.status);
         html = await res.text();
       }catch(e){
-        if(window.__mark) window.__mark('go seq=' + mySeq + ' FETCH FAILED: ' + e.message);
         if(mySeq === navSeq) location.href = url; // network/HTTP failure → real navigation, never stuck
         return;
       }
-      if(window.__mark) window.__mark('go seq=' + mySeq + ' fetch resolved, navSeq now=' + navSeq);
       if(mySeq !== navSeq) return; // a newer navigation started while this one was in flight — drop it
       var doc = new DOMParser().parseFromString(html, 'text/html');
 
@@ -2318,11 +2315,9 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
       // skipped by the browser (AbortError) — let a fast double-click or
       // rapid back/forward settle first instead of racing
       if(activeTransition){ try{ await activeTransition.finished; }catch(e){} }
-      if(window.__mark) window.__mark('go seq=' + mySeq + ' past activeTransition wait, navSeq now=' + navSeq);
       if(mySeq !== navSeq) return; // re-check: another navigation may have won while we waited
 
       var transition = document.startViewTransition(function(){
-        if(window.__mark) window.__mark('go seq=' + mySeq + ' TRANSITION CALLBACK RUNNING');
         // the browser can defer this callback (waiting for a frame to capture
         // the "before" snapshot) long enough for a newer navigation to have
         // already started — never let a stale callback apply its content
@@ -2345,9 +2340,7 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
 
       activeTransition = transition;
       if(addToHistory) history.pushState({ crRouted: true }, '', url);
-      if(window.__mark) window.__mark('go seq=' + mySeq + ' pushState done (addToHistory=' + addToHistory + '), url now=' + location.href);
       try{ await transition.finished; }catch(e){}
-      if(window.__mark) window.__mark('go seq=' + mySeq + ' transition.finished settled');
       if(activeTransition === transition) activeTransition = null;
     }
 
@@ -2360,7 +2353,6 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('btt');if(
     });
 
     window.addEventListener('popstate', function(){
-      if(window.__mark) window.__mark('ROUTER popstate handler, location=' + location.href);
       go(location.href, false);
     });
   })();
