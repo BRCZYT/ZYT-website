@@ -19,7 +19,7 @@ await new Promise(r => setTimeout(r, 120));
 await page.evaluate(() => { window.__mark('history.back() called, history.length=' + history.length); history.back(); });
 await new Promise(r => setTimeout(r, 120));
 await page.evaluate(() => { window.__mark('history.forward() called'); history.forward(); });
-await new Promise(r => setTimeout(r, 1500));
+await new Promise(r => setTimeout(r, 6000));
 
 let log;
 try{
